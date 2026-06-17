@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../../assets/favicon.png">
+<title>台灣佳光電訊 ｜ 哈Net 光纖寬頻．數位電視．企業電路出租</title>
+<meta name="description" content="台灣佳光電訊（哈Net）— 30 年在地深耕。家用光纖 3 分鐘線上申辦、$499 起、24h 智能＋真人客服、光纖到府專人安裝。數位電視、寬頻網路、企業電路出租一次到位。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== 跑馬燈 ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>★ 六月限定 申辦加贈 300 點 ★ 家用光纖 3 分鐘線上搞定 ★ $499 起 ★ 24H 智能＋真人客服 ★ 光纖到府專人安裝 ★ 30 年在地深耕 ★&nbsp;</span>
+    <span>★ 六月限定 申辦加贈 300 點 ★ 家用光纖 3 分鐘線上搞定 ★ $499 起 ★ 24H 智能＋真人客服 ★ 光纖到府專人安裝 ★ 30 年在地深耕 ★&nbsp;</span>
+  </div>
+</div>
+
+<!-- ===== 導覽列 ===== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logobox"><img src="../../assets/logo-horizontal.png" alt="台灣佳光電訊" style="height:36px;width:auto;display:block"></span>
+    </a>
+    <nav class="nav__menu" id="navMenu" aria-label="主選單">
+      <a href="#tv">數位電視</a>
+      <a href="#net">寬頻網路</a>
+      <a href="#circuit">電路出租</a>
+      <a href="#deals">好康優惠</a>
+      <a href="#news">最新消息</a>
+      <a href="#about">關於我們</a>
+    </nav>
+    <div class="nav__cta">
+      <a href="#pay" class="btn btn--ghost btn--sm">線上繳費</a>
+      <a href="#apply" class="btn btn--yellow btn--sm">立即申辦</a>
+    </div>
+    <button class="nav__burger" id="burger" aria-label="開啟選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== 主視覺 ===== -->
+<section class="hero">
+  <div class="hero__grid">
+    <div class="hero__left">
+      <div class="hero__tag">哈Net 寬頻 ｜ 台灣佳光電訊</div>
+      <h1 class="hero__title">
+        家用光纖<br>
+        <span class="hl hl--blue">3 分鐘</span> 線上申辦<br>
+        <span class="hl hl--pink">$499 起</span> 開跑！
+      </h1>
+      <p class="hero__sub">光纖到府．專人安裝．24H 智能＋真人客服。在地 30 年，網路順、人也在。</p>
+      <div class="hero__btns">
+        <a href="#apply" class="btn btn--yellow btn--lg">立即線上申辦 →</a>
+        <a href="#net" class="btn btn--outline btn--lg">看寬頻方案</a>
+      </div>
+      <ul class="hero__chips">
+        <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>光纖到府</li>
+        <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>專人安裝</li>
+        <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>24H 客服</li>
+      </ul>
+    </div>
+    <div class="hero__right">
+      <div class="hero__slider" id="heroSlider">
+        <div class="slide is-active" style="--c:var(--blue)">
+          <img src="https://picsum.photos/seed/fiber-home/720/560" alt="光纖到府">
+          <div class="slide__cap"><b>光纖到府</b><span>零延遲，整棟都順</span></div>
+        </div>
+        <div class="slide" style="--c:var(--pink)">
+          <img src="https://picsum.photos/seed/smart-tv/720/560" alt="4K 數位電視">
+          <div class="slide__cap"><b>4K 數位電視</b><span>上百高畫質頻道</span></div>
+        </div>
+        <div class="slide" style="--c:var(--yellow)">
+          <img src="https://picsum.photos/seed/customer-care/720/560" alt="真人客服">
+          <div class="slide__cap"><b>真人客服</b><span>24 小時不打烊</span></div>
+        </div>
+        <div class="slide__dots" id="heroDots"></div>
+      </div>
+      <div class="hero__sticker">在地<br>30年</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 三大服務 ===== -->
+<section class="svc reveal" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">// 我們做什麼</span>
+      <h2 class="sec-title">三大服務，一站到位</h2>
+    </div>
+    <div class="svc__grid">
+      <a href="#tv" class="card card--blue" id="tv">
+        <div class="card__no">01</div>
+        <svg viewBox="0 0 24 24" class="card__ic"><rect x="2" y="4" width="20" height="14" rx="1"/><polyline points="8 21 12 18 16 21"/></svg>
+        <h3>數位電視</h3>
+        <p>上百高畫質頻道，搭配 4K 機上盒，畫質銳利、選台不卡。</p>
+        <span class="card__more">了解更多 →</span>
+      </a>
+      <a href="#net" class="card card--pink" id="net">
+        <div class="card__no">02</div>
+        <svg viewBox="0 0 24 24" class="card__ic"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        <h3>寬頻網路</h3>
+        <p>光纖到府零延遲，多種速率任選，上傳下載都給力。</p>
+        <span class="card__more">看方案 →</span>
+      </a>
+      <a href="#circuit" class="card card--yellow" id="circuit">
+        <div class="card__no">03</div>
+        <svg viewBox="0 0 24 24" class="card__ic"><rect x="2" y="2" width="20" height="8" rx="1"/><rect x="2" y="14" width="20" height="8" rx="1"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        <h3>電路出租</h3>
+        <p>企業專線穩定頻寬，獨享電路、品質保證，營運不掉線。</p>
+        <span class="card__more">企業洽詢 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 數據 ===== -->
+<section class="stats reveal" id="stats">
+  <div class="wrap stats__grid">
+    <div class="stat"><b class="count" data-to="30">0</b><span class="stat__unit">年</span><p>在地深耕</p></div>
+    <div class="stat"><b class="count" data-to="100000">0</b><span class="stat__unit">+</span><p>服務用戶</p></div>
+    <div class="stat"><b class="count" data-to="200">0</b><span class="stat__unit">+</span><p>數位頻道</p></div>
+    <div class="stat"><b class="count" data-to="24">0</b><span class="stat__unit">H</span><p>全天客服</p></div>
+  </div>
+</section>
+
+<!-- ===== 寬頻方案 ===== -->
+<section class="plans reveal" id="deals">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">// 寬頻方案</span>
+      <h2 class="sec-title">挑速度，選預算</h2>
+    </div>
+    <div class="plans__grid">
+      <div class="plan">
+        <div class="plan__name">輕速</div>
+        <div class="plan__speed">300<small>M</small></div>
+        <div class="plan__price"><b>$499</b><span>/月起</span></div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>光纖到府</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>專人安裝</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>適合小家庭</li>
+        </ul>
+        <a href="#apply" class="btn btn--outline btn--block">我要申辦</a>
+      </div>
+      <div class="plan plan--hot">
+        <div class="plan__badge">熱門</div>
+        <div class="plan__name">標準</div>
+        <div class="plan__speed">500<small>M</small></div>
+        <div class="plan__price"><b>$699</b><span>/月起</span></div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>追劇直播免卡頓</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>多裝置同時上網</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>最多人選</li>
+        </ul>
+        <a href="#apply" class="btn btn--yellow btn--block">立即申辦</a>
+      </div>
+      <div class="plan">
+        <div class="plan__name">極速</div>
+        <div class="plan__speed">1<small>G</small></div>
+        <div class="plan__price"><b>$999</b><span>/月起</span></div>
+        <ul class="plan__list">
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>重度玩家首選</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>大檔上傳秒傳</li>
+          <li><svg viewBox="0 0 24 24" class="ic"><polyline points="20 6 9 17 4 12"/></svg>居家辦公也夠力</li>
+        </ul>
+        <a href="#apply" class="btn btn--outline btn--block">我要申辦</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 特色 ===== -->
+<section class="feat reveal" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">// 為什麼選哈Net</span>
+      <h2 class="sec-title">在地的好，看得到</h2>
+    </div>
+    <div class="feat__grid">
+      <div class="feat__item">
+        <svg viewBox="0 0 24 24" class="feat__ic"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <h3>高速穩定</h3><p>光纖骨幹，尖峰也不掉速。</p>
+      </div>
+      <div class="feat__item">
+        <svg viewBox="0 0 24 24" class="feat__ic"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h3>在地服務</h3><p>大里在地團隊，到府快又熟。</p>
+      </div>
+      <div class="feat__item">
+        <svg viewBox="0 0 24 24" class="feat__ic"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <h3>多元方案</h3><p>家用、企業全包，量身選配。</p>
+      </div>
+      <div class="feat__item">
+        <svg viewBox="0 0 24 24" class="feat__ic"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+        <h3>24H 客服</h3><p>智能＋真人，半夜也有人接。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 申辦 CTA ===== -->
+<section class="cta reveal" id="apply">
+  <div class="wrap cta__box">
+    <h2>準備好換更快的網路了嗎？</h2>
+    <p>線上 3 分鐘填好資料，專人到府安裝，最快今天就申辦。</p>
+    <div class="cta__btns">
+      <a href="#apply" class="btn btn--dark btn--lg">立即線上申辦 →</a>
+      <a href="#pay" class="btn btn--outline-dark btn--lg" id="pay">線上繳費</a>
+    </div>
+    <div class="cta__phone">客服專線 <b>04-4495678</b></div>
+  </div>
+</section>
+
+<!-- ===== 最新消息 ===== -->
+<section class="news reveal" id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-kicker">// 最新消息</span>
+      <h2 class="sec-title">這陣子發生什麼事</h2>
+    </div>
+    <div class="news__grid">
+      <a href="#" class="ncard">
+        <span class="ncard__tag tag--pink">優惠</span>
+        <time>2026.06.10</time>
+        <h3>六月限定！申辦寬頻加贈 300 點</h3>
+        <p>整個六月線上申辦家用寬頻，立即加碼 300 點回饋，名額有限送完為止。</p>
+        <span class="ncard__more">閱讀全文 →</span>
+      </a>
+      <a href="#" class="ncard">
+        <span class="ncard__tag tag--blue">公告</span>
+        <time>2026.06.03</time>
+        <h3>系統維護：頻道訊號更新通知</h3>
+        <p>為提供更穩定的收視品質，部分頻道將於維護時段進行訊號更新，敬請見諒。</p>
+        <span class="ncard__more">閱讀全文 →</span>
+      </a>
+      <a href="#" class="ncard">
+        <span class="ncard__tag tag--yellow">服務</span>
+        <time>2026.05.28</time>
+        <h3>線上繳費新增行動支付</h3>
+        <p>繳費更方便！線上繳費正式支援行動支付，動動手指就能完成繳款。</p>
+        <span class="ncard__more">閱讀全文 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 頁尾 ===== -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <span class="foot__logobox"><img src="../../assets/logo-horizontal.png" alt="台灣佳光電訊" style="height:36px;width:auto;display:block"></span>
+      <p>在地 30 年的寬頻夥伴，網路順、人也在。</p>
+    </div>
+    <div class="foot__col">
+      <h4>服務</h4>
+      <a href="#tv">數位電視</a>
+      <a href="#net">寬頻網路</a>
+      <a href="#circuit">電路出租</a>
+      <a href="#deals">好康優惠</a>
+    </div>
+    <div class="foot__col">
+      <h4>關於</h4>
+      <a href="#about">關於我們</a>
+      <a href="#news">最新消息</a>
+      <a href="#apply">立即申辦</a>
+    </div>
+    <div class="foot__col">
+      <h4>會員</h4>
+      <a href="#pay">線上繳費</a>
+      <a href="#apply">會員專區</a>
+      <a href="#apply">客服中心</a>
+    </div>
+    <div class="foot__col foot__contact">
+      <h4>聯絡我們</h4>
+      <a href="tel:044495678">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13 1.05.37 2.07.72 3.06a2 2 0 0 1-.45 2.11L8.09 10.91a16 16 0 0 0 6 6l2.02-2.02a2 2 0 0 1 2.11-.45c.99.35 2.01.59 3.06.72A2 2 0 0 1 22 16.92z"/></svg>
+        04-4495678
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        台中市大里區國光路一段68號
+      </a>
+    </div>
+  </div>
+  <div class="foot__bar">
+    <span>台灣佳光電訊股份有限公司</span>
+    <span>© 2026 台灣佳光電訊 ｜ 哈Net 寬頻．保留一切權利</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

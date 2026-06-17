@@ -1,0 +1,6 @@
+{"ts":"2026-06-17T07:38:09.529Z","cmd":"viewport","args":"1366x900","origin":"about:blank","durationMs":9,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-17T07:38:13.592Z","cmd":"goto","args":"https://win895564.github.io/wctv-theme/themes/","origin":"https://win895564.github.io/wctv-theme/themes/","durationMs":2926,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-17T07:38:15.285Z","cmd":"wait","args":"--networkidle","origin":"https://win895564.github.io/wctv-theme/themes/","durationMs":4,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-17T07:38:18.955Z","cmd":"js","args":"new Promise(r=>setTimeout(r,2000))","origin":"https://win895564.github.io/wctv-theme/themes/","durationMs":2032,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-17T07:38:21.631Z","cmd":"screenshot","args":"C:/Users/ADMINI~1/AppData/Local/Temp/live-store2.png","origin":"https://win895564.github.io/wctv-theme/themes/","durationMs":784,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-06-17T10:15:49.339Z","cmd":"viewport","args":"1200x760","origin":"about:blank","durationMs":5,"status":"ok","hasCookies":false,"mode":"launched"}
