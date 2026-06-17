@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WCTV 風格方向比較</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Inter:wght@400;600;800&family=Space+Grotesk:wght@500;700&family=Poppins:wght@500;700;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#eef1f6;font-family:"Noto Sans TC",sans-serif;color:#1b2433;padding:40px 24px}
+.wrap{max-width:1280px;margin:0 auto}
+.page-h{text-align:center;margin-bottom:34px}
+.page-h h1{font-size:1.7rem}.page-h p{color:#69748a;margin-top:6px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.tile{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 12px 34px rgba(20,30,50,.1)}
+.tile-h{padding:18px 22px;border-bottom:1px solid #eef1f6;display:flex;align-items:baseline;gap:10px}
+.tile-h b{font-size:1.15rem}.tile-h span{color:#8a94a6;font-size:.86rem}
+.tile-b{padding:22px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.sw{width:34px;height:34px;border-radius:8px;border:1px solid rgba(0,0,0,.06)}
+.lbl{font-size:.72rem;color:#99a2b3;letter-spacing:1px;margin-bottom:7px;text-transform:uppercase}
+.ico{width:26px;height:26px;fill:none;stroke-width:1.8}
+.demo{border-radius:12px;padding:22px;margin-top:6px}
+.demo .eb{display:inline-block;font-size:.72rem;padding:4px 12px;border-radius:999px;margin-bottom:10px}
+.demo .ht{font-size:1.4rem;line-height:1.2;margin-bottom:8px}
+.demo .bt{display:inline-block;margin-top:12px;padding:10px 20px;font-weight:700;font-size:.9rem}
+.type b{font-size:1.5rem}.type span{color:#69748a}
+
+/* 1 沉穩專業 */
+.t1{--p:#13386b;--a:#C9A24B;--ink:#13243d;--bg:#f3f5f8}
+.t1 .demo{background:var(--bg)}
+.t1 .eb{background:#e7edf6;color:var(--p)}
+.t1 .ht{font-family:"Noto Serif TC",serif;color:var(--ink);font-weight:900}
+.t1 .bt{background:var(--p);color:#fff;border-radius:6px}
+.t1 .type b{font-family:"Noto Serif TC",serif}
+.t1 .ico{stroke:var(--p)}
+
+/* 2 科技俐落 */
+.t2{--p:#0AE0C2;--ink:#0c1118;--bg:#0c1118}
+.t2 .demo{background:var(--bg);color:#dfe7ee}
+.t2 .eb{background:rgba(10,224,194,.15);color:var(--p);font-family:"Space Grotesk",sans-serif}
+.t2 .ht{font-family:"Space Grotesk","Noto Sans TC",sans-serif;color:#fff;font-weight:700}
+.t2 .bt{background:var(--p);color:#04201b;border-radius:4px}
+.t2 .type b{font-family:"Space Grotesk",sans-serif}
+.t2 .ico{stroke:var(--p)}
+
+/* 3 親切在地 */
+.t3{--p:#E8693A;--a:#1F8A70;--ink:#34281f;--bg:#FBF6F0}
+.t3 .demo{background:var(--bg)}
+.t3 .eb{background:#fbe6da;color:var(--p)}
+.t3 .ht{font-family:"Poppins","Noto Sans TC",sans-serif;color:var(--ink);font-weight:800}
+.t3 .bt{background:var(--p);color:#fff;border-radius:999px}
+.t3 .type b{font-family:"Poppins","Noto Sans TC",sans-serif}
+.t3 .ico{stroke:var(--p)}
+
+/* 4 編輯雜誌 */
+.t4{--p:#111;--a:#C0392B;--ink:#111;--bg:#fbfaf8}
+.t4 .demo{background:var(--bg);border:1px solid #ece8e2}
+.t4 .eb{background:none;color:var(--a);border:1px solid var(--a);letter-spacing:2px}
+.t4 .ht{font-family:"Playfair Display","Noto Serif TC",serif;color:var(--ink);font-weight:800;font-size:1.7rem}
+.t4 .bt{background:#111;color:#fff;border-radius:0}
+.t4 .type b{font-family:"Playfair Display",serif}
+.t4 .ico{stroke:#111}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="page-h"><h1>WCTV 風格方向 — 挑一個</h1><p>都用單色線條 icon、各有不同字型/配色/圓角。選定我再套整站。</p></div>
+<div class="grid">
+
+  <!-- 1 -->
+  <div class="tile t1">
+    <div class="tile-h"><b>A・沉穩專業</b><span>信任感、企業、襯線標題、金點綴</span></div>
+    <div class="tile-b">
+      <div class="lbl">配色</div><div class="row"><i class="sw" style="background:#13386b"></i><i class="sw" style="background:#2b5694"></i><i class="sw" style="background:#C9A24B"></i><i class="sw" style="background:#13243d"></i><i class="sw" style="background:#f3f5f8"></i></div>
+      <div class="lbl">字型</div><div class="row type"><b>哈Net 家用光纖</b><span>Noto Serif TC ＋ Noto Sans TC</span></div>
+      <div class="lbl">線條 icon</div><div class="row"><svg class="ico" viewBox="0 0 24 24"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5 12a11 11 0 0 1 14 0"/><path d="M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/></svg><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-5h4"/><path d="M4 14v3a2 2 0 0 0 2 2h2v-5H4"/></svg></div>
+      <div class="demo"><span class="eb">光纖到府</span><div class="ht">3 分鐘線上申辦</div><span style="color:#69748a">中部在地首選，優惠 499 元起。</span><br><a class="bt">立即申辦</a></div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="tile t2">
+    <div class="tile-h"><b>B・科技俐落</b><span>深色、電光綠、grotesk 字、銳角</span></div>
+    <div class="tile-b">
+      <div class="lbl">配色</div><div class="row"><i class="sw" style="background:#0c1118"></i><i class="sw" style="background:#19222e"></i><i class="sw" style="background:#0AE0C2"></i><i class="sw" style="background:#3a8bff"></i><i class="sw" style="background:#dfe7ee"></i></div>
+      <div class="lbl">字型</div><div class="row type"><b>哈Net 家用光纖</b><span>Space Grotesk ＋ Noto Sans TC</span></div>
+      <div class="lbl">線條 icon</div><div class="row"><svg class="ico" viewBox="0 0 24 24"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5 12a11 11 0 0 1 14 0"/><path d="M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/></svg><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-5h4"/><path d="M4 14v3a2 2 0 0 0 2 2h2v-5H4"/></svg></div>
+      <div class="demo"><span class="eb">FIBER ・ 飆速</span><div class="ht">3 分鐘線上申辦</div><span style="color:#9fb0c0">中部在地首選，優惠 499 元起。</span><br><a class="bt">立即申辦</a></div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="tile t3">
+    <div class="tile-h"><b>C・親切在地</b><span>暖色、圓潤、Poppins、好親近</span></div>
+    <div class="tile-b">
+      <div class="lbl">配色</div><div class="row"><i class="sw" style="background:#E8693A"></i><i class="sw" style="background:#1F8A70"></i><i class="sw" style="background:#34281f"></i><i class="sw" style="background:#FBF6F0"></i><i class="sw" style="background:#f0c9a0"></i></div>
+      <div class="lbl">字型</div><div class="row type"><b>哈Net 家用光纖</b><span>Poppins ＋ Noto Sans TC</span></div>
+      <div class="lbl">線條 icon</div><div class="row"><svg class="ico" viewBox="0 0 24 24"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5 12a11 11 0 0 1 14 0"/><path d="M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/></svg><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-5h4"/><path d="M4 14v3a2 2 0 0 0 2 2h2v-5H4"/></svg></div>
+      <div class="demo"><span class="eb">光纖到府</span><div class="ht">3 分鐘線上申辦</div><span style="color:#7a6b5d">中部在地首選，優惠 499 元起。</span><br><a class="bt">立即申辦</a></div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="tile t4">
+    <div class="tile-h"><b>D・編輯雜誌</b><span>大襯線、極簡、銳利、有質感</span></div>
+    <div class="tile-b">
+      <div class="lbl">配色</div><div class="row"><i class="sw" style="background:#111"></i><i class="sw" style="background:#555"></i><i class="sw" style="background:#C0392B"></i><i class="sw" style="background:#fbfaf8"></i><i class="sw" style="background:#ece8e2"></i></div>
+      <div class="lbl">字型</div><div class="row type"><b>哈Net 家用光纖</b><span>Playfair Display ＋ Noto Sans TC</span></div>
+      <div class="lbl">線條 icon</div><div class="row"><svg class="ico" viewBox="0 0 24 24"><path d="M2 8.5a16 16 0 0 1 20 0"/><path d="M5 12a11 11 0 0 1 14 0"/><path d="M8.5 15.5a6 6 0 0 1 7 0"/><circle cx="12" cy="19" r="1"/></svg><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="1.5"/><path d="M8 21h8"/></svg><svg class="ico" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 16 0v5a2 2 0 0 1-2 2h-2v-5h4"/><path d="M4 14v3a2 2 0 0 0 2 2h2v-5H4"/></svg></div>
+      <div class="demo"><span class="eb">FIBER</span><div class="ht">3 分鐘線上申辦</div><span style="color:#69748a">中部在地首選，優惠 499 元起。</span><br><a class="bt">立即申辦</a></div>
+    </div>
+  </div>
+
+</div>
+</div>
+</body>
+</html>

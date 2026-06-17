@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>台灣佳光電訊 哈Net｜光纖寬頻・數位電視・在地服務</title>
+<meta name="description" content="台灣佳光電訊（哈Net）提供光纖寬頻、數位電視、電路出租等服務，光纖到府飆速上網、在地客服 24 小時支援，立即線上申辦享好康優惠。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== Header / Navbar(共用模板) ===== -->
+<header class="site-header" id="header">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">哈</span><span class="brand-text">Net <small>台灣佳光電訊</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="products_tv.html">數位電視</a>
+      <a href="products_net.html">寬頻網路</a>
+      <a href="products_rent.html">電路出租</a>
+      <a href="discount.html">好康優惠</a>
+      <a href="news.html">最新消息</a>
+      <a href="about.html">關於我們</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost" href="onlinepay.html">線上繳費</a>
+      <a class="btn btn-accent" href="products_net.html">立即申辦</a>
+    </div>
+    <button class="burger" id="burger" aria-label="開啟選單"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== Hero 輪播 ===== -->
+<section class="hero" id="hero">
+  <div class="slides">
+    <div class="slide is-active" style="--g1:#1466E0;--g2:#6E8BFF">
+      <div class="container slide-in">
+        <span class="eyebrow">光纖到府・飆速上網</span>
+        <h1>家用光纖<br>3 分鐘線上申辦</h1>
+        <p>中部在地首選，優惠方案 <b>499 元起</b>，24 小時智能＋真人客服。</p>
+        <div class="hero-actions"><a class="btn btn-accent btn-lg" href="products_net.html">立即申辦</a><a class="btn btn-light btn-lg" href="discount.html">看好康</a></div>
+      </div>
+    </div>
+    <div class="slide" style="--g1:#0B4FB8;--g2:#1466E0">
+      <div class="container slide-in">
+        <span class="eyebrow">數位電視 ＋ 4K 機上盒</span>
+        <h1>有線電視＋光纖<br>家庭娛樂一次擁有</h1>
+        <p>雙模機免費借、4K 機上盒、上百頻道，闔家共享高畫質。</p>
+        <div class="hero-actions"><a class="btn btn-accent btn-lg" href="products_tv.html">看電視方案</a></div>
+      </div>
+    </div>
+    <div class="slide" style="--g1:#13257A;--g2:#3A5BD9">
+      <div class="container slide-in">
+        <span class="eyebrow">期間限定</span>
+        <h1>六月好康<br>申辦再加贈 300 點</h1>
+        <p>線上申辦成功即享哈 POINT 回饋，方案彈性、隨你搭配。</p>
+        <div class="hero-actions"><a class="btn btn-accent btn-lg" href="discount.html">查看優惠</a></div>
+      </div>
+    </div>
+  </div>
+  <button class="hero-arrow prev" id="heroPrev" aria-label="上一張">‹</button>
+  <button class="hero-arrow next" id="heroNext" aria-label="下一張">›</button>
+  <div class="hero-dots" id="heroDots"></div>
+</section>
+
+<!-- ===== 快捷列 ===== -->
+<section class="container shortcuts reveal">
+  <a class="sc" href="products_net.html"><svg viewBox="0 0 24 24"><path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>申裝查詢</span></a>
+  <a class="sc" href="onlinepay.html"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z" fill="none"/><path d="M3 6h18a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm1 4v6h16v-6z"/></svg><span>線上繳費</span></a>
+  <a class="sc" href="contact.html"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 5a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm0 12a8 8 0 0 1-5-1.8c0-1.6 3.3-2.5 5-2.5s5 .9 5 2.5A8 8 0 0 1 12 19z"/></svg><span>客戶服務</span></a>
+  <a class="sc" href="faq.html"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 15h-2v-2h2zm1.8-6.3-.9.9c-.6.6-.9 1.1-.9 2.4h-2v-.5c0-1 .4-1.8 1-2.4l1.2-1.2a1.6 1.6 0 0 0-2.7-1.2H8.5A3.5 3.5 0 1 1 14.8 10z"/></svg><span>常見問題</span></a>
+</section>
+
+<!-- ===== 服務方案 ===== -->
+<section class="container section">
+  <div class="head reveal"><span class="tag">SERVICES</span><h2>三大核心服務</h2><p>從家庭娛樂到企業電路，一站滿足。</p></div>
+  <div class="grid-3">
+    <article class="card reveal">
+      <div class="card-img" style="background-image:url('https://picsum.photos/seed/tv/640/400')"></div>
+      <div class="card-b"><h3>數位電視</h3><p>上百高畫質頻道＋4K 機上盒借用，闔家共賞。</p><a class="link" href="products_tv.html">了解更多 →</a></div>
+    </article>
+    <article class="card reveal" data-delay="80">
+      <div class="card-img" style="background-image:url('https://picsum.photos/seed/net/640/400')"></div>
+      <div class="card-b"><h3>寬頻網路</h3><p>光纖到府、零延遲，多元速率方案彈性搭配。</p><a class="link" href="products_net.html">了解更多 →</a></div>
+    </article>
+    <article class="card reveal" data-delay="160">
+      <div class="card-img" style="background-image:url('https://picsum.photos/seed/rent/640/400')"></div>
+      <div class="card-b"><h3>電路出租</h3><p>企業專線、穩定頻寬，在地工程快速到府。</p><a class="link" href="products_rent.html">了解更多 →</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== 特色 + 數據 ===== -->
+<section class="why">
+  <div class="container">
+    <div class="head reveal light"><span class="tag">WHY US</span><h2>為什麼選哈Net</h2></div>
+    <div class="grid-4">
+      <div class="feat reveal"><div class="fi">⚡</div><h4>高速穩定</h4><p>光纖到府，零延遲飆速。</p></div>
+      <div class="feat reveal" data-delay="80"><div class="fi">📍</div><h4>在地服務</h4><p>中部在地工程，快速到府。</p></div>
+      <div class="feat reveal" data-delay="160"><div class="fi">🎛️</div><h4>多元方案</h4><p>電視＋寬頻彈性搭配。</p></div>
+      <div class="feat reveal" data-delay="240"><div class="fi">🛟</div><h4>24h 客服</h4><p>智能＋真人隨時支援。</p></div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><b class="count" data-target="30">0</b><span>年在地深耕</span></div>
+      <div class="stat"><b class="count" data-target="100000">0</b><span>服務用戶</span></div>
+      <div class="stat"><b class="count" data-target="200">0</b><span>數位頻道</span></div>
+      <div class="stat"><b class="count" data-target="24">0</b><span>小時客服</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 最新消息(文章區) ===== -->
+<section class="container section">
+  <div class="head reveal"><span class="tag">NEWS</span><h2>最新消息</h2><p>系統台公告、優惠與服務資訊。</p></div>
+  <div class="grid-3">
+    <article class="post reveal">
+      <a href="news.html"><div class="post-img" style="background-image:url('https://picsum.photos/seed/n1/640/400')"><span class="cat">優惠</span></div></a>
+      <div class="post-b"><time>2026.06.10</time><h3><a href="news.html">六月限定｜光纖申辦再加贈 300 點</a></h3><p>即日起線上申辦成功，回饋哈 POINT 點數…</p></div>
+    </article>
+    <article class="post reveal" data-delay="80">
+      <a href="news.html"><div class="post-img" style="background-image:url('https://picsum.photos/seed/n2/640/400')"><span class="cat">公告</span></div></a>
+      <div class="post-b"><time>2026.06.03</time><h3><a href="news.html">系統維護｜頻道訊號更新通知</a></h3><p>為提供更穩定的收視品質，部分頻道將…</p></div>
+    </article>
+    <article class="post reveal" data-delay="160">
+      <a href="news.html"><div class="post-img" style="background-image:url('https://picsum.photos/seed/n3/640/400')"><span class="cat">服務</span></div></a>
+      <div class="post-b"><time>2026.05.28</time><h3><a href="news.html">新功能｜線上繳費支援行動支付</a></h3><p>繳費更便利，現已支援多種行動支付…</p></div>
+    </article>
+  </div>
+  <div class="center"><a class="btn btn-outline" href="news.html">看更多消息</a></div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-band reveal">
+  <div class="container">
+    <h2>準備好升級你的網速了嗎？</h2>
+    <p>3 分鐘線上申辦，專人到府安裝。</p>
+    <a class="btn btn-accent btn-lg" href="products_net.html">立即申辦</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== Footer(共用模板) ===== -->
+<footer class="site-footer">
+  <div class="container grid-foot">
+    <div>
+      <div class="brand brand-foot"><span class="brand-mark">哈</span><span class="brand-text">Net</span></div>
+      <p>台灣佳光電訊股份有限公司<br>04-4495678｜台中市大里區國光路一段68號</p>
+    </div>
+    <div><h5>服務項目</h5><a href="products_tv.html">數位電視</a><a href="products_net.html">寬頻網路</a><a href="products_rent.html">電路出租</a><a href="discount.html">好康優惠</a></div>
+    <div><h5>關於我們</h5><a href="about.html">公司簡介</a><a href="news.html">最新消息</a><a href="contact.html">客戶服務</a><a href="faq.html">常見問題</a></div>
+    <div><h5>會員專區</h5><a href="onlinepay.html">線上繳費</a><a href="#">帳務查詢</a><a href="#">障礙申告</a></div>
+  </div>
+  <div class="copy"><div class="container">© 2026 台灣佳光電訊股份有限公司 WCTV. All rights reserved.</div></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣佳光電訊 官網風格・15 款</title>
+<link rel="icon" href="../assets/favicon.png">
+<style>
+:root{--bg:#f4f5f7;--panel:#fff;--ink:#1f2328;--muted:#6b7280;--line:#e3e5e9;--accent:#2f6fed;--radius:14px;--shadow:0 1px 3px rgba(0,0,0,.06),0 10px 28px rgba(0,0,0,.08)}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.5}
+.head{max-width:1180px;margin:0 auto;padding:44px 24px 6px}
+.head h1{margin:0;font-size:28px;font-weight:800;letter-spacing:.5px}
+.head p{margin:8px 0 0;color:var(--muted);font-size:15px}
+.grid{max-width:1180px;margin:0 auto;padding:26px 24px 70px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(0,0,0,.14)}
+.card .thumb{aspect-ratio:1200/620;background:#eceef2 center/cover no-repeat;border-bottom:1px solid var(--line)}
+.card .meta{padding:14px 16px}
+.card .nm{margin:0;font-weight:700;font-size:15px}
+.card .ds{margin:4px 0 0;color:var(--muted);font-size:13px}
+.card .go{margin-top:10px;display:inline-block;font-size:12.5px;color:var(--accent);font-weight:700}
+
+/* viewer */
+.vw{position:fixed;inset:0;z-index:99;display:none;background:rgba(15,18,24,.72)}
+.vw.on{display:flex}
+.vw-main{flex:1;display:flex;flex-direction:column;min-width:0;padding:18px 0 18px 24px}
+.vw-bar{display:flex;align-items:center;gap:12px;color:#fff;padding:0 8px 12px}
+.vw-bar .t{font-weight:700;font-size:16px}
+.vw-bar .sp{flex:1}
+.vw-bar a,.vw-bar button{color:#fff;background:rgba(255,255,255,.14);border:0;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none}
+.vw-bar a:hover,.vw-bar button:hover{background:rgba(255,255,255,.28)}
+.vw-stage{flex:1;position:relative;background:#fff;border-radius:12px;overflow:hidden}
+.vw-stage iframe{width:100%;height:100%;border:0;display:block}
+.arw{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:0;background:rgba(0,0,0,.45);color:#fff;font-size:24px;cursor:pointer;z-index:2}
+.arw:hover{background:rgba(0,0,0,.7)}
+.arw.l{left:14px}.arw.r{right:14px}
+.vw-rail{width:230px;flex:none;overflow:auto;padding:18px 18px 18px 14px;color:#fff}
+.vw-rail h4{margin:6px 8px 12px;font-size:13px;opacity:.7;font-weight:600}
+.vw-rail .it{display:flex;gap:10px;align-items:center;padding:9px 12px;border-radius:9px;cursor:pointer;font-size:14px;color:#e8ebf0}
+.vw-rail .it:hover{background:rgba(255,255,255,.1)}
+.vw-rail .it.cur{background:#fff;color:#16203a;font-weight:700}
+.vw-rail .k{font-size:11px;opacity:.6;width:14px}
+.vw-close{position:absolute;top:18px;right:18px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.18);color:#fff;font-size:20px;cursor:pointer;z-index:5}
+.vw-close:hover{background:rgba(255,255,255,.34)}
+@media(max-width:820px){.vw-rail{display:none}.vw-main{padding:14px}}
+</style>
+</head>
+<body>
+<div class="head">
+  <h1>台灣佳光電訊 官網風格・15 款</h1>
+  <p>點任一款 → 懸浮預覽,框內可 ◀ ▶ 換套、右側清單直接跳、Esc 關閉。</p>
+</div>
+<div class="grid" id="grid"></div>
+
+<div class="vw" id="vw">
+  <button class="vw-close" id="vwClose" aria-label="關閉">✕</button>
+  <div class="vw-main">
+    <div class="vw-bar"><span class="t" id="vwName"></span><span class="sp"></span><a id="vwOpen" target="_blank">在新分頁開啟 ↗</a></div>
+    <div class="vw-stage">
+      <button class="arw l" id="vwPrev" aria-label="上一套">‹</button>
+      <iframe id="vwFrame" title="預覽"></iframe>
+      <button class="arw r" id="vwNext" aria-label="下一套">›</button>
+    </div>
+  </div>
+  <div class="vw-rail"><h4>全部 15 款</h4><div id="vwList"></div></div>
+</div>
+
+<script>
+var THEMES=[
+ {s:"a",n:"A 沉穩專業",d:"深藍+金、襯線標題、企業信任感"},
+ {s:"b",n:"B 科技俐落",d:"深色+電光綠、grotesk、科技品牌"},
+ {s:"c",n:"C 親切在地",d:"暖橘圓潤、Poppins、家庭友善"},
+ {s:"d",n:"D 編輯雜誌",d:"黑+紅、大襯線、極簡高質感"},
+ {s:"e",n:"E 方案比較",d:"第一屏就是寬頻價格比較表"},
+ {s:"f",n:"F 自助入口",d:"大字大鈕、年長/現有客戶友善"},
+ {s:"g",n:"G 分割查址",d:"左主張、右「查你家可裝」互動卡"},
+ {s:"h",n:"H 消息雜誌",d:"頭條公告大圖+快訊列表"},
+ {s:"i",n:"I Bento 格狀",d:"磚塊一屏:方案/數據/App/客服"},
+ {s:"j",n:"J 沉浸全幅",d:"深色滿版大圖、捲動敘事"},
+ {s:"k",n:"K 極簡單色",d:"瑞士風、大量留白、安靜高級"},
+ {s:"l",n:"L 大膽撞色",d:"藍黃撞色、超大標、促銷活力"},
+ {s:"m",n:"M 玻璃擬態",d:"漸層底+毛玻璃卡、通透"},
+ {s:"n",n:"N 極光漸層",d:"極光發光背景、SaaS 風"},
+ {s:"o",n:"O 圓潤插畫",d:"柔和幾何、圓潤、家庭親切"}
+];
+var grid=document.getElementById("grid");
+THEMES.forEach(function(t,i){
+  var c=document.createElement("div");c.className="card";
+  c.innerHTML='<div class="thumb" style="background-image:url(\'_thumbs/'+t.s+'.png\')"></div><div class="meta"><p class="nm">'+t.n+'</p><p class="ds">'+t.d+'</p><span class="go">點我預覽 →</span></div>';
+  c.onclick=function(){open(i)};grid.appendChild(c);
+});
+var vw=document.getElementById("vw"),frame=document.getElementById("vwFrame"),nameEl=document.getElementById("vwName"),openEl=document.getElementById("vwOpen"),list=document.getElementById("vwList"),cur=0;
+THEMES.forEach(function(t,i){
+  var it=document.createElement("div");it.className="it";it.dataset.i=i;
+  it.innerHTML='<span class="k">'+t.s.toUpperCase()+'</span><span>'+t.n+'</span>';
+  it.onclick=function(){show(i)};list.appendChild(it);
+});
+function url(i){return "./"+THEMES[i].s+"/index.html"}
+function show(i){cur=(i+THEMES.length)%THEMES.length;var t=THEMES[cur];frame.src=url(cur);nameEl.textContent=t.n;openEl.href=url(cur);
+  [].forEach.call(list.children,function(el,j){el.classList.toggle("cur",j===cur)});
+  var c=list.children[cur];if(c)c.scrollIntoView({block:"nearest"});}
+function open(i){vw.classList.add("on");document.body.style.overflow="hidden";show(i)}
+function close(){vw.classList.remove("on");frame.src="about:blank";document.body.style.overflow=""}
+document.getElementById("vwClose").onclick=close;
+document.getElementById("vwPrev").onclick=function(){show(cur-1)};
+document.getElementById("vwNext").onclick=function(){show(cur+1)};
+vw.onclick=function(e){if(e.target===vw)close()};
+addEventListener("keydown",function(e){if(!vw.classList.contains("on"))return;if(e.key==="Escape")close();else if(e.key==="ArrowLeft")show(cur-1);else if(e.key==="ArrowRight")show(cur+1)});
+</script>
+</body>
+</html>
