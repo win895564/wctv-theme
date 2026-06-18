@@ -169,6 +169,7 @@ ul{list-style:none}
 .nav-sub a:hover{color:#fff;background:rgba(91,108,255,.16)}
 
 .nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+.mobile-cta{display:none}
 .burger{
   display:none;margin-left:auto;background:none;border:none;color:var(--text);
   cursor:pointer;padding:6px;border-radius:8px;

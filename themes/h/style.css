@@ -121,6 +121,7 @@ img{display:block;max-width:100%}
 }
 
 .nav-cta{display:flex;gap:10px;margin-left:auto}
+.mobile-cta{display:none}
 
 .nav-burger{
   display:none;flex-direction:column;gap:5px;
