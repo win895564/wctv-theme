@@ -28,16 +28,55 @@
       <span class="nav__logo-chip"><img src="../../assets/logo-horizontal.png" alt="台灣佳光電訊"></span>
     </a>
     <nav class="nav__menu" id="navMenu" aria-label="主選單">
-      <a href="#tv">數位電視</a>
-      <a href="#net">寬頻網路</a>
-      <a href="#circuit">電路出租</a>
-      <a href="#deal">好康優惠</a>
-      <a href="#news">最新消息</a>
-      <a href="#about">關於我們</a>
+      <a href="#">優惠方案</a>
+
+      <div class="nav__item nav__item--has-sub">
+        <a href="#" class="nav__sub-toggle" aria-expanded="false">產品介紹 <span class="nav__caret" aria-hidden="true">▾</span></a>
+        <div class="nav__sub nav__sub--wide">
+          <a href="#">哈TV 有線電視</a>
+          <a href="#">哈NET 寬頻上網</a>
+          <a href="#">LINE TV 追劇</a>
+          <a href="#">Mesh WiFi 6</a>
+          <a href="#">居家監控</a>
+          <a href="#">哈TV＋鄰里守護隊</a>
+          <a href="#">OTT／加值服務</a>
+          <a href="#">廣告託播</a>
+          <a href="#">電路出租</a>
+        </div>
+      </div>
+
+      <a href="#">最新公告</a>
+
+      <div class="nav__item nav__item--has-sub">
+        <a href="#" class="nav__sub-toggle" aria-expanded="false">客戶服務 <span class="nav__caret" aria-hidden="true">▾</span></a>
+        <div class="nav__sub nav__sub--wide nav__sub--right">
+          <a href="#">智能客服</a>
+          <a href="#">線上繳費</a>
+          <a href="#">頻道查詢</a>
+          <a href="#">組合套餐頻道</a>
+          <a href="#">節目表／時刻表</a>
+          <a href="#">發票查詢</a>
+          <a href="#">常見問題</a>
+          <a href="#">下載專區</a>
+          <a href="#">公用頻道</a>
+          <a href="#">客服中心</a>
+        </div>
+      </div>
+
+      <div class="nav__item nav__item--has-sub">
+        <a href="#" class="nav__sub-toggle" aria-expanded="false">關於我們 <span class="nav__caret" aria-hidden="true">▾</span></a>
+        <div class="nav__sub nav__sub--right">
+          <a href="#">公司介紹</a>
+          <a href="#">經營理念</a>
+          <a href="#">重大事紀</a>
+          <a href="#">未來展望</a>
+          <a href="#">個人資料保護專區</a>
+        </div>
+      </div>
     </nav>
     <div class="nav__cta">
       <a href="#" class="btn btn--ghost">線上繳費</a>
-      <a href="#deal" class="btn btn--yellow">立即申辦</a>
+      <a href="#" class="btn btn--yellow">立即申辦</a>
     </div>
     <button class="nav__burger" id="burger" aria-label="開啟選單" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -45,43 +84,73 @@
   </div>
 </header>
 
-<!-- ===== 主視覺 ===== -->
+<!-- ===== 主視覺：精選文章輪播（固定模板） ===== -->
 <section class="hero" id="top">
   <div class="hero__bg-blocks" aria-hidden="true">
     <span class="blk blk--blue"></span>
     <span class="blk blk--yellow"></span>
     <span class="blk blk--black"></span>
   </div>
-  <div class="hero__inner">
-    <div class="hero__copy">
-      <p class="hero__kicker reveal">哈Net 家用光纖</p>
-      <h1 class="hero__title">
-        <span class="line reveal">線上申辦</span>
-        <span class="line reveal hl-yellow">只要 3 分鐘</span>
-        <span class="line reveal">月付 <em>499</em> 元起</span>
-      </h1>
-      <p class="hero__sub reveal">光纖到府專人安裝，24 小時智能＋真人客服隨時待命。在地服務 30 年，全速上線就是現在。</p>
-      <div class="hero__btns reveal">
-        <a href="#deal" class="btn btn--yellow btn--lg">立即申辦 →</a>
-        <a href="#net" class="btn btn--outline-light btn--lg">看寬頻方案</a>
+
+  <div class="hero__slider" id="heroSlider">
+
+    <article class="slide is-active">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__kicker reveal">優惠方案</p>
+          <h1 class="hero__title reveal">家用光纖 499 元起，3 分鐘線上申辦全速上線</h1>
+          <p class="hero__sub reveal">六月限定，申辦寬頻方案再加贈 300 點好禮。光纖到府專人安裝，24 小時智能＋真人客服隨時待命，在地服務 30 年。</p>
+          <div class="hero__btns reveal">
+            <a href="#" class="btn btn--yellow btn--lg">立即申辦 →</a>
+            <a href="#" class="btn btn--outline-light btn--lg">了解詳情</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__pic"><img src="https://picsum.photos/seed/hanetfiber/720/560" alt="家用光纖上網"></div>
+          <div class="hero__badge"><strong>499</strong><span>元 / 月起</span></div>
+        </div>
       </div>
-      <ul class="hero__points reveal">
-        <li>家用光纖</li><li>3 分鐘申辦</li><li>499 起</li><li>24H 客服</li><li>到府安裝</li>
-      </ul>
-    </div>
-    <div class="hero__media">
-      <div class="hero__slider" id="heroSlider">
-        <div class="slide is-active"><img src="https://picsum.photos/seed/hanetfiber/720/560" alt="家用光纖上網"></div>
-        <div class="slide"><img src="https://picsum.photos/seed/hanettv4k/720/560" alt="4K 數位電視"></div>
-        <div class="slide"><img src="https://picsum.photos/seed/hanetfamily/720/560" alt="全家共享高速網路"></div>
+    </article>
+
+    <article class="slide">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__kicker reveal">產品介紹</p>
+          <h1 class="hero__title reveal">數位電視上百高畫質頻道，4K 機上盒全家看好看滿</h1>
+          <p class="hero__sub reveal">畫質清晰、選台不卡頓，搭配光纖到府零延遲的寬頻網路，追劇、視訊、上傳大檔都暢快無比，一次到位的家庭娛樂體驗。</p>
+          <div class="hero__btns reveal">
+            <a href="#" class="btn btn--yellow btn--lg">立即申辦 →</a>
+            <a href="#" class="btn btn--outline-light btn--lg">了解詳情</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__pic"><img src="https://picsum.photos/seed/hanettv4k/720/560" alt="4K 數位電視"></div>
+          <div class="hero__badge"><strong>4K</strong><span>高畫質</span></div>
+        </div>
       </div>
-      <div class="hero__badge">
-        <strong>499</strong>
-        <span>元 / 月起</span>
+    </article>
+
+    <article class="slide">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <p class="hero__kicker reveal">客戶服務</p>
+          <h1 class="hero__title reveal">24 小時智能＋真人客服，在地服務隨時待命</h1>
+          <p class="hero__sub reveal">大里總部，鄰里就近支援，線上繳費支援多種行動支付。智能客服全天候待命，真人客服即時協助，讓您用得安心、繳得便利。</p>
+          <div class="hero__btns reveal">
+            <a href="#" class="btn btn--yellow btn--lg">立即申辦 →</a>
+            <a href="#" class="btn btn--outline-light btn--lg">了解詳情</a>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__pic"><img src="https://picsum.photos/seed/hanetfamily/720/560" alt="全家共享高速網路"></div>
+          <div class="hero__badge"><strong>24</strong><span>小時客服</span></div>
+        </div>
       </div>
-      <div class="hero__dots" id="heroDots" role="tablist" aria-label="主視覺輪播"></div>
-    </div>
+    </article>
+
   </div>
+
+  <div class="hero__dots" id="heroDots" role="tablist" aria-label="主視覺輪播"></div>
 </section>
 
 <!-- ===== 三大服務 ===== -->
@@ -214,6 +283,21 @@
   </div>
 </section>
 
+<!-- ===== 品牌理念 + 服務內容 ===== -->
+<section class="ethos section" id="ethos">
+  <div class="wrap ethos__grid">
+    <div class="ethos__lead reveal">
+      <p class="ethos__en">The Most Thoughtful Service,<br>Made a Beautiful Life.</p>
+      <p class="ethos__vision">最貼心的訊息平台，創造更美好的生活願景</p>
+    </div>
+    <div class="ethos__body reveal">
+      <span class="sec-tag sec-tag--yellow">SERVICE</span>
+      <h2>服務內容</h2>
+      <p>台灣佳光電訊股份有限公司（原西海岸有線電視），隸屬台灣數位光訊科技集團，在品質科技、尊重關懷的引領下，十餘年來深入地方，陸續完成社區綿密的光纖網路建置，連結全球資訊，拉近城鄉差距，與地方建立起最密切、最深厚的服務關係。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 最新消息 ===== -->
 <section class="news section" id="news">
   <div class="wrap">
@@ -267,28 +351,28 @@
       <p class="footer__desc">台灣佳光電訊股份有限公司 — 哈Net 寬頻服務品牌。在地深耕 30 年，提供數位電視、光纖寬頻與企業電路出租。</p>
     </div>
     <div class="footer__col">
-      <h4>服務</h4>
-      <a href="#tv">數位電視</a>
-      <a href="#net">寬頻網路</a>
-      <a href="#circuit">電路出租</a>
-      <a href="#deal">好康優惠</a>
+      <h4>產品介紹</h4>
+      <a href="#">哈TV 有線電視</a>
+      <a href="#">哈NET 寬頻上網</a>
+      <a href="#">OTT／加值服務</a>
+      <a href="#">廣告託播</a>
+      <a href="#">電路出租</a>
     </div>
     <div class="footer__col">
-      <h4>關於</h4>
-      <a href="#about">關於我們</a>
-      <a href="#news">最新消息</a>
-      <a href="#features">服務特色</a>
-    </div>
-    <div class="footer__col">
-      <h4>會員</h4>
+      <h4>客戶服務</h4>
       <a href="#">線上繳費</a>
-      <a href="#deal">立即申辦</a>
-      <a href="#">會員登入</a>
+      <a href="#">頻道查詢</a>
+      <a href="#">常見問題</a>
+      <a href="#">下載專區</a>
+      <a href="#">公用頻道</a>
     </div>
-    <div class="footer__col footer__contact">
-      <h4>聯絡我們</h4>
-      <a href="tel:044495678">04-4495678</a>
-      <p>台中市大里區國光路一段68號</p>
+    <div class="footer__col">
+      <h4>關於我們</h4>
+      <a href="#">公司介紹</a>
+      <a href="#">經營理念</a>
+      <a href="#">重大事紀</a>
+      <a href="#">未來展望</a>
+      <a href="#">個人資料保護專區</a>
     </div>
   </div>
   <div class="footer__bottom">

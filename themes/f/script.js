@@ -46,9 +46,12 @@
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
       hamburger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
     });
-    // 點選單項目後自動收合
+    // 點選單項目後自動收合（父項展開鈕除外，讓它只負責折疊子選單）
     navMenu.addEventListener('click', function (e) {
-      if (e.target.closest('a')) closeMenu();
+      var link = e.target.closest('a');
+      if (!link) return;
+      if (link.classList.contains('nav__sub-toggle') && window.innerWidth <= 760) return;
+      closeMenu();
     });
     // Esc 關閉
     document.addEventListener('keydown', function (e) {
@@ -56,8 +59,84 @@
     });
     // 桌機寬度時確保收合
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 760) closeMenu();
+      if (window.innerWidth > 760) {
+        closeMenu();
+        var opened = navMenu.querySelectorAll('.nav__has-sub.is-open');
+        Array.prototype.forEach.call(opened, function (li) {
+          li.classList.remove('is-open');
+          var t = li.querySelector('.nav__sub-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        });
+      }
     });
+  }
+
+  /* ---------- 3b. 手機子選單折疊（桌機交給 CSS :hover） ---------- */
+  if (navMenu) {
+    var subToggles = navMenu.querySelectorAll('.nav__has-sub > .nav__sub-toggle');
+    Array.prototype.forEach.call(subToggles, function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        // 僅在手機（漢堡顯示）攔截，桌機讓 hover 處理、連結維持可點
+        if (window.innerWidth > 760) return;
+        e.preventDefault();
+        var li = toggle.parentNode;
+        var willOpen = !li.classList.contains('is-open');
+        li.classList.toggle('is-open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
+  }
+
+  /* ---------- 3c. Hero 輪播（固定模板，每張＝一篇精選文章） ---------- */
+  var carousel = document.getElementById('heroCarousel');
+  if (carousel) {
+    var slides = carousel.querySelectorAll('.hero__slide');
+    var dots = document.querySelectorAll('#heroDots .hero__dot');
+    var cur = 0;
+    var timer = null;
+    var DELAY = 6000;
+
+    function showSlide(idx) {
+      idx = (idx + slides.length) % slides.length;
+      Array.prototype.forEach.call(slides, function (s, i) {
+        var on = i === idx;
+        s.classList.toggle('is-active', on);
+        if (on) s.removeAttribute('hidden');
+        else s.setAttribute('hidden', '');
+      });
+      Array.prototype.forEach.call(dots, function (d, i) {
+        var on = i === idx;
+        d.classList.toggle('is-active', on);
+        d.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      cur = idx;
+    }
+
+    function next() { showSlide(cur + 1); }
+
+    function startAuto() {
+      if (prefersReduced || slides.length < 2) return;
+      stopAuto();
+      timer = window.setInterval(next, DELAY);
+    }
+    function stopAuto() {
+      if (timer) { window.clearInterval(timer); timer = null; }
+    }
+
+    Array.prototype.forEach.call(dots, function (dot, i) {
+      dot.addEventListener('click', function () {
+        showSlide(i);
+        startAuto();
+      });
+    });
+
+    // 滑入暫停、離開續播（年長友善：給足閱讀時間）
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('focusin', stopAuto);
+    carousel.addEventListener('focusout', startAuto);
+
+    startAuto();
   }
 
   /* ---------- 4. 字級切換（年長友善 / 無障礙） ---------- */

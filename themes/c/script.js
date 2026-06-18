@@ -24,6 +24,11 @@
     overlay.classList.remove('show');
     hamburger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    nav.querySelectorAll('.nav-item.sub-open').forEach((it) => {
+      it.classList.remove('sub-open');
+      const p = it.querySelector('.nav-parent');
+      if (p) p.setAttribute('aria-expanded', 'false');
+    });
   };
   const toggleMenu = () => {
     const open = nav.classList.toggle('open');
@@ -34,7 +39,34 @@
   };
   hamburger.addEventListener('click', toggleMenu);
   overlay.addEventListener('click', closeMenu);
-  nav.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+
+  /* ---------- 2b. 子選單折疊（手機點父項展開；桌機交給 CSS :hover）---------- */
+  const isMobileNav = () => window.matchMedia('(max-width:860px)').matches;
+  const navItems = Array.from(nav.querySelectorAll('.nav-item.has-sub'));
+
+  navItems.forEach((item) => {
+    const parent = item.querySelector('.nav-parent');
+    if (!parent) return;
+    parent.addEventListener('click', (e) => {
+      if (!isMobileNav()) return;          // 桌機：純錨點 + CSS hover
+      e.preventDefault();
+      const willOpen = !item.classList.contains('sub-open');
+      navItems.forEach((it) => {           // 手風琴：一次只開一個
+        it.classList.toggle('sub-open', it === item && willOpen);
+        const p = it.querySelector('.nav-parent');
+        if (p) p.setAttribute('aria-expanded', String(it === item && willOpen));
+      });
+    });
+  });
+
+  // 點「子項連結」或「無子選單的主項」才關閉抽屜；父項只負責展開子選單
+  nav.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      if (a.classList.contains('nav-parent') && isMobileNav()) return;
+      closeMenu();
+    });
+  });
+
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
   /* ---------- 3. Hero 自動輪播 ---------- */

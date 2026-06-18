@@ -26,6 +26,24 @@
     a.addEventListener('click', closeMenu);
   });
 
+  /* ---- 站圖下拉：手機點父項展開（桌機交給 CSS :hover） ---- */
+  menu.querySelectorAll('.nav-sub-toggle').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.nav-item');
+      var willOpen = !item.classList.contains('open');
+      // 同層其他子選單收合
+      menu.querySelectorAll('.nav-item.open').forEach(function (other) {
+        if (other !== item) {
+          other.classList.remove('open');
+          var t = other.querySelector('.nav-sub-toggle');
+          if (t) t.setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
+
   /* ---- 主視覺輪播 ---- */
   var carousel = document.getElementById('carousel');
   if (carousel) {

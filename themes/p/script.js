@@ -47,18 +47,44 @@
     mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active');
   });
 
-  // 5) 輪播自動切換(best-effort)
-  var box = document.querySelector('.slides,.hero-slider,.hero-slides,.carousel');
-  if (box) {
-    var sl = box.querySelectorAll('.slide,.hero-slide');
-    if (sl.length > 1) {
-      var act = sl[0].classList.contains('active') && !sl[0].classList.contains('is-active') ? 'active' : 'is-active';
-      var i = 0;
-      setInterval(function () {
-        sl[i].classList.remove('is-active', 'active');
-        i = (i + 1) % sl.length;
-        sl[i].classList.add(act);
-      }, 4500);
+  // 4b) 下拉站圖:桌機交給 CSS :hover;手機點父項展開折疊
+  var parents = document.querySelectorAll('.nav-item.has-sub .nav-parent');
+  parents.forEach(function (p) {
+    p.addEventListener('click', function (e) {
+      if (window.innerWidth > 760) return; // 桌機不攔截
+      e.preventDefault();
+      var item = p.closest('.nav-item');
+      var open = item.classList.toggle('open');
+      p.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  // 5) 主視覺固定模板輪播:背景圖 + 精選文章 + dots 同步切換
+  var hero = document.querySelector('.hero');
+  if (hero) {
+    var bgs = hero.querySelectorAll('.hero-slide');
+    var feats = hero.querySelectorAll('.hero-feature');
+    var dots = hero.querySelectorAll('.hero-dots button');
+    var n = Math.max(bgs.length, feats.length);
+    if (n > 1) {
+      var hi = 0;
+      var show = function (k) {
+        if (bgs[hi]) bgs[hi].classList.remove('is-active');
+        if (feats[hi]) feats[hi].classList.remove('is-active');
+        if (dots[hi]) dots[hi].classList.remove('is-active');
+        hi = (k + n) % n;
+        if (bgs[hi]) bgs[hi].classList.add('is-active');
+        if (feats[hi]) feats[hi].classList.add('is-active');
+        if (dots[hi]) dots[hi].classList.add('is-active');
+      };
+      var timer = setInterval(function () { show(hi + 1); }, 5500);
+      dots.forEach(function (d, k) {
+        d.addEventListener('click', function () {
+          show(k);
+          clearInterval(timer);
+          timer = setInterval(function () { show(hi + 1); }, 5500);
+        });
+      });
     }
   }
 })();

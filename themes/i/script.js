@@ -17,18 +17,43 @@
   /* ---------- 手機漢堡選單 ---------- */
   var burger = document.getElementById('hamburger');
   var links = document.getElementById('navLinks');
+  function isMobileNav() {
+    return window.matchMedia('(max-width:760px)').matches;
+  }
+  function closeMobileNav() {
+    if (!links) return;
+    links.classList.remove('show');
+    if (burger) {
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    Array.prototype.forEach.call(links.querySelectorAll('.nav-item.open'), function (it) {
+      it.classList.remove('open');
+      var p = it.querySelector('.nav-parent');
+      if (p) p.setAttribute('aria-expanded', 'false');
+    });
+  }
   if (burger && links) {
     burger.addEventListener('click', function () {
       var open = links.classList.toggle('show');
       burger.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (!open) closeMobileNav();
     });
     links.addEventListener('click', function (e) {
-      if (e.target.closest('a')) {
-        links.classList.remove('show');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
+      var parent = e.target.closest('.nav-parent');
+      // 手機：點父項 → 折疊展開，不導頁、不關整個選單
+      if (parent && isMobileNav()) {
+        e.preventDefault();
+        var item = parent.closest('.nav-item');
+        if (item) {
+          var open = item.classList.toggle('open');
+          parent.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+        return;
       }
+      // 點到一般連結 → 關閉手機選單
+      if (e.target.closest('a')) closeMobileNav();
     });
   }
 
@@ -88,5 +113,52 @@
   } else {
     nums.forEach(countUp);
   }
+
+  /* ---------- Hero 精選文章輪播 ---------- */
+  (function () {
+    var carousel = document.getElementById('heroCarousel');
+    var dotsWrap = document.getElementById('heroDots');
+    if (!carousel || !dotsWrap) return;
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.hero-slide'));
+    if (slides.length <= 1) return;
+
+    var idx = 0, timer = null;
+    var INTERVAL = 6000;
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var dots = slides.map(function (s, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-label', '第 ' + (i + 1) + ' 篇精選文章');
+      b.addEventListener('click', function () { go(i); restart(); });
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function go(n) {
+      idx = (n + slides.length) % slides.length;
+      slides.forEach(function (s, i) {
+        s.classList.toggle('is-active', i === idx);
+      });
+      dots.forEach(function (d, i) {
+        d.classList.toggle('is-active', i === idx);
+        d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+      });
+    }
+    function next() { go(idx + 1); }
+    function start() {
+      if (reduceMotion) return;
+      timer = window.setInterval(next, INTERVAL);
+    }
+    function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    carousel.addEventListener('mouseenter', stop);
+    carousel.addEventListener('mouseleave', start);
+
+    go(0);
+    start();
+  })();
 
 })();

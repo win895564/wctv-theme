@@ -47,18 +47,51 @@
     mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active');
   });
 
-  // 5) 輪播自動切換(best-effort)
+  // 5) 輪播自動切換(固定模板:每張一篇精選文章)+ 圓點同步
   var box = document.querySelector('.slides,.hero-slider,.hero-slides,.carousel');
   if (box) {
     var sl = box.querySelectorAll('.slide,.hero-slide');
     if (sl.length > 1) {
       var act = sl[0].classList.contains('active') && !sl[0].classList.contains('is-active') ? 'active' : 'is-active';
       var i = 0;
-      setInterval(function () {
+      var dotsWrap = document.getElementById('sliderDots');
+      var dots = [];
+      function show(n) {
         sl[i].classList.remove('is-active', 'active');
-        i = (i + 1) % sl.length;
+        if (dots[i]) dots[i].classList.remove('active');
+        i = (n + sl.length) % sl.length;
         sl[i].classList.add(act);
-      }, 4500);
+        if (dots[i]) dots[i].classList.add('active');
+      }
+      if (dotsWrap) {
+        sl.forEach(function (_, idx) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.setAttribute('aria-label', '切換到第 ' + (idx + 1) + ' 張');
+          if (idx === 0) b.classList.add('active');
+          b.addEventListener('click', function () { show(idx); restart(); });
+          dotsWrap.appendChild(b);
+          dots.push(b);
+        });
+      }
+      var timer;
+      function restart() { clearInterval(timer); timer = setInterval(function () { show(i + 1); }, 4500); }
+      restart();
     }
   }
+
+  // 6) navbar 下拉:手機點父項展開折疊(桌機交給 CSS :hover)
+  var parents = document.querySelectorAll('.nav-parent');
+  parents.forEach(function (p) {
+    p.addEventListener('click', function (ev) {
+      if (window.innerWidth > 760) return; // 桌機由 hover 處理
+      ev.preventDefault();
+      var grp = p.closest('.nav-group');
+      if (!grp) return;
+      var willOpen = !grp.classList.contains('open');
+      document.querySelectorAll('.nav-group.open').forEach(function (g) { if (g !== grp) g.classList.remove('open'); });
+      grp.classList.toggle('open', willOpen);
+      p.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+  });
 })();

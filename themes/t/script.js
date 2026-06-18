@@ -47,18 +47,57 @@
     mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active');
   });
 
-  // 5) 輪播自動切換(best-effort)
+  // 5) 輪播自動切換 + 圓點(best-effort)
   var box = document.querySelector('.slides,.hero-slider,.hero-slides,.carousel');
   if (box) {
     var sl = box.querySelectorAll('.slide,.hero-slide');
     if (sl.length > 1) {
       var act = sl[0].classList.contains('active') && !sl[0].classList.contains('is-active') ? 'active' : 'is-active';
       var i = 0;
-      setInterval(function () {
+      var dotsBox = document.querySelector('#carouselDots,.carousel-dots');
+      var dots = [];
+
+      function show(n) {
         sl[i].classList.remove('is-active', 'active');
-        i = (i + 1) % sl.length;
+        if (dots[i]) dots[i].classList.remove('active');
+        i = (n + sl.length) % sl.length;
         sl[i].classList.add(act);
-      }, 4500);
+        if (dots[i]) dots[i].classList.add('active');
+      }
+
+      if (dotsBox) {
+        for (var d = 0; d < sl.length; d++) {
+          (function (idx) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.setAttribute('role', 'tab');
+            b.setAttribute('aria-label', '切換到第 ' + (idx + 1) + ' 則');
+            if (idx === i) b.classList.add('active');
+            b.addEventListener('click', function () { show(idx); restart(); });
+            dotsBox.appendChild(b);
+            dots.push(b);
+          })(d);
+        }
+      }
+
+      var timer;
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(function () { show(i + 1); }, 4500);
+      }
+      restart();
     }
   }
+
+  // 6) 手機站圖：點父項展開/收合(桌機交給 CSS :hover)
+  var parents = document.querySelectorAll('.nav-item.has-sub > .nav-parent');
+  parents.forEach(function (p) {
+    p.addEventListener('click', function (e) {
+      if (window.matchMedia('(min-width:761px)').matches) return; // 桌機不攔截
+      e.preventDefault();
+      var item = p.parentElement;
+      item.classList.toggle('open');
+      p.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
+    });
+  });
 })();

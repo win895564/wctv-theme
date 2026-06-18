@@ -40,25 +40,58 @@
   var hd = document.querySelector('header') || document.querySelector('.nav');
   if (hd) addEventListener('scroll', function () { hd.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
 
-  // 4) 手機漢堡
+  // 4) 手機漢堡（切換抽屜）
   var bt = document.querySelector('.hamburger,.nav-toggle,.nav-burger');
   var mn = document.querySelector('.nav-menu');
-  if (bt && mn) bt.addEventListener('click', function () {
-    mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active');
+  var drawer = document.getElementById('mobileDrawer');
+  if (bt) bt.addEventListener('click', function () {
+    bt.classList.toggle('open');
+    var exp = bt.classList.contains('open');
+    bt.setAttribute('aria-expanded', exp ? 'true' : 'false');
+    if (drawer) drawer.classList.toggle('open');
+    if (mn) { mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active'); }
   });
 
-  // 5) 輪播自動切換(best-effort)
-  var box = document.querySelector('.slides,.hero-slider,.hero-slides,.carousel');
-  if (box) {
-    var sl = box.querySelectorAll('.slide,.hero-slide');
-    if (sl.length > 1) {
-      var act = sl[0].classList.contains('active') && !sl[0].classList.contains('is-active') ? 'active' : 'is-active';
-      var i = 0;
-      setInterval(function () {
-        sl[i].classList.remove('is-active', 'active');
-        i = (i + 1) % sl.length;
-        sl[i].classList.add(act);
-      }, 4500);
+  // 4b) 手機抽屜：父項點擊展開子選單（桌機交給 CSS :hover）
+  document.querySelectorAll('.m-parent').forEach(function (p) {
+    p.addEventListener('click', function () {
+      var sub = p.nextElementSibling;
+      var open = p.getAttribute('aria-expanded') === 'true';
+      p.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (sub) sub.classList.toggle('open', !open);
+    });
+  });
+
+  // 5) 輪播（transform 滑動 + 箭頭 + 圓點 + 自動播放）
+  var track = document.getElementById('slides');
+  var slidesEls = track ? track.querySelectorAll('.slide') : [];
+  if (track && slidesEls.length > 1) {
+    var idx = 0, total = slidesEls.length, timer;
+    var dotsWrap = document.getElementById('carDots');
+    var dots = [];
+    if (dotsWrap) {
+      for (var d = 0; d < total; d++) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', '第 ' + (d + 1) + ' 張');
+        (function (n) { b.addEventListener('click', function () { go(n); reset(); }); })(d);
+        dotsWrap.appendChild(b);
+        dots.push(b);
+      }
     }
+    function render() {
+      track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      dots.forEach(function (dot, n) { dot.classList.toggle('on', n === idx); });
+    }
+    function go(n) { idx = (n + total) % total; render(); }
+    function next() { go(idx + 1); }
+    function prev() { go(idx - 1); }
+    function reset() { clearInterval(timer); timer = setInterval(next, 4500); }
+    var pn = document.getElementById('carPrev');
+    var nx = document.getElementById('carNext');
+    if (pn) pn.addEventListener('click', function () { prev(); reset(); });
+    if (nx) nx.addEventListener('click', function () { next(); reset(); });
+    render();
+    reset();
   }
 })();

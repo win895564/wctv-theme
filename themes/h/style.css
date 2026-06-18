@@ -85,13 +85,40 @@ img{display:block;max-width:100%}
 .brand-text{font-family:var(--serif);font-weight:900;font-size:24px;letter-spacing:.5px}
 .brand-text em{font-style:normal;color:var(--red)}
 
-.nav-menu{display:flex;gap:6px;margin-left:6px}
-.nav-menu a{
+.nav-menu{display:flex;gap:6px;margin-left:6px;align-items:center}
+.nav-menu > a,.nav-parent{
   font-size:15px;font-weight:500;color:var(--ink-soft);
   padding:8px 13px;border-radius:8px;position:relative;
+  display:inline-flex;align-items:center;gap:5px;
   transition:color .2s var(--ease),background .2s var(--ease);
 }
-.nav-menu a:hover{color:var(--ink);background:var(--paper-2)}
+.nav-menu > a:hover,.nav-parent:hover{color:var(--ink);background:var(--paper-2)}
+.nav-caret{width:15px;height:15px;transition:transform .2s var(--ease)}
+
+/* 下拉群組 */
+.nav-group{position:relative}
+.nav-drop{
+  position:absolute;top:calc(100% + 6px);left:0;z-index:120;
+  min-width:220px;
+  background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--r);box-shadow:var(--shadow);
+  padding:10px;
+  display:none;grid-template-columns:1fr;gap:2px;
+}
+.nav-drop-2col{min-width:380px;grid-template-columns:1fr 1fr;gap:2px 6px}
+.nav-group-right .nav-drop{left:auto;right:0}
+.nav-drop a{
+  display:block;font-size:14.5px;font-weight:500;color:var(--ink-soft);
+  padding:9px 12px;border-radius:8px;white-space:nowrap;
+  transition:color .2s var(--ease),background .2s var(--ease);
+}
+.nav-drop a:hover{color:var(--ink);background:var(--paper-2)}
+/* 桌機 hover 展開 */
+@media (min-width:861px){
+  .nav-group:hover .nav-drop,
+  .nav-group:focus-within .nav-drop{display:grid}
+  .nav-group:hover .nav-caret{transform:rotate(180deg)}
+}
 
 .nav-cta{display:flex;gap:10px;margin-left:auto}
 
@@ -298,6 +325,28 @@ img{display:block;max-width:100%}
 .feature p{color:var(--ink-soft);font-size:15px}
 
 /* ============================================================
+   品牌理念 + 服務內容
+   ============================================================ */
+.ethos{padding:78px 0;background:var(--paper)}
+.ethos-inner{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;
+}
+.ethos-lead{
+  border-left:3px solid var(--red);padding-left:26px;
+}
+.ethos-en{
+  font-family:var(--serif);font-weight:900;
+  font-size:clamp(24px,3vw,36px);line-height:1.25;letter-spacing:-.5px;color:var(--ink);
+}
+.ethos-vision{
+  margin-top:18px;font-family:var(--serif);font-weight:700;
+  font-size:clamp(17px,1.8vw,20px);color:var(--ink-soft);line-height:1.6;
+}
+.ethos-kicker{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;letter-spacing:2px;color:var(--ink-soft);margin-bottom:14px}
+.ethos-title{font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.2vw,34px);line-height:1.25;letter-spacing:-.5px;margin-bottom:18px}
+.ethos-text{color:var(--ink-soft);font-size:16.5px;line-height:1.9}
+
+/* ============================================================
    ⑤ PLANS + CTA
    ============================================================ */
 .plans{padding:78px 0;background:var(--paper)}
@@ -382,10 +431,24 @@ img{display:block;max-width:100%}
     background:var(--paper);border-top:1px solid var(--line);
     padding:14px 18px 18px;box-shadow:var(--shadow);
   }
-  .nav-menu.open a{font-size:18px;padding:14px 12px}
+  .nav-menu.open > a,.nav-menu.open .nav-parent{font-size:18px;padding:14px 12px}
   .nav-menu.open .mobile-cta{display:flex;gap:10px;margin-top:10px}
   .nav-menu.open .mobile-cta .btn{flex:1}
 
+  /* 手機：下拉改點擊折疊 */
+  .nav-group{position:static}
+  .nav-parent{justify-content:space-between;width:100%}
+  .nav-drop{
+    position:static;display:none;
+    min-width:0;box-shadow:none;border:0;border-radius:0;
+    grid-template-columns:1fr;padding:0 0 6px 12px;background:transparent;
+  }
+  .nav-drop-2col{grid-template-columns:1fr}
+  .nav-group.open .nav-drop{display:grid}
+  .nav-group.open .nav-caret{transform:rotate(180deg)}
+  .nav-drop a{font-size:16px;padding:11px 12px}
+
+  .ethos-inner{grid-template-columns:1fr;gap:30px}
   .headline-grid{grid-template-columns:1fr}
   .lead-title{font-size:clamp(26px,7vw,36px)}
   .service-strip{grid-template-columns:1fr}

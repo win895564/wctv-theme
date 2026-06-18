@@ -21,17 +21,62 @@
     </a>
 
     <nav class="nav-menu" id="navMenu" aria-label="主選單">
-      <a href="#services">數位電視</a>
-      <a href="#services">寬頻網路</a>
-      <a href="#services">電路出租</a>
-      <a href="#plans">好康優惠</a>
-      <a href="#news">最新消息</a>
-      <a href="#footer">關於我們</a>
+      <a href="#">優惠方案</a>
+
+      <div class="nav-group">
+        <a href="#" class="nav-parent" aria-haspopup="true" aria-expanded="false">產品介紹
+          <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-drop nav-drop-2col">
+          <a href="#">哈TV 有線電視</a>
+          <a href="#">哈NET 寬頻上網</a>
+          <a href="#">LINE TV 追劇</a>
+          <a href="#">Mesh WiFi 6</a>
+          <a href="#">居家監控</a>
+          <a href="#">哈TV＋鄰里守護隊</a>
+          <a href="#">OTT／加值服務</a>
+          <a href="#">廣告託播</a>
+          <a href="#">電路出租</a>
+        </div>
+      </div>
+
+      <a href="#news">最新公告</a>
+
+      <div class="nav-group nav-group-right">
+        <a href="#" class="nav-parent" aria-haspopup="true" aria-expanded="false">客戶服務
+          <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-drop nav-drop-2col">
+          <a href="#">智能客服</a>
+          <a href="#">線上繳費</a>
+          <a href="#">頻道查詢</a>
+          <a href="#">組合套餐頻道</a>
+          <a href="#">節目表／時刻表</a>
+          <a href="#">發票查詢</a>
+          <a href="#">常見問題</a>
+          <a href="#">下載專區</a>
+          <a href="#">公用頻道</a>
+          <a href="#">客服中心</a>
+        </div>
+      </div>
+
+      <div class="nav-group nav-group-right">
+        <a href="#" class="nav-parent" aria-haspopup="true" aria-expanded="false">關於我們
+          <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-drop">
+          <a href="#">公司介紹</a>
+          <a href="#">經營理念</a>
+          <a href="#">重大事紀</a>
+          <a href="#">未來展望</a>
+          <a href="#">個人資料保護專區</a>
+        </div>
+      </div>
     </nav>
 
     <div class="nav-cta">
       <a href="#" class="btn btn-ghost">線上繳費</a>
-      <a href="#plans" class="btn btn-primary">立即申辦</a>
+      <a href="#" class="btn btn-primary">立即申辦</a>
     </div>
 
     <button class="nav-burger" id="navBurger" aria-label="開啟選單" aria-expanded="false">
@@ -62,11 +107,11 @@
         </a>
         <div class="lead-body">
           <span class="lead-cat">六月限定優惠</span>
-          <h1 class="lead-title">家用光纖到府，<br>3 分鐘線上申辦、<span class="hl">499 元起</span></h1>
+          <h1 class="lead-title">家用光纖到府，3 分鐘線上申辦、<span class="hl">499 元起</span></h1>
           <p class="lead-excerpt">線上送出資料、專人到府安裝，全程不必出門。即日起申辦再享 24 小時智能＋真人客服全天守護，網路一有狀況立刻有人接手。</p>
           <div class="lead-actions">
-            <a href="#plans" class="btn btn-primary btn-lg">查看方案</a>
-            <a href="#news" class="btn btn-ghost btn-lg">看更多消息</a>
+            <a href="#" class="btn btn-primary btn-lg">立即申辦</a>
+            <a href="#" class="btn btn-ghost btn-lg">了解詳情</a>
           </div>
         </div>
       </article>
@@ -223,6 +268,21 @@
   </div>
 </section>
 
+<!-- 品牌理念 + 服務內容 -->
+<section class="ethos" id="about">
+  <div class="section-inner ethos-inner">
+    <div class="ethos-lead reveal">
+      <p class="ethos-en">The Most Thoughtful Service,<br>Made a Beautiful Life.</p>
+      <p class="ethos-vision">最貼心的訊息平台，創造更美好的生活願景</p>
+    </div>
+    <div class="ethos-body reveal">
+      <span class="ethos-kicker"><span class="kicker-dot"></span>SERVICE</span>
+      <h2 class="ethos-title">服務內容</h2>
+      <p class="ethos-text">台灣佳光電訊股份有限公司（原西海岸有線電視），隸屬台灣數位光訊科技集團，在品質科技、尊重關懷的引領下，十餘年來深入地方，陸續完成社區綿密的光纖網路建置，連結全球資訊，拉近城鄉差距，與地方建立起最密切、最深厚的服務關係。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ⑤ 方案 CTA -->
 <section class="plans" id="plans">
   <div class="section-inner">
@@ -311,27 +371,30 @@
     </div>
 
     <div class="footer-col">
-      <h4>服務</h4>
-      <a href="#services">數位電視</a>
-      <a href="#services">光纖寬頻</a>
-      <a href="#services">電路出租</a>
-      <a href="#plans">好康優惠</a>
+      <h4>產品介紹</h4>
+      <a href="#">哈TV 有線電視</a>
+      <a href="#">哈NET 寬頻上網</a>
+      <a href="#">OTT／加值服務</a>
+      <a href="#">廣告託播</a>
+      <a href="#">電路出租</a>
     </div>
 
     <div class="footer-col">
-      <h4>關於</h4>
-      <a href="#footer">公司介紹</a>
-      <a href="#news">最新消息</a>
-      <a href="#footer">服務據點</a>
-      <a href="#footer">隱私權政策</a>
-    </div>
-
-    <div class="footer-col">
-      <h4>會員</h4>
+      <h4>客戶服務</h4>
       <a href="#">線上繳費</a>
-      <a href="#">帳單查詢</a>
-      <a href="#">障礙報修</a>
-      <a href="#">頻道表</a>
+      <a href="#">頻道查詢</a>
+      <a href="#">常見問題</a>
+      <a href="#">下載專區</a>
+      <a href="#">公用頻道</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>關於我們</h4>
+      <a href="#">公司介紹</a>
+      <a href="#">經營理念</a>
+      <a href="#">重大事紀</a>
+      <a href="#">未來展望</a>
+      <a href="#">個人資料保護專區</a>
     </div>
 
   </div>

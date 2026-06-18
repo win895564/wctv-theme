@@ -21,14 +21,32 @@
     nav.classList.remove('open');
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
+    // 收合所有展開的子站圖
+    document.querySelectorAll('.nav__item.has-sub.open').forEach(function (item) {
+      item.classList.remove('open');
+      var t = item.querySelector('.nav__link');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
   }
   burger.addEventListener('click', function () {
     var open = nav.classList.toggle('open');
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  // 點選單項目 / 遮罩後關閉
-  document.querySelectorAll('#navMenu a, .nav__cta a').forEach(function (a) {
+  // 手機：點父項展開子站圖（桌機交給 CSS :hover）
+  var MOBILE_NAV = '(max-width:760px)';
+  document.querySelectorAll('.nav__item.has-sub > .nav__link').forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      if (!window.matchMedia(MOBILE_NAV).matches) return; // 桌機不攔截
+      e.preventDefault();
+      var item = toggle.parentElement;
+      var open = item.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  // 點實際連結（子項 / 單一主項 / CTA） / 遮罩後關閉選單
+  document.querySelectorAll('.nav__sub a, .nav__menu > a.nav__link, .nav__cta a').forEach(function (a) {
     a.addEventListener('click', closeMenu);
   });
   nav.addEventListener('click', function (e) {

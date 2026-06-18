@@ -14,18 +14,44 @@
   /* ---------- 手機漢堡 ---------- */
   var burger = document.getElementById('hamburger');
   var menu = document.getElementById('navMenu');
+  var MOBILE = '(max-width: 760px)';
+
+  function closeMenu() {
+    if (!burger || !menu) return;
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    menu.querySelectorAll('.nav-item.open').forEach(function (it) {
+      it.classList.remove('open');
+      var p = it.querySelector('.nav-parent');
+      if (p) p.setAttribute('aria-expanded', 'false');
+    });
+  }
+
   if (burger && menu) {
     burger.addEventListener('click', function () {
       var open = menu.classList.toggle('open');
       burger.classList.toggle('open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (!open) closeMenu();
     });
-    menu.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        menu.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
+
+    /* 手機：點父項 → 展開／收合子選單（桌機交給 CSS :hover） */
+    menu.querySelectorAll('.nav-parent').forEach(function (p) {
+      p.addEventListener('click', function (e) {
+        if (!matchMedia(MOBILE).matches) return;
+        e.preventDefault();
+        var item = p.closest('.nav-item');
+        if (!item) return;
+        var open = item.classList.toggle('open');
+        p.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    });
+
+    /* 點到實際連結（非父項）→ 收起整個選單 */
+    menu.querySelectorAll('a').forEach(function (a) {
+      if (a.classList.contains('nav-parent')) return;
+      a.addEventListener('click', closeMenu);
     });
   }
 

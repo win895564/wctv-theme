@@ -51,6 +51,18 @@
     if (e.key === 'Escape') closeDrawer();
   });
 
+  /* ---------- 手機抽屜：子選單折疊（桌機交給 CSS :hover） ---------- */
+  if (drawer) {
+    drawer.querySelectorAll('.drawer__parent').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sub = btn.nextElementSibling;
+        var open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+        if (sub) sub.classList.toggle('is-open', !open);
+      });
+    });
+  }
+
   /* ---------- ③ 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
   if (prefersReduced || !('IntersectionObserver' in window)) {

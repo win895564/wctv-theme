@@ -81,16 +81,44 @@ em{font-style:italic}
 }
 
 .nav-menu{display:flex;gap:30px;margin-left:auto;margin-right:auto}
-.nav-menu a{
-  position:relative;font-size:.94rem;font-weight:400;color:var(--ink-soft);
+.nav-item{position:relative;display:flex;align-items:center}
+.nav-link{
+  position:relative;display:inline-flex;align-items:center;gap:.32em;
+  font-size:.94rem;font-weight:400;color:var(--ink-soft);
   padding:.3em 0;transition:color .25s var(--ease);
 }
-.nav-menu a::after{
+.nav-link::after{
   content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--red);
   transition:width .3s var(--ease);
 }
-.nav-menu a:hover{color:var(--ink)}
-.nav-menu a:hover::after{width:100%}
+.nav-link:hover{color:var(--ink)}
+.nav-link:hover::after{width:100%}
+.nav-caret{flex-shrink:0;transition:transform .3s var(--ease)}
+.nav-item.has-sub:hover .nav-caret{transform:rotate(180deg)}
+
+/* dropdown panel — magazine sharp-edge style */
+.nav-sub{
+  position:absolute;top:100%;left:-18px;
+  display:grid;grid-template-columns:1fr;gap:0;
+  min-width:220px;padding:10px 0;margin-top:14px;
+  background:var(--bg);border:1px solid var(--line);
+  box-shadow:0 24px 50px -30px rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;transform:translateY(8px);pointer-events:none;
+  transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s var(--ease);
+  z-index:120;
+}
+/* bridge the gap so hover doesn't drop */
+.nav-item.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
+.nav-sub-wide{grid-template-columns:1fr 1fr;min-width:420px}
+.nav-sub-right{left:auto;right:-18px}
+.nav-item.has-sub:hover .nav-sub,
+.nav-item.has-sub.open .nav-sub{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.nav-sub a{
+  position:relative;display:block;padding:.7em 22px;
+  font-size:.9rem;color:var(--ink-soft);white-space:nowrap;
+  transition:color .25s var(--ease),background .25s var(--ease);
+}
+.nav-sub a:hover{color:var(--ink);background:#f4f1ec}
 
 .nav-actions{display:flex;align-items:center;gap:12px}
 
@@ -136,7 +164,8 @@ em{font-style:italic}
 .slide-title{
   font-family:var(--serif);font-weight:700;color:var(--ink);
   font-size:clamp(2.8rem,8.2vw,7rem);
-  line-height:.98;letter-spacing:-.015em;margin-bottom:1.6rem;
+  line-height:1.0;letter-spacing:-.015em;margin-bottom:1.6rem;
+  text-wrap:balance;
   opacity:0;transform:translateY(26px);
 }
 .slide-title em{color:var(--red);font-style:italic}
@@ -286,6 +315,29 @@ em{font-style:italic}
 .stat-label{display:block;margin-top:14px;font-size:.95rem;color:var(--ink-soft);letter-spacing:.04em}
 
 /* =========================================================
+   ETHOS / SERVICE (品牌理念 + 服務內容)
+   ========================================================= */
+.ethos{padding:120px 0;border-bottom:1px solid var(--line);background:var(--bg)}
+.ethos-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;
+}
+.ethos-vision{border-left:2px solid var(--red);padding-left:34px}
+.ethos-en{
+  font-family:var(--serif);font-weight:600;font-style:italic;color:var(--ink);
+  font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.12;letter-spacing:-.01em;
+}
+.ethos-zh{
+  margin-top:1.6rem;font-size:1.08rem;color:var(--ink-soft);letter-spacing:.04em;line-height:1.9;
+}
+.ethos-title{
+  font-family:var(--serif);font-weight:700;color:var(--ink);
+  font-size:clamp(2rem,3.6vw,3rem);line-height:1.05;letter-spacing:-.01em;margin-top:.6rem;
+}
+.ethos-text{
+  margin-top:1.6rem;color:var(--ink-soft);font-size:1.05rem;line-height:2;
+}
+
+/* =========================================================
    NEWS
    ========================================================= */
 .news{padding:120px 0;border-bottom:1px solid var(--line)}
@@ -383,14 +435,37 @@ em{font-style:italic}
     transform:translateX(100%);transition:transform .4s var(--ease);
     z-index:90;box-shadow:-24px 0 60px -40px rgba(0,0,0,.5);
   }
-  .nav-menu.open{transform:translateX(0)}
-  .nav-menu a{width:100%;padding:18px 0;border-bottom:1px solid var(--line);font-size:1.15rem;font-family:var(--serif)}
-  .nav-menu a::after{display:none}
+  .nav-menu.open{transform:translateX(0);overflow-y:auto}
+  .nav-menu{gap:0}
+  .nav-item{display:block;width:100%}
+  .nav-link{
+    width:100%;justify-content:space-between;padding:18px 0;
+    border-bottom:1px solid var(--line);font-size:1.15rem;font-family:var(--serif);color:var(--ink);
+  }
+  .nav-link::after{display:none}
+  .nav-item.has-sub.open .nav-caret{transform:rotate(180deg)}
+
+  /* mobile accordion sub-panel */
+  .nav-sub{
+    position:static;display:block;min-width:0;width:100%;
+    border:0;box-shadow:none;background:transparent;margin:0;padding:0;
+    opacity:1;visibility:visible;transform:none;pointer-events:auto;
+    max-height:0;overflow:hidden;
+    transition:max-height .35s var(--ease);
+  }
+  .nav-sub-wide{grid-template-columns:1fr}
+  .nav-sub-right{left:auto;right:auto}
+  .nav-item.has-sub.open .nav-sub{max-height:640px}
+  .nav-item.has-sub::after{display:none}
+  .nav-sub a{padding:13px 0 13px 18px;font-size:1rem;border-bottom:1px solid var(--line);white-space:normal}
+  .nav-sub a:hover{background:transparent;color:var(--red)}
+
   .nav-actions .btn-ghost{display:none}
   .nav-toggle{display:flex}
 
-  .services,.why,.news{padding:84px 0}
+  .services,.why,.news,.ethos{padding:84px 0}
   .cta{padding:96px 0}
+  .ethos-grid{grid-template-columns:1fr;gap:48px}
   .sec-head{margin-bottom:44px}
 
   .svc-grid{grid-template-columns:1fr}

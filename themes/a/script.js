@@ -37,7 +37,24 @@
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
+      // 收合所有展開的子選單
+      menu.querySelectorAll('.nav-item.open').forEach(function (it) { it.classList.remove('open'); });
     }
+
+    /* 下拉子選單：手機點擊展開折疊（桌機由 CSS hover 處理） */
+    var mqMobile = window.matchMedia('(max-width:860px)');
+    menu.querySelectorAll('.nav-item.has-sub > .nav-sub-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        if (!mqMobile.matches) return;
+        e.preventDefault();
+        var item = btn.parentElement;
+        var willOpen = !item.classList.contains('open');
+        // 同層只展開一個
+        menu.querySelectorAll('.nav-item.open').forEach(function (it) { if (it !== item) it.classList.remove('open'); });
+        item.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      });
+    });
     toggle.addEventListener('click', function () {
       if (menu.classList.contains('open')) closeMenu(); else openMenu();
     });

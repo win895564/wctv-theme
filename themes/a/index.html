@@ -20,16 +20,74 @@
       <img src="../../assets/logo-horizontal.png" alt="台灣佳光電訊" style="height:36px;width:auto;display:block">
     </a>
 
+    <!-- 主選單：對齊 wctv.com.tw 實際站圖。多頁分類用下拉；連結先指 # (尚未產生頁面，僅留入口)。 -->
     <nav class="nav-menu" id="navMenu" aria-label="主選單">
-      <a href="#services">數位電視</a>
-      <a href="#services">寬頻網路</a>
-      <a href="#services">電路出租</a>
-      <a href="#news">好康優惠</a>
-      <a href="#news">最新消息</a>
-      <a href="#why">關於我們</a>
+
+      <div class="nav-item">
+        <a href="#" class="nav-link">優惠方案</a>
+      </div>
+
+      <div class="nav-item has-sub">
+        <button type="button" class="nav-link nav-sub-toggle" aria-expanded="false">產品介紹
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown">
+          <div class="dropdown-grid two">
+            <a href="#">哈TV 有線電視</a>
+            <a href="#">哈NET 寬頻上網</a>
+            <a href="#">LINE TV 追劇</a>
+            <a href="#">Mesh WiFi 6</a>
+            <a href="#">居家監控</a>
+            <a href="#">哈TV＋ 鄰里守護隊</a>
+            <a href="#">OTT／加值服務</a>
+            <a href="#">廣告託播</a>
+            <a href="#">電路出租</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#news" class="nav-link">最新公告</a>
+      </div>
+
+      <div class="nav-item has-sub">
+        <button type="button" class="nav-link nav-sub-toggle" aria-expanded="false">客戶服務
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown align-right">
+          <div class="dropdown-grid two">
+            <a href="#">智能客服</a>
+            <a href="#">線上繳費</a>
+            <a href="#">頻道查詢</a>
+            <a href="#">組合套餐頻道</a>
+            <a href="#">節目表／時刻表</a>
+            <a href="#">發票查詢</a>
+            <a href="#">常見問題</a>
+            <a href="#">下載專區</a>
+            <a href="#">公用頻道</a>
+            <a href="#">客服中心</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item has-sub">
+        <button type="button" class="nav-link nav-sub-toggle" aria-expanded="false">關於我們
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="nav-dropdown align-right">
+          <div class="dropdown-grid">
+            <a href="#about">公司介紹</a>
+            <a href="#">經營理念</a>
+            <a href="#">重大事紀</a>
+            <a href="#">未來展望</a>
+            <a href="#">個人資料保護專區</a>
+          </div>
+        </div>
+      </div>
+
       <div class="nav-cta-mobile">
         <a href="#" class="btn btn-ghost">線上繳費</a>
-        <a href="#cta" class="btn btn-primary">立即申辦</a>
+        <a href="#" class="btn btn-primary">立即申辦</a>
       </div>
     </nav>
 
@@ -50,15 +108,17 @@
 <section class="hero" id="hero" aria-label="主視覺輪播">
   <div class="hero-track" id="heroTrack">
 
+    <!-- 每張輪播 = 一篇「精選文章」：標籤＝文章分類／標題＝文章標題(完整、不截斷)／副文＝摘要／兩顆固定按鈕都連到該篇文章。
+         未來搬 WordPress：小編發文勾「上首頁輪播」即自動生成一張，版面格式固定、不用排版。 -->
     <article class="slide is-active" style="--img:url('https://picsum.photos/seed/hanet-fiber/1600/900')">
       <div class="slide-overlay"></div>
       <div class="container slide-content">
         <p class="slide-eyebrow">家用光纖寬頻</p>
-        <h1 class="slide-title">家用光纖<br>3 分鐘線上申辦</h1>
-        <p class="slide-desc">中部在地首選，優惠方案 <strong>499 元起</strong>，24 小時智能＋真人客服。</p>
+        <h1 class="slide-title">家用光纖 3 分鐘線上申辦</h1>
+        <p class="slide-desc">中部在地首選，優惠方案 <strong>499 元起</strong>，24 小時智能＋真人客服，網速到府一次搞定。</p>
         <div class="slide-actions">
-          <a href="#cta" class="btn btn-primary btn-lg">立即申辦</a>
-          <a href="#news" class="btn btn-outline btn-lg">看好康</a>
+          <a href="#" class="btn btn-primary btn-lg">立即申辦</a>
+          <a href="#" class="btn btn-outline btn-lg">了解詳情</a>
         </div>
       </div>
     </article>
@@ -67,10 +127,11 @@
       <div class="slide-overlay"></div>
       <div class="container slide-content">
         <p class="slide-eyebrow">數位電視＋光纖</p>
-        <h1 class="slide-title">有線電視＋光纖<br>家庭娛樂一次擁有</h1>
-        <p class="slide-desc">雙模機免費借、4K 機上盒、上百頻道，全家盡情享受。</p>
+        <h1 class="slide-title">有線電視＋光纖 家庭娛樂一次擁有</h1>
+        <p class="slide-desc">雙模機免費借、4K 機上盒、上百頻道，全家盡情享受高畫質影音。</p>
         <div class="slide-actions">
-          <a href="#services" class="btn btn-primary btn-lg">看電視方案</a>
+          <a href="#" class="btn btn-primary btn-lg">立即申辦</a>
+          <a href="#" class="btn btn-outline btn-lg">了解詳情</a>
         </div>
       </div>
     </article>
@@ -78,11 +139,12 @@
     <article class="slide" style="--img:url('https://picsum.photos/seed/hanet-point/1600/900')">
       <div class="slide-overlay"></div>
       <div class="container slide-content">
-        <p class="slide-eyebrow">六月限定</p>
-        <h1 class="slide-title">六月好康<br>申辦再加贈 300 點</h1>
+        <p class="slide-eyebrow">六月限定優惠</p>
+        <h1 class="slide-title">六月好康 申辦再加贈 300 點</h1>
         <p class="slide-desc">線上申辦成功即享 <strong>哈 POINT</strong> 回饋，越用越划算。</p>
         <div class="slide-actions">
-          <a href="#news" class="btn btn-primary btn-lg">查看優惠</a>
+          <a href="#" class="btn btn-primary btn-lg">立即申辦</a>
+          <a href="#" class="btn btn-outline btn-lg">了解詳情</a>
         </div>
       </div>
     </article>
@@ -235,6 +297,21 @@
   </div>
 </section>
 
+<!-- ============ 4.5 品牌理念 + 服務內容（公司基本介紹，常駐語料） ============ -->
+<section class="ethos" id="about" aria-label="品牌理念與服務內容">
+  <div class="container ethos-inner">
+    <div class="ethos-quote reveal">
+      <p class="ethos-en">The Most Thoughtful Service,<br>Made a Beautiful Life.</p>
+      <p class="ethos-zh">最貼心的訊息平台，創造更美好的生活願景</p>
+    </div>
+    <div class="ethos-service reveal">
+      <p class="section-eyebrow">SERVICE</p>
+      <h2 class="section-title">服務內容</h2>
+      <p class="ethos-body">台灣佳光電訊股份有限公司（原西海岸有線電視），隸屬台灣數位光訊科技集團，在品質科技、尊重關懷的引領下，十餘年來深入地方，陸續完成社區綿密的光纖網路建置，連結全球資訊，拉近城鄉差距，與地方建立起最密切、最深厚的服務關係。</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ 5. 最新消息 ============ -->
 <section class="news" id="news" aria-label="最新消息">
   <div class="container">
@@ -314,32 +391,35 @@
     </div>
 
     <div class="footer-col">
-      <h4>服務項目</h4>
+      <h4>產品介紹</h4>
       <ul>
-        <li><a href="#">數位電視</a></li>
-        <li><a href="#">光纖寬頻</a></li>
+        <li><a href="#">哈TV 有線電視</a></li>
+        <li><a href="#">哈NET 寬頻上網</a></li>
+        <li><a href="#">OTT／加值服務</a></li>
+        <li><a href="#">廣告託播</a></li>
         <li><a href="#">電路出租</a></li>
-        <li><a href="#">企業專線</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>客戶服務</h4>
+      <ul>
+        <li><a href="#">線上繳費</a></li>
+        <li><a href="#">頻道查詢</a></li>
+        <li><a href="#">常見問題</a></li>
+        <li><a href="#">下載專區</a></li>
+        <li><a href="#">公用頻道</a></li>
       </ul>
     </div>
 
     <div class="footer-col">
       <h4>關於我們</h4>
       <ul>
-        <li><a href="#">公司簡介</a></li>
-        <li><a href="#">服務區域</a></li>
-        <li><a href="#">最新消息</a></li>
-        <li><a href="#">聯絡我們</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>會員專區</h4>
-      <ul>
-        <li><a href="#">線上繳費</a></li>
-        <li><a href="#">申裝查詢</a></li>
-        <li><a href="#">哈 POINT</a></li>
-        <li><a href="#">常見問題</a></li>
+        <li><a href="#">公司介紹</a></li>
+        <li><a href="#">經營理念</a></li>
+        <li><a href="#">重大事紀</a></li>
+        <li><a href="#">未來展望</a></li>
+        <li><a href="#">個人資料保護專區</a></li>
       </ul>
     </div>
   </div>

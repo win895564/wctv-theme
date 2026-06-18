@@ -35,9 +35,21 @@
     ctaWrap.className = "mobile-cta";
     ctaWrap.innerHTML =
       '<a href="#" class="btn btn-ghost">線上繳費</a>' +
-      '<a href="#plans" class="btn btn-primary">立即申辦</a>';
+      '<a href="#" class="btn btn-primary">立即申辦</a>';
     menu.appendChild(ctaWrap);
   }
+
+  /* ---------- 下拉子選單：桌機交給 CSS :hover；手機點父項展開 ---------- */
+  document.querySelectorAll(".nav-parent").forEach(function (parent) {
+    parent.addEventListener("click", function (e) {
+      if (window.innerWidth > 860) return; // 桌機由 CSS hover 處理
+      e.preventDefault();
+      var group = parent.closest(".nav-group");
+      if (!group) return;
+      var open = group.classList.toggle("open");
+      parent.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
 
   function closeMenu() {
     if (!menu || !burger) return;
@@ -54,13 +66,21 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
       burger.setAttribute("aria-label", open ? "關閉選單" : "開啟選單");
     });
-    // 點選單連結後自動收合
+    // 點選單連結後自動收合（父項展開鈕除外）
     menu.querySelectorAll("a").forEach(function (a) {
+      if (a.classList.contains("nav-parent")) return;
       a.addEventListener("click", closeMenu);
     });
     // 視窗放大回桌機尺寸時收合
     window.addEventListener("resize", function () {
-      if (window.innerWidth > 860) closeMenu();
+      if (window.innerWidth > 860) {
+        closeMenu();
+        document.querySelectorAll(".nav-group.open").forEach(function (g) {
+          g.classList.remove("open");
+          var p = g.querySelector(".nav-parent");
+          if (p) p.setAttribute("aria-expanded", "false");
+        });
+      }
     });
   }
 

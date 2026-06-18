@@ -111,11 +111,34 @@ a:focus-visible,button:focus-visible{
 .brand__text b{color:var(--amber);font-weight:900}
 
 .nav__menu{display:flex;align-items:center;gap:6px;margin-left:8px}
+.nav__menu>li{position:relative}
 .nav__menu a{
   display:block;padding:12px 16px;border-radius:10px;font-weight:700;font-size:1.02em;color:var(--ink);
   transition:background .15s,color .15s;
 }
 .nav__menu a:hover{background:var(--blue-soft);color:var(--blue)}
+
+/* 下拉站圖（桌機 hover 展開、手機點擊折疊） */
+.nav__sub-toggle{display:flex;align-items:center;gap:4px}
+.nav__caret{width:18px;height:18px;flex:0 0 auto;transition:transform .2s}
+.nav__has-sub:hover>.nav__sub-toggle,
+.nav__has-sub:focus-within>.nav__sub-toggle{background:var(--blue-soft);color:var(--blue)}
+.nav__has-sub:hover .nav__caret,
+.nav__has-sub:focus-within .nav__caret{transform:rotate(180deg)}
+
+.nav__dropdown{
+  position:absolute;top:calc(100% + 6px);left:0;z-index:1100;
+  display:grid;grid-template-columns:1fr;gap:2px;
+  min-width:230px;padding:10px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .18s,transform .18s,visibility .18s;
+}
+.nav__dropdown--cols{grid-template-columns:1fr 1fr;min-width:440px}
+.nav__has-sub--right .nav__dropdown{left:auto;right:0}
+.nav__has-sub:hover>.nav__dropdown,
+.nav__has-sub:focus-within>.nav__dropdown{opacity:1;visibility:visible;transform:none}
+.nav__dropdown a{font-size:.98em;padding:11px 14px;white-space:nowrap}
 
 .nav__cta{margin-left:auto;display:flex;gap:10px}
 
@@ -129,26 +152,37 @@ a:focus-visible,button:focus-visible{
    ② 窄 hero + 公告橫幅
    ============================================================ */
 .hero{background:linear-gradient(160deg,var(--blue-tint) 0%,#fff 60%);overflow:hidden}
-.hero__inner{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:54px 24px 40px}
-.hero__eyebrow{margin:0 0 14px;color:var(--blue);font-weight:700;letter-spacing:1px}
-.hero h1{font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:.5px}
-.hero h1 .hl{color:var(--blue)}
-.hero__lead{margin:20px 0 30px;font-size:1.12em;color:var(--ink-2);max-width:36ch}
+.hero__inner{padding:46px 24px 34px}
+
+/* 輪播：固定模板，每張＝一篇精選文章 */
+.hero__carousel{position:relative}
+.hero__slide{
+  display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
+  animation:heroFade .55s ease both;
+}
+.hero__slide[hidden]{display:none}
+@keyframes heroFade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.hero__tag{
+  display:inline-block;margin:0 0 16px;color:var(--blue);background:var(--blue-soft);
+  font-weight:900;font-size:.95em;letter-spacing:.5px;padding:7px 18px;border-radius:999px;
+}
+.hero__title{font-size:clamp(2.1rem,4.4vw,3.2rem);letter-spacing:.5px}
+.hero__lead{margin:20px 0 30px;font-size:1.12em;color:var(--ink-2);max-width:40ch}
 .hero__lead b{color:var(--amber)}
 .hero__actions{display:flex;flex-wrap:wrap;gap:14px}
 
-.hero__media{position:relative;animation:floatIn .9s cubic-bezier(.2,.7,.3,1) both}
+.hero__media{position:relative}
 .hero__media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);width:100%;height:auto;object-fit:cover}
-.hero__badge{
-  position:absolute;left:-14px;bottom:24px;background:var(--blue);color:#fff;
-  border-radius:18px;padding:14px 22px;box-shadow:var(--shadow);display:flex;align-items:baseline;gap:6px;
-  animation:popIn 1s .4s both;
-}
-.hero__badge strong{font-size:2.2em;font-weight:900;line-height:1}
-.hero__badge span{font-size:.95em;opacity:.9}
 
-@keyframes floatIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-@keyframes popIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+/* 輪播指示點 */
+.hero__dots{display:flex;justify-content:center;gap:12px;margin-top:30px}
+.hero__dot{
+  width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);background:transparent;
+  cursor:pointer;padding:0;transition:background .2s,transform .2s;
+}
+.hero__dot:hover{background:var(--blue-soft)}
+.hero__dot.is-active{background:var(--blue);transform:scale(1.1)}
 
 /* 公告橫幅 */
 .ticker{background:var(--blue);color:#fff}
@@ -296,6 +330,36 @@ a:focus-visible,button:focus-visible{
 .news-item a:hover .news-item__arrow{transform:translateX(4px)}
 
 /* ============================================================
+   品牌理念 + 服務內容（必留語料）
+   ============================================================ */
+.ethos{padding:6px 0 70px}
+.ethos__inner{
+  display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;
+  background:var(--blue-tint);border:1px solid var(--line);border-radius:var(--radius-lg);
+  padding:48px 52px;box-shadow:var(--shadow-sm);
+}
+.ethos__en{margin:0;color:var(--blue);font-weight:900;font-size:clamp(1.5rem,2.6vw,2rem);line-height:1.35;letter-spacing:.5px}
+.ethos__vision{margin:18px 0 0;color:var(--ink);font-weight:700;font-size:1.18em;line-height:1.7}
+.ethos__eyebrow{margin:0;color:var(--blue-l);font-weight:900;letter-spacing:3px;font-size:.95em}
+.ethos__body h2{margin:8px 0 16px;font-size:clamp(1.6rem,3vw,2.2rem)}
+.ethos__text{margin:0;color:var(--ink-2);font-size:1.08em;line-height:1.95}
+
+/* ============================================================
+   標題不截斷保護（方案名如「好視成雙」需完整顯示）
+   ============================================================ */
+.hero__title,.sect-head h2,.sect-head h3,
+.svc-card__body h3,.plan__name,.self-card__title,
+.news-item__title,.feature__title,.ethos__body h2{
+  overflow:visible;text-overflow:clip;white-space:normal;
+  -webkit-line-clamp:none;display:block;
+}
+/* 摘要可保留最多 2 行截斷 */
+.news-item__excerpt{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+/* ============================================================
    ⑥ footer
    ============================================================ */
 .site-footer{background:var(--ink);color:#cdd9e3}
@@ -344,7 +408,8 @@ a:focus-visible,button:focus-visible{
 @media (max-width:1024px){
   .nav__menu,.nav__cta{display:none}
   .hamburger{display:flex}
-  .hero__inner{grid-template-columns:1fr;gap:30px;padding-top:40px}
+  .hero__slide{grid-template-columns:1fr;gap:30px}
+  .hero__inner{padding-top:36px}
   .hero__media{order:-1;max-width:520px}
   .footer__grid{grid-template-columns:1fr 1fr}
 }
@@ -361,7 +426,26 @@ a:focus-visible,button:focus-visible{
   }
   .nav__menu.is-open{display:flex}
   .nav__menu a{padding:16px 12px;font-size:1.15em;border-bottom:1px solid var(--line)}
-  .nav__menu li:last-child a{border-bottom:none}
+  .nav__menu>li:last-child>a{border-bottom:none}
+
+  /* 手機：子選單改成點擊折疊 */
+  .nav__menu>li{position:static}
+  .nav__sub-toggle{justify-content:space-between}
+  .nav__has-sub .nav__caret{transition:transform .2s}
+  .nav__has-sub.is-open>.nav__sub-toggle .nav__caret{transform:rotate(180deg)}
+  /* 桌機 hover 規則在手機停用，改由 .is-open 控制 */
+  .nav__dropdown{
+    position:static;left:auto;right:auto;top:auto;
+    grid-template-columns:1fr;min-width:0;
+    opacity:1;visibility:visible;transform:none;
+    display:none;border:none;border-radius:0;box-shadow:none;padding:0;
+    background:var(--blue-tint);margin:0;
+  }
+  .nav__dropdown--cols{grid-template-columns:1fr}
+  .nav__has-sub:hover>.nav__dropdown,
+  .nav__has-sub:focus-within>.nav__dropdown{opacity:1;visibility:visible;transform:none}
+  .nav__has-sub.is-open>.nav__dropdown{display:grid}
+  .nav__dropdown a{padding:14px 24px;font-size:1.05em;border-bottom:1px solid var(--line);white-space:normal}
   .nav__cta{
     display:flex;position:absolute;left:0;right:0;top:calc(100% + 1px);margin:0;
     padding:0;visibility:hidden;height:0;overflow:hidden;

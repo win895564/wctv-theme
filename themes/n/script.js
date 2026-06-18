@@ -30,13 +30,28 @@
       navLinks.appendChild(mob);
     }
 
+    var isMobileNav = function () {
+      return window.matchMedia('(max-width: 860px)').matches;
+    };
+
     if (burger && navLinks) {
       burger.addEventListener('click', function () {
         var open = navLinks.classList.toggle('open');
         burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
       navLinks.addEventListener('click', function (e) {
-        if (e.target.closest('a')) {
+        // 手機：點父項只折疊子選單，不關整個選單
+        var parent = e.target.closest('.nav-parent');
+        if (parent && isMobileNav()) {
+          e.preventDefault();
+          var item = parent.closest('.nav-item');
+          var willOpen = !item.classList.contains('open');
+          item.classList.toggle('open', willOpen);
+          parent.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          return;
+        }
+        // 點真正的連結（子項或一般項）才收合選單
+        if (e.target.closest('a') && !parent) {
           navLinks.classList.remove('open');
           burger.setAttribute('aria-expanded', 'false');
         }

@@ -21,12 +21,57 @@
     </a>
 
     <nav class="nav__menu" id="navMenu" aria-label="主選單">
-      <a href="#tv">數位電視</a>
-      <a href="#plans">寬頻網路</a>
-      <a href="#enterprise">電路出租</a>
-      <a href="#news">好康優惠</a>
-      <a href="#news">最新消息</a>
-      <a href="#about">關於我們</a>
+      <a href="#" class="nav__link">優惠方案</a>
+
+      <div class="nav__item has-sub">
+        <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">產品介紹
+          <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav__sub nav__sub--wide">
+          <a href="#">哈TV 有線電視</a>
+          <a href="#">哈NET 寬頻上網</a>
+          <a href="#">LINE TV 追劇</a>
+          <a href="#">Mesh WiFi 6</a>
+          <a href="#">居家監控</a>
+          <a href="#">哈TV＋鄰里守護隊</a>
+          <a href="#">OTT／加值服務</a>
+          <a href="#">廣告託播</a>
+          <a href="#">電路出租</a>
+        </div>
+      </div>
+
+      <a href="#news" class="nav__link">最新公告</a>
+
+      <div class="nav__item has-sub">
+        <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">客戶服務
+          <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav__sub nav__sub--wide nav__sub--right">
+          <a href="#">智能客服</a>
+          <a href="#">線上繳費</a>
+          <a href="#">頻道查詢</a>
+          <a href="#">組合套餐頻道</a>
+          <a href="#">節目表／時刻表</a>
+          <a href="#">發票查詢</a>
+          <a href="#">常見問題</a>
+          <a href="#">下載專區</a>
+          <a href="#">公用頻道</a>
+          <a href="#">客服中心</a>
+        </div>
+      </div>
+
+      <div class="nav__item has-sub">
+        <a href="#" class="nav__link" aria-haspopup="true" aria-expanded="false">關於我們
+          <svg class="nav__caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav__sub nav__sub--right">
+          <a href="#">公司介紹</a>
+          <a href="#">經營理念</a>
+          <a href="#">重大事紀</a>
+          <a href="#">未來展望</a>
+          <a href="#">個人資料保護專區</a>
+        </div>
+      </div>
     </nav>
 
     <div class="nav__cta">
@@ -52,22 +97,21 @@
 
     <div class="hero__split">
 
-      <!-- 左：價值主張 -->
+      <!-- 左：精選文章（固定模板） -->
       <div class="hero__left reveal">
         <span class="eyebrow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          光纖到府 · 在地深耕 30 年
+          優惠方案
         </span>
         <h1 class="hero__title">
-          你家的網路，<br>
-          值得 <span class="grad">飆到 1G</span> 的快。
+          你家的網路，值得 <span class="grad">飆到 1G</span> 的快。
         </h1>
         <p class="hero__sub">
-          家用光纖 <b>3 分鐘線上申辦</b>，優惠 <b>499 元起</b>，光纖到府專人安裝，24 小時智能＋真人客服全程顧。
+          家用光纖 <b>3 分鐘線上申辦</b>，優惠 <b>499 元起</b>，光纖到府專人安裝，24 小時智能＋真人客服全程顧。挑一個剛剛好的速率，今天就讓家裡飆起來。
         </p>
         <div class="hero__actions">
-          <a href="#apply" class="btn btn--primary btn--lg">立即申辦</a>
-          <a href="#plans" class="btn btn--outline btn--lg">看方案比較</a>
+          <a href="#" class="btn btn--primary btn--lg">立即申辦</a>
+          <a href="#" class="btn btn--outline btn--lg">了解詳情</a>
         </div>
         <ul class="hero__ticks">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>免綁約方案可選</li>
@@ -264,6 +308,23 @@
     </div>
   </section>
 
+  <!-- ④b 品牌理念 + 服務內容 -->
+  <section class="ethos">
+    <div class="container">
+      <div class="ethos__inner reveal">
+        <div class="ethos__lead">
+          <p class="ethos__en">The Most Thoughtful Service,<br>Made a Beautiful Life.</p>
+          <p class="ethos__vision">最貼心的訊息平台，創造更美好的生活願景</p>
+        </div>
+        <div class="ethos__body">
+          <span class="sec-kicker">SERVICE</span>
+          <h2 class="sec-title">服務內容</h2>
+          <p class="ethos__text">台灣佳光電訊股份有限公司（原西海岸有線電視），隸屬台灣數位光訊科技集團，在品質科技、尊重關懷的引領下，十餘年來深入地方，陸續完成社區綿密的光纖網路建置，連結全球資訊，拉近城鄉差距，與地方建立起最密切、最深厚的服務關係。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ⑤ 最新消息 -->
   <section class="news" id="news">
     <div class="container">
@@ -337,26 +398,29 @@
       <p class="footer__line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 台中市大里區國光路一段68號</p>
     </div>
 
-    <nav class="footer__col" aria-label="服務">
-      <h4>服務</h4>
-      <a href="#tv">數位電視</a>
-      <a href="#plans">寬頻網路</a>
-      <a href="#enterprise">電路出租</a>
-      <a href="#news">好康優惠</a>
+    <nav class="footer__col" aria-label="產品介紹">
+      <h4>產品介紹</h4>
+      <a href="#">哈TV 有線電視</a>
+      <a href="#">哈NET 寬頻上網</a>
+      <a href="#">OTT／加值服務</a>
+      <a href="#">廣告託播</a>
+      <a href="#">電路出租</a>
     </nav>
-    <nav class="footer__col" aria-label="關於">
-      <h4>關於</h4>
-      <a href="#about">關於我們</a>
-      <a href="#news">最新消息</a>
-      <a href="#">服務據點</a>
-      <a href="#">隱私權政策</a>
-    </nav>
-    <nav class="footer__col" aria-label="會員">
-      <h4>會員</h4>
+    <nav class="footer__col" aria-label="客戶服務">
+      <h4>客戶服務</h4>
       <a href="#">線上繳費</a>
-      <a href="#">帳單查詢</a>
-      <a href="#">障礙報修</a>
-      <a href="#apply">立即申辦</a>
+      <a href="#">頻道查詢</a>
+      <a href="#">常見問題</a>
+      <a href="#">下載專區</a>
+      <a href="#">公用頻道</a>
+    </nav>
+    <nav class="footer__col" aria-label="關於我們">
+      <h4>關於我們</h4>
+      <a href="#">公司介紹</a>
+      <a href="#">經營理念</a>
+      <a href="#">重大事紀</a>
+      <a href="#">未來展望</a>
+      <a href="#">個人資料保護專區</a>
     </nav>
   </div>
   <div class="footer__bar">

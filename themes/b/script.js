@@ -28,6 +28,15 @@
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
 
+  /* ---------- 2b. 行動選單子分類折疊 ---------- */
+  mobileMenu.querySelectorAll('.m-sub-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const sub = btn.closest('.m-sub');
+      const open = sub.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
   /* ---------- 3. Hero 自動輪播 ---------- */
   const slides = Array.from(document.querySelectorAll('.hero-slide'));
   const dots = Array.from(document.querySelectorAll('#heroDots button'));

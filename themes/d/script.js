@@ -13,24 +13,64 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 2. 漢堡選單 ---------- */
+  /* ---------- 2. 漢堡選單 + 下拉站圖 ---------- */
   var toggle = document.getElementById('navToggle');
   var menu = document.getElementById('navMenu');
+  var subItems = Array.prototype.slice.call(menu.querySelectorAll('.nav-item.has-sub'));
+  var MOBILE_NAV = '(max-width:860px)';
+
+  function isMobileNav() {
+    return window.matchMedia(MOBILE_NAV).matches;
+  }
+  function closeAllSubs() {
+    subItems.forEach(function (it) {
+      it.classList.remove('open');
+      var p = it.querySelector('.nav-parent');
+      if (p) p.setAttribute('aria-expanded', 'false');
+    });
+  }
   function closeMenu() {
     menu.classList.remove('open');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
+    closeAllSubs();
   }
   toggle.addEventListener('click', function () {
     var open = menu.classList.toggle('open');
     toggle.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
+    if (!open) closeAllSubs();
   });
+
+  // parent items: mobile = tap to accordion-expand; desktop = CSS :hover handles panel
+  subItems.forEach(function (it) {
+    var parent = it.querySelector('.nav-parent');
+    if (!parent) return;
+    parent.addEventListener('click', function (e) {
+      if (isMobileNav()) {
+        e.preventDefault();
+        var willOpen = !it.classList.contains('open');
+        closeAllSubs();
+        it.classList.toggle('open', willOpen);
+        parent.setAttribute('aria-expanded', String(willOpen));
+      }
+    });
+  });
+
+  // close drawer when a real navigation link (leaf) is clicked
   menu.querySelectorAll('a').forEach(function (a) {
-    a.addEventListener('click', closeMenu);
+    a.addEventListener('click', function () {
+      if (a.classList.contains('nav-parent') && isMobileNav()) return;
+      closeMenu();
+    });
   });
+
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeMenu();
+  });
+  // reset accordion state if resized back to desktop
+  window.addEventListener('resize', function () {
+    if (!isMobileNav()) { menu.classList.remove('open'); toggle.classList.remove('open'); closeAllSubs(); }
   });
 
   /* ---------- 3. Hero 輪播 ---------- */

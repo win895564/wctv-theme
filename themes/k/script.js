@@ -35,6 +35,16 @@
     if (e.key === 'Escape') setDrawer(false);
   });
 
+  /* 抽屜：手機點父項展開／收合子選單（桌機交給 CSS :hover） */
+  drawer.querySelectorAll('.drawer__parent').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var sub = btn.nextElementSibling;
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+      if (sub) sub.style.maxHeight = open ? '' : (sub.scrollHeight + 'px');
+    });
+  });
+
   /* ---------- 3. 主視覺進場 ---------- */
   window.requestAnimationFrame(function () {
     window.setTimeout(function () {
@@ -64,15 +74,18 @@
     });
   }
 
-  /* ---------- 5. Hero 輪播 ---------- */
+  /* ---------- 5. Hero 輪播（圖片 + 精選文章同步） ---------- */
   var slides = document.querySelectorAll('#heroSlider .slide');
+  var features = document.querySelectorAll('#heroLead .feature');
   var slideNo = document.getElementById('slideNo');
   if (slides.length > 1 && !rm) {
     var cur = 0;
     window.setInterval(function () {
       slides[cur].classList.remove('is-active');
+      if (features[cur]) features[cur].classList.remove('is-active');
       cur = (cur + 1) % slides.length;
       slides[cur].classList.add('is-active');
+      if (features[cur]) features[cur].classList.add('is-active');
       if (slideNo) slideNo.textContent = ('0' + (cur + 1)).slice(-2);
     }, 4200);
   }

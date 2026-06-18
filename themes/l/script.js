@@ -18,6 +18,20 @@
   /* ---------- 手機漢堡 ---------- */
   var burger = document.getElementById('burger');
   var menu = document.getElementById('navMenu');
+  function isMobileNav() { return window.matchMedia('(max-width:900px)').matches; }
+  function closeMenu() {
+    if (!menu) return;
+    menu.classList.remove('is-open');
+    if (burger) {
+      burger.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+    Array.prototype.forEach.call(menu.querySelectorAll('.nav__item.is-open'), function (it) {
+      it.classList.remove('is-open');
+      var t = it.querySelector('.nav__sub-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  }
   if (burger && menu) {
     burger.addEventListener('click', function () {
       var open = menu.classList.toggle('is-open');
@@ -25,10 +39,27 @@
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
     menu.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        menu.classList.remove('is-open');
-        burger.classList.remove('is-open');
-        burger.setAttribute('aria-expanded', 'false');
+      var toggle = e.target.closest ? e.target.closest('.nav__sub-toggle') : null;
+      // 手機：點父項只折疊展開，不關整個選單
+      if (toggle && isMobileNav()) {
+        e.preventDefault();
+        var item = toggle.parentElement;
+        var willOpen = !item.classList.contains('is-open');
+        // 收合其他已展開項
+        Array.prototype.forEach.call(menu.querySelectorAll('.nav__item.is-open'), function (it) {
+          if (it !== item) {
+            it.classList.remove('is-open');
+            var t = it.querySelector('.nav__sub-toggle');
+            if (t) t.setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.toggle('is-open', willOpen);
+        toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+        return;
+      }
+      // 點到一般連結（含子項連結）→ 關閉選單
+      if (e.target.tagName === 'A' && !toggle) {
+        closeMenu();
       }
     });
   }
