@@ -481,12 +481,16 @@ svg{ flex:none; }
   .nav-toggle{ display:flex; }
   .utility-tag{ display:none; }
   .utility-inner{ justify-content:center; }
+  /* 🔧 手機修正:header 的 backdrop-filter 會讓 fixed 抽屜被困在 header 內(撐不開、被遮)。
+     關掉它改用實心底色;工具列 z 提到抽屜之上,開選單時整條 header 仍完整可見、漢堡可關。 */
+  .site-header{ backdrop-filter:none; -webkit-backdrop-filter:none; background:#fff; }
+  .utility-bar{ position:relative; z-index:101; }
 
   /* 行動選單抽屜 */
   .nav-menu{
     position:fixed; top:0; right:0; bottom:0; width:min(86vw, 360px);
     background:#fff; flex-direction:column; align-items:stretch; gap:0; margin:0;
-    padding:80px 18px 30px; overflow-y:auto;
+    padding:164px 18px 30px; overflow-y:auto;   /* 墊高以清空工具列(76)+navbar(79)≈155，避免選單被 header 遮住 */
     transform:translateX(100%); transition:transform .35s var(--ease); z-index:95;
     box-shadow:-12px 0 40px -16px rgba(14,42,71,.4);
   }
