@@ -133,9 +133,11 @@ section { position: relative; }
 
 .brand-logo {
   display: inline-flex; align-items: center;
-  background: var(--ink); padding: 7px 12px; border-radius: 12px;
+  background: #fff; padding: 9px 16px; border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(25,25,25,.10); border: 1px solid var(--line);
 }
-.brand-logo img { height: 30px; width: auto; }
+.brand-logo img { height: 44px; width: auto; display: block; transition: height .25s var(--ease); }
+.site-header.scrolled .brand-logo img { height: 38px; }
 
 .nav-menu { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .nav-item { position: relative; }
