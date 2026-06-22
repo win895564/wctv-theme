@@ -507,9 +507,11 @@ svg{ flex:none; }
   .nav-cta-mobile .btn{ width:100%; }
 
   .hero-arrow{ display:none; }
-  .slide-content{ padding:48px 26px 70px; }
+  .hero-track{ min-height:auto; }          /* 手機不要固定 72vh，避免內容置中後撐出大空白 */
+  .slide{ align-items:flex-start; }        /* 內容靠上排列，不在高框內置中 */
+  .slide-content{ padding:40px 22px 28px; }
   .hero{ padding-bottom:0; }
-  .quickcards-wrap{ position:static; margin-top:-30px; }
+  .quickcards-wrap{ position:static; margin-top:22px; }
   .hero-dots{ bottom:auto; top:auto; position:relative; margin-top:18px; }
 
   .quickcard-slide{ grid-template-columns:repeat(2, 1fr); }
