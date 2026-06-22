@@ -1,8 +1,4 @@
-/* =========================================================
-   哈Net — C 親切在地風格
-   底 #FBF6F0 / 卡 #fff / 文字 #34281f / 暖橘 #E8693A
-   輔綠 #1F8A70 / 淡暖 #f0c9a0
-   ========================================================= */
+
 
 :root{
   --bg:#FBF6F0;
@@ -41,7 +37,6 @@ a{color:inherit;text-decoration:none;}
 h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;letter-spacing:-.01em;}
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px;}
 
-/* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   font-family:"Poppins","Noto Sans TC",sans-serif;
@@ -62,7 +57,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .btn-light{background:#fff;color:var(--brand);}
 .btn-light:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);}
 
-/* ---------- header ---------- */
 .site-header{
   position:sticky;top:0;z-index:60;
   background:rgba(251,246,240,.82);
@@ -100,7 +94,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .nav-caret{width:15px;height:15px;transition:transform .25s var(--ease);}
 .nav-item:hover .nav-caret{transform:rotate(180deg);}
 
-/* desktop dropdown */
 .nav-sub{
   position:absolute;top:calc(100% + 10px);left:0;
   background:#fff;border:1px solid var(--line);border-radius:var(--r-md);
@@ -138,14 +131,12 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
   opacity:0;visibility:hidden;transition:.3s var(--ease);z-index:55;}
 .nav-overlay.show{opacity:1;visibility:visible;}
 
-/* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;}
 .hero-track{display:flex;transition:transform .7s var(--ease);}
 .hero-slide{min-width:100%;background:var(--tint,#fbe7d6);transition:background .7s var(--ease);}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;
   min-height:clamp(440px,62vh,580px);padding:60px 24px;}
 
-/* entrance animation driven by .is-active */
 .hero-copy>*{opacity:0;transform:translateY(26px);}
 .hero-slide.is-active .hero-eyebrow{animation:rise .7s .15s var(--ease) forwards;}
 .hero-slide.is-active .hero-title{animation:rise .7s .28s var(--ease) forwards;}
@@ -192,7 +183,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
   background:rgba(52,40,31,.25);transition:.3s var(--ease);}
 .hero-dots button.active{width:30px;background:var(--brand);}
 
-/* ---------- quick links ---------- */
 .quick{margin-top:-44px;position:relative;z-index:10;}
 .quick-grid{background:#fff;border-radius:var(--r-lg);box-shadow:var(--shadow-md);
   display:grid;grid-template-columns:repeat(4,1fr);padding:14px;}
@@ -205,7 +195,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .quick-item:hover .quick-icon{background:var(--brand);color:#fff;}
 .quick-label{font-weight:700;font-size:15.5px;}
 
-/* ---------- generic section ---------- */
 .section{padding:88px 0;}
 .section-head{text-align:center;max-width:660px;margin:0 auto 52px;}
 .kicker{display:inline-block;font-family:"Poppins",sans-serif;font-weight:700;font-size:13px;
@@ -214,7 +203,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .section-title{font-size:clamp(1.7rem,3.2vw,2.5rem);font-weight:800;}
 .section-lead{margin-top:14px;color:var(--ink-soft);font-size:1.05rem;}
 
-/* ---------- services ---------- */
 .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 .svc-card{background:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);
   border:1px solid var(--line);transition:transform .35s var(--ease),box-shadow .35s var(--ease);}
@@ -233,7 +221,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .link-arrow svg{width:18px;height:18px;}
 .link-arrow:hover{gap:12px;}
 
-/* ---------- why ---------- */
 .why{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);}
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
 .feat{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:30px 26px;
@@ -253,7 +240,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
   font-size:clamp(2rem,3.6vw,2.9rem);line-height:1;}
 .stat-label{display:block;margin-top:8px;font-size:.98rem;opacity:.95;}
 
-/* ---------- news ---------- */
 .news{background:var(--bg);}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
 .news-card{background:#fff;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);
@@ -273,7 +259,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .news-body p{color:var(--ink-soft);font-size:.95rem;}
 .news-more{text-align:center;margin-top:44px;}
 
-/* ---------- brand ethos / service ---------- */
 .ethos{background:linear-gradient(180deg,var(--bg) 0%,#fff 100%);}
 .ethos-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;
   background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
@@ -285,7 +270,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .ethos-body .section-title{font-size:clamp(1.5rem,2.6vw,2.1rem);margin-bottom:18px;}
 .ethos-text{color:var(--ink-soft);font-size:1.04rem;line-height:1.95;}
 
-/* ---------- titles never truncate; summaries may clamp to 2 lines ---------- */
 .svc-body h3,.news-body h3{
   overflow:visible;text-overflow:clip;-webkit-line-clamp:none;
 }
@@ -294,7 +278,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
   overflow:hidden;
 }
 
-/* ---------- cta band ---------- */
 .cta-band{padding:70px 0;}
 .cta-inner{background:linear-gradient(120deg,var(--ink),#4a3a2c);border-radius:var(--r-lg);
   padding:50px 56px;display:flex;align-items:center;justify-content:space-between;gap:30px;
@@ -305,7 +288,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .cta-text p{color:#e8dccf;margin-top:10px;}
 .cta-inner .btn{position:relative;z-index:1;}
 
-/* ---------- footer ---------- */
 .site-footer{background:#2a201a;color:#d6c8ba;padding-top:64px;}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;}
 .footer-co{margin:16px 0 14px;font-weight:700;color:#fff;font-size:1.02rem;}
@@ -318,7 +300,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .footer-col a:hover{color:var(--warm);}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:.88rem;color:#9c8c7d;text-align:center;}
 
-/* ---------- reveal on scroll ---------- */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
 .reveal.in{opacity:1;transform:none;}
 .service-grid .svc-card:nth-child(2){transition-delay:.1s;}
@@ -329,7 +310,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
 .news-grid .news-card:nth-child(2){transition-delay:.1s;}
 .news-grid .news-card:nth-child(3){transition-delay:.2s;}
 
-/* ---------- responsive ---------- */
 @media(max-width:980px){
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px;}
 }
@@ -347,7 +327,6 @@ h1,h2,h3,h4{font-family:"Poppins","Noto Sans TC",sans-serif;line-height:1.25;let
   .nav-link{font-size:17px;padding:13px 16px;width:100%;justify-content:space-between;}
   .nav-item{width:100%;}
 
-  /* mobile: dropdowns become inline collapsibles */
   .nav-caret{transition:transform .25s var(--ease);}
   .nav-item.sub-open .nav-caret{transform:rotate(180deg);}
   .nav-sub{

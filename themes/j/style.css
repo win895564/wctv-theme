@@ -1,13 +1,10 @@
-/* ============================================================
-   哈Net — J 沉浸全幅版 style.css
-   主色 #0E1A2B + 亮藍點綴 / Inter + Noto Sans TC
-   ============================================================ */
+
 
 :root{
-  --ink:#0E1A2B;          /* 深海軍藍主色 */
+  --ink:#0E1A2B;
   --ink-2:#0a1422;
   --ink-3:#13243b;
-  --blue:#2E8BFF;         /* 亮藍點綴 */
+  --blue:#2E8BFF;
   --blue-2:#5FB0FF;
   --blue-deep:#1466d6;
   --paper:#F4F7FB;
@@ -38,7 +35,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
 
-/* ============ 共用按鈕 ============ */
 .btn{
   --pad:13px 22px;
   display:inline-flex;align-items:center;gap:9px;
@@ -66,7 +62,6 @@ ul{list-style:none}
 .btn--text svg{transition:transform .25s var(--ease)}
 .btn--text:hover svg{transform:translateX(4px)}
 
-/* ============ ① 導覽列 ============ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   transition:background .35s var(--ease),box-shadow .35s var(--ease),backdrop-filter .35s var(--ease),padding .35s var(--ease);
@@ -95,7 +90,6 @@ ul{list-style:none}
 }
 .nav__menu > a:hover,.nav__top:hover{color:#fff;background:rgba(255,255,255,.1)}
 
-/* 下拉站圖 */
 .nav__item{position:relative}
 .nav__top{display:inline-flex;align-items:center;gap:5px}
 .nav__caret{width:15px;height:15px;flex:none;transition:transform .25s var(--ease)}
@@ -126,7 +120,6 @@ ul{list-style:none}
 
 .nav__cta{display:flex;align-items:center;gap:10px;margin-left:auto}
 
-/* 捲動後：實心深色 */
 .nav.is-scrolled{
   background:rgba(10,20,34,.86);
   backdrop-filter:blur(14px) saturate(140%);
@@ -145,7 +138,6 @@ ul{list-style:none}
 .nav__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .nav__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.4px) rotate(-45deg)}
 
-/* 手機抽屜 */
 .drawer{
   position:fixed;inset:0 0 0 auto;width:min(86vw,360px);z-index:99;
   background:var(--ink-2);
@@ -161,7 +153,6 @@ ul{list-style:none}
 .drawer__pay{border:1.5px solid rgba(255,255,255,.3)!important;border-radius:999px!important}
 .drawer__apply{background:var(--blue);border-radius:999px!important}
 
-/* 手機折疊子選單 */
 .drawer__parent{
   display:flex;align-items:center;justify-content:space-between;width:100%;
   background:transparent;border:0;cursor:pointer;text-align:left;
@@ -187,7 +178,6 @@ ul{list-style:none}
 }
 .drawer-backdrop.is-open{opacity:1;visibility:visible}
 
-/* ============ ② HERO ============ */
 .hero{
   position:relative;min-height:100svh;
   display:flex;align-items:center;
@@ -238,7 +228,6 @@ ul{list-style:none}
 .hero__scroll svg{width:20px;height:20px;animation:bob 1.8s var(--ease) infinite}
 @keyframes bob{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(7px);opacity:1}}
 
-/* ============ ③ 服務大區塊 SCENE ============ */
 .scene{
   position:relative;min-height:100svh;
   display:flex;align-items:center;overflow:hidden;
@@ -277,7 +266,6 @@ ul{list-style:none}
 .scene__list svg{width:21px;height:21px;color:var(--blue-2);flex:none;margin-top:2px}
 .scene__actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px}
 
-/* 方案卡（寬頻區） */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
 .plan{
   position:relative;
@@ -307,7 +295,6 @@ ul{list-style:none}
 .plan__note{color:var(--muted);font-size:14px;min-height:42px;margin-bottom:20px}
 .plan .btn{width:100%;justify-content:center}
 
-/* ============ ④ 數據區 ============ */
 .stats{position:relative;padding:0;overflow:hidden;background:var(--ink-2)}
 .stats__bg{position:absolute;inset:-10% 0;z-index:0;will-change:transform}
 .stats__bg img{filter:brightness(.4) saturate(.85)}
@@ -346,7 +333,6 @@ ul{list-style:none}
 .selfserve__grid a:hover{transform:translateY(-5px);background:rgba(46,139,255,.14);border-color:rgba(95,176,255,.45);color:#fff}
 .selfserve__grid a:hover svg{transform:scale(1.12)}
 
-/* ============ ④-b 品牌理念 + 服務內容 ============ */
 .ethos{position:relative;overflow:hidden;background:var(--ink)}
 .ethos__bg{position:absolute;inset:-10% 0;z-index:0;will-change:transform}
 .ethos__bg img{filter:brightness(.42) saturate(.85)}
@@ -370,7 +356,6 @@ ul{list-style:none}
 .ethos__title{color:#fff;font-weight:900;font-size:clamp(28px,3.4vw,40px);letter-spacing:-.01em;margin-bottom:20px}
 .ethos__text{color:var(--muted-2);font-size:clamp(15px,1.6vw,18px);line-height:1.9}
 
-/* ============ ⑤ 最新消息 ============ */
 .news{background:var(--paper);color:var(--ink);padding:96px 28px}
 .news__head{max-width:var(--maxw);margin:0 auto 40px}
 .kicker{display:inline-block;color:var(--blue-deep);font-weight:800;letter-spacing:.14em;font-size:14px;margin-bottom:10px}
@@ -396,7 +381,6 @@ ul{list-style:none}
 .newsitem__arrow{width:22px;height:22px;color:var(--blue);transition:transform .25s var(--ease)}
 .newsitem:hover .newsitem__arrow{transform:translateX(5px)}
 
-/* ============ ⑥ 大 CTA ============ */
 .cta{position:relative;overflow:hidden;background:var(--ink)}
 .cta__bg{position:absolute;inset:-10% 0;z-index:0;will-change:transform}
 .cta__bg img{filter:brightness(.5) saturate(.9)}
@@ -411,7 +395,6 @@ ul{list-style:none}
 .cta__phone a{color:#fff;font-weight:800;border-bottom:2px solid rgba(95,176,255,.5)}
 .cta__phone a:hover{border-color:var(--blue-2)}
 
-/* ============ ⑦ FOOTER ============ */
 .footer{background:var(--ink-2);color:#c7d4e4;padding:74px 28px 0}
 .footer__inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding-bottom:52px}
 .brand--footer{margin-bottom:18px}
@@ -431,7 +414,6 @@ ul{list-style:none}
 .footer__bar-links a:hover{color:var(--blue-2)}
 .footer__bar-links span{margin:0 8px;opacity:.5}
 
-/* ============ 捲動進場動畫 ============ */
 .reveal{opacity:0;transform:translateY(38px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
 .reveal.is-in{opacity:1;transform:none}
 
@@ -442,7 +424,6 @@ ul{list-style:none}
   html{scroll-behavior:auto}
 }
 
-/* ============ RWD ============ */
 @media (max-width:1080px){
   .selfserve__grid{grid-template-columns:repeat(3,1fr)}
 }
@@ -468,7 +449,7 @@ ul{list-style:none}
   .news{padding:72px 20px}
   .selfserve__grid{grid-template-columns:repeat(2,1fr)}
   .stats__grid{grid-template-columns:1fr 1fr;gap:14px}
-  /* 最新消息：手機改直式，大字大點擊區（年長友善） */
+
   .newsitem{grid-template-columns:auto 1fr;grid-template-areas:"tag date" "body body";gap:12px 16px;padding:22px}
   .newsitem__tag{grid-area:tag}
   .newsitem__date{grid-area:date;justify-self:end;align-self:center}

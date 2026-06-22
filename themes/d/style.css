@@ -1,9 +1,4 @@
-/* =========================================================
-   哈Net — "D 編輯雜誌" 風格
-   底 #fbfaf8 / 文字 #111 / 紅 #C0392B / 線 #ece8e2
-   標題 Playfair Display + Noto Sans TC / 內文 Noto Sans TC
-   銳角(圓角 0)、細線、大量留白、超大標題
-   ========================================================= */
+
 
 :root{
   --bg:#fbfaf8;
@@ -36,7 +31,6 @@ em{font-style:italic}
 
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
 
-/* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.5em;
   font-family:var(--sans);font-weight:500;font-size:.92rem;letter-spacing:.04em;
@@ -52,9 +46,6 @@ em{font-style:italic}
 .btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:var(--bg)}
 
-/* =========================================================
-   HEADER / NAV
-   ========================================================= */
 .site-header{
   position:sticky;top:0;z-index:100;
   background:rgba(251,250,248,.86);
@@ -96,7 +87,6 @@ em{font-style:italic}
 .nav-caret{flex-shrink:0;transition:transform .3s var(--ease)}
 .nav-item.has-sub:hover .nav-caret{transform:rotate(180deg)}
 
-/* dropdown panel — magazine sharp-edge style */
 .nav-sub{
   position:absolute;top:100%;left:-18px;
   display:grid;grid-template-columns:1fr;gap:0;
@@ -107,7 +97,7 @@ em{font-style:italic}
   transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s var(--ease);
   z-index:120;
 }
-/* bridge the gap so hover doesn't drop */
+
 .nav-item.has-sub::after{content:"";position:absolute;top:100%;left:0;right:0;height:18px}
 .nav-sub-wide{grid-template-columns:1fr 1fr;min-width:420px}
 .nav-sub-right{left:auto;right:-18px}
@@ -131,9 +121,6 @@ em{font-style:italic}
 .nav-toggle.open span:nth-child(2){opacity:0}
 .nav-toggle.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* =========================================================
-   HERO
-   ========================================================= */
 .hero{
   position:relative;
   border-bottom:1px solid var(--line);
@@ -183,7 +170,6 @@ em{font-style:italic}
 
 @keyframes rise{to{opacity:1;transform:none}}
 
-/* hero controls */
 .hero-arrow{
   position:absolute;top:50%;transform:translateY(-50%);z-index:6;
   width:54px;height:54px;display:flex;align-items:center;justify-content:center;
@@ -208,9 +194,6 @@ em{font-style:italic}
 .hero-meta #heroIndex{color:var(--ink);font-style:italic}
 .hero-meta-sep{margin:0 .25em;color:var(--line-strong)}
 
-/* =========================================================
-   QUICKLINKS
-   ========================================================= */
 .quicklinks{border-bottom:1px solid var(--line);background:var(--bg)}
 .ql-grid{
   list-style:none;display:grid;grid-template-columns:repeat(4,1fr);
@@ -226,9 +209,6 @@ em{font-style:italic}
 .ql-item a:hover .ql-icon svg{color:var(--red)}
 .ql-text{font-size:1rem;font-weight:500;letter-spacing:.04em}
 
-/* =========================================================
-   SECTION HEAD (shared)
-   ========================================================= */
 .sec-head{margin-bottom:64px;max-width:760px}
 .sec-head-row{display:flex;align-items:flex-end;justify-content:space-between;max-width:none;gap:24px}
 .sec-kicker{
@@ -249,9 +229,6 @@ em{font-style:italic}
 }
 .news-all:hover{color:var(--red);border-color:var(--red);gap:.85em}
 
-/* =========================================================
-   SERVICES
-   ========================================================= */
 .services{padding:120px 0;border-bottom:1px solid var(--line)}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
 .svc-card{
@@ -280,9 +257,6 @@ em{font-style:italic}
 .svc-more:hover{color:var(--red)}
 .svc-more:hover svg{transform:translateX(4px)}
 
-/* =========================================================
-   WHY
-   ========================================================= */
 .why{padding:120px 0;border-bottom:1px solid var(--line)}
 .why-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:0;
@@ -298,7 +272,6 @@ em{font-style:italic}
 .why-item h3{font-family:var(--serif);font-weight:600;font-size:1.45rem;margin-bottom:.6rem}
 .why-item p{color:var(--ink-soft);font-size:.98rem;line-height:1.7}
 
-/* stats */
 .stats{
   display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:80px;
   border-top:1px solid var(--ink);
@@ -314,9 +287,6 @@ em{font-style:italic}
 .stat-num::after{content:attr(data-suffix);color:var(--red);font-style:italic;font-size:.55em;margin-left:.05em}
 .stat-label{display:block;margin-top:14px;font-size:.95rem;color:var(--ink-soft);letter-spacing:.04em}
 
-/* =========================================================
-   ETHOS / SERVICE (品牌理念 + 服務內容)
-   ========================================================= */
 .ethos{padding:120px 0;border-bottom:1px solid var(--line);background:var(--bg)}
 .ethos-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;
@@ -337,9 +307,6 @@ em{font-style:italic}
   margin-top:1.6rem;color:var(--ink-soft);font-size:1.05rem;line-height:2;
 }
 
-/* =========================================================
-   NEWS
-   ========================================================= */
 .news{padding:120px 0;border-bottom:1px solid var(--line)}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
 .news-card{display:flex;flex-direction:column}
@@ -362,9 +329,6 @@ em{font-style:italic}
 .news-card h3 a:hover{color:var(--red)}
 .news-card p{color:var(--ink-soft);font-size:.98rem}
 
-/* =========================================================
-   CTA
-   ========================================================= */
 .cta{padding:140px 0;background:var(--bg);border-bottom:1px solid var(--line);text-align:center}
 .cta-inner{max-width:880px;margin:0 auto}
 .cta-kicker{font-size:.82rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--red);margin-bottom:1.4rem}
@@ -375,9 +339,6 @@ em{font-style:italic}
 .cta-lead{color:var(--ink-soft);font-size:1.15rem;margin-bottom:2.6rem}
 .cta-btn{min-width:200px}
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
 .site-footer{background:#141210;color:#cfc9c0;padding-top:84px}
 .foot-grid{
   display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;padding-bottom:64px;
@@ -402,9 +363,6 @@ em{font-style:italic}
 .foot-bottom-links a:hover{color:#fbfaf8}
 .foot-bottom-links span{margin:0 .6em;color:#4a443c}
 
-/* =========================================================
-   REVEAL (scroll fade-in)
-   ========================================================= */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 .svc-grid .reveal:nth-child(2){transition-delay:.1s}
@@ -415,9 +373,6 @@ em{font-style:italic}
 .news-grid .reveal:nth-child(2){transition-delay:.1s}
 .news-grid .reveal:nth-child(3){transition-delay:.2s}
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 @media (max-width:1024px){
   .foot-grid{grid-template-columns:1fr 1fr}
   .news-grid{grid-template-columns:1fr 1fr}
@@ -445,7 +400,6 @@ em{font-style:italic}
   .nav-link::after{display:none}
   .nav-item.has-sub.open .nav-caret{transform:rotate(180deg)}
 
-  /* mobile accordion sub-panel */
   .nav-sub{
     position:static;display:block;min-width:0;width:100%;
     border:0;box-shadow:none;background:transparent;margin:0;padding:0;

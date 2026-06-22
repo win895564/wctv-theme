@@ -1,14 +1,9 @@
-/* ============================================================
-   哈Net 首頁 — W「西海岸・側邊欄」  互動腳本 (vanilla JS)
-   側邊欄子選單就地展開 / 手機抽屜 / Hero 輪播 / 捲動淡入 /
-   count-up / FAQ 手風琴
-   ============================================================ */
+
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- 1. 側邊欄子選單：就地展開 accordion ---------- */
     var sideToggles = document.querySelectorAll('.side-group > .side-toggle');
     sideToggles.forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -19,7 +14,6 @@
       });
     });
 
-    /* ---------- 2. 手機抽屜：開合側邊欄 ---------- */
     var sidebar = document.getElementById('sidebar');
     var hamburger = document.getElementById('hamburger');
     var scrim = document.getElementById('drawerScrim');
@@ -29,7 +23,7 @@
       hamburger.classList.add('open');
       hamburger.setAttribute('aria-expanded', 'true');
       scrim.hidden = false;
-      // 強制 reflow 讓過場生效
+
       void scrim.offsetWidth;
       scrim.classList.add('show');
       document.body.style.overflow = 'hidden';
@@ -40,7 +34,7 @@
       hamburger.setAttribute('aria-expanded', 'false');
       scrim.classList.remove('show');
       document.body.style.overflow = '';
-      // 過場結束後隱藏遮罩
+
       window.setTimeout(function () {
         if (!sidebar.classList.contains('open')) scrim.hidden = true;
       }, 300);
@@ -53,7 +47,6 @@
     }
     if (scrim) scrim.addEventListener('click', closeDrawer);
 
-    // 抽屜內點任一連結就關閉（手機）
     var mqMobile = window.matchMedia('(max-width:980px)');
     sidebar.querySelectorAll('.side-nav a, .side-foot a').forEach(function (a) {
       a.addEventListener('click', function () {
@@ -63,12 +56,11 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeDrawer();
     });
-    // 切回桌機時重置抽屜狀態
+
     mqMobile.addEventListener('change', function (e) {
       if (!e.matches) closeDrawer();
     });
 
-    /* ---------- 3. Hero 輪播 ---------- */
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
     var prevBtn = document.getElementById('heroPrev');
@@ -113,7 +105,6 @@
     });
     start();
 
-    /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
     var reveals = document.querySelectorAll('.reveal');
     document.querySelectorAll('.prod-grid, .news-grid, .plan-grid, .quick-grid, .stats, .faq-list').forEach(function (grid) {
       var kids = grid.querySelectorAll('.reveal');
@@ -134,7 +125,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- 5. 數據 count-up ---------- */
     var statNums = document.querySelectorAll('.stat-num');
     var DURATION = 1800;
 
@@ -170,14 +160,13 @@
       });
     }
 
-    /* ---------- 6. FAQ 手風琴 ---------- */
     var faqItems = document.querySelectorAll('.faq-item');
     faqItems.forEach(function (item) {
       var q = item.querySelector('.faq-q');
       var a = item.querySelector('.faq-a');
       q.addEventListener('click', function () {
         var willOpen = !item.classList.contains('open');
-        // 單開：先收合其他
+
         faqItems.forEach(function (other) {
           if (other !== item) {
             other.classList.remove('open');

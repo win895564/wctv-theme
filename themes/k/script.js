@@ -1,12 +1,8 @@
-/* ============================================================
-   K — 極簡單色 / 台灣佳光電訊 哈Net
-   vanilla JS：導覽列捲動、進場、輪播、捲動淡入、count-up、漢堡
-   ============================================================ */
+
 (function () {
   'use strict';
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 1. 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 24) nav.classList.add('is-stuck');
@@ -15,7 +11,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 2. 漢堡 / 抽屜 ---------- */
   var burger = document.getElementById('burger');
   var drawer = document.getElementById('drawer');
   function setDrawer(open) {
@@ -35,7 +30,6 @@
     if (e.key === 'Escape') setDrawer(false);
   });
 
-  /* 抽屜：手機點父項展開／收合子選單（桌機交給 CSS :hover） */
   drawer.querySelectorAll('.drawer__parent').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var sub = btn.nextElementSibling;
@@ -45,18 +39,16 @@
     });
   });
 
-  /* ---------- 3. 主視覺進場 ---------- */
   window.requestAnimationFrame(function () {
     window.setTimeout(function () {
       document.body.classList.add('is-revealed');
-      // hero 內的 reveal 立即觸發
+
       document.querySelectorAll('.hero .reveal').forEach(function (el) {
         el.classList.add('is-in');
       });
     }, 80);
   });
 
-  /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if (rm || !('IntersectionObserver' in window)) {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
@@ -74,7 +66,6 @@
     });
   }
 
-  /* ---------- 5. Hero 輪播（圖片 + 精選文章同步） ---------- */
   var slides = document.querySelectorAll('#heroSlider .slide');
   var features = document.querySelectorAll('#heroLead .feature');
   var slideNo = document.getElementById('slideNo');
@@ -90,7 +81,6 @@
     }, 4200);
   }
 
-  /* ---------- 6. 數據 count-up ---------- */
   function fmt(n) { return n.toLocaleString('en-US'); }
   function animateCount(el) {
     var to = parseInt(el.getAttribute('data-to'), 10) || 0;
@@ -124,7 +114,6 @@
     }
   }
 
-  /* ---------- 7. 平滑捲動補正 (固定導覽列偏移) ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');

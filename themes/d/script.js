@@ -1,10 +1,7 @@
-/* =========================================================
-   哈Net — "D 編輯雜誌" 風格 互動腳本 (vanilla JS)
-   ========================================================= */
+
 (function () {
   'use strict';
 
-  /* ---------- 1. Header 捲動縮高 + 陰影 ---------- */
   var header = document.getElementById('siteHeader');
   function onScroll() {
     if (window.scrollY > 24) header.classList.add('shrink');
@@ -13,7 +10,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 2. 漢堡選單 + 下拉站圖 ---------- */
   var toggle = document.getElementById('navToggle');
   var menu = document.getElementById('navMenu');
   var subItems = Array.prototype.slice.call(menu.querySelectorAll('.nav-item.has-sub'));
@@ -42,7 +38,6 @@
     if (!open) closeAllSubs();
   });
 
-  // parent items: mobile = tap to accordion-expand; desktop = CSS :hover handles panel
   subItems.forEach(function (it) {
     var parent = it.querySelector('.nav-parent');
     if (!parent) return;
@@ -57,7 +52,6 @@
     });
   });
 
-  // close drawer when a real navigation link (leaf) is clicked
   menu.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', function () {
       if (a.classList.contains('nav-parent') && isMobileNav()) return;
@@ -68,12 +62,11 @@
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeMenu();
   });
-  // reset accordion state if resized back to desktop
+
   window.addEventListener('resize', function () {
     if (!isMobileNav()) { menu.classList.remove('open'); toggle.classList.remove('open'); closeAllSubs(); }
   });
 
-  /* ---------- 3. Hero 輪播 ---------- */
   var track = document.getElementById('heroTrack');
   var slides = Array.prototype.slice.call(track.querySelectorAll('.slide'));
   var dotsWrap = document.getElementById('heroDots');
@@ -85,7 +78,6 @@
   var INTERVAL = 5000;
   var pad = function (n) { return (n + 1 < 10 ? '0' : '') + (n + 1); };
 
-  // build dots
   slides.forEach(function (_, i) {
     var b = document.createElement('button');
     b.setAttribute('role', 'tab');
@@ -117,20 +109,17 @@
   hero.addEventListener('mouseenter', stop);
   hero.addEventListener('mouseleave', start);
 
-  // keyboard nav when hero focused / hovered
   document.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') { next(); restart(); }
     else if (e.key === 'ArrowLeft') { prev(); restart(); }
   });
 
-  // pause when tab hidden
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) stop(); else start();
   });
 
   if (slides.length > 1) start();
 
-  /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -146,7 +135,6 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- 5. 數據 count-up ---------- */
   var statsWrap = document.getElementById('stats');
   var counted = false;
   function formatNum(n) {

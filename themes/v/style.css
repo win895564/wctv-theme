@@ -1,25 +1,21 @@
-/* ============================================================
-   哈Net 首頁 — V「西海岸・現代化」
-   沿用現有官網配色（招牌橘），把資訊密、版型老的舊站
-   現代化：大量留白、清楚層次、現代圓角卡片、微動效。
-   ============================================================ */
+
 
 :root {
-  /* —— 配色（取自現有官網，不重新發明）—— */
-  --orange:        #F29600;  /* 招牌橘 主色 */
-  --orange-deep:   #C25000;  /* 深橘 hover */
-  --orange-bright: #FF921E;  /* 亮橘點綴 */
-  --teal:          #0F6466;  /* 輔色 teal */
-  --blue:          #007AFF;  /* 資訊藍 */
 
-  --ink:    #191919;         /* 文字近黑 */
-  --sub:    #656874;         /* 次文字灰 */
-  --line:   #E3E5EA;         /* 線條 / 邊框淺灰 */
-  --bg:     #F5F6F8;         /* 背景淺灰 */
+  --orange:        #F29600;
+  --orange-deep:   #C25000;
+  --orange-bright: #FF921E;
+  --teal:          #0F6466;
+  --blue:          #007AFF;
+
+  --ink:    #191919;
+  --sub:    #656874;
+  --line:   #E3E5EA;
+  --bg:     #F5F6F8;
   --bg-soft:#FBFBFC;
   --white:  #ffffff;
 
-  --orange-tint: #FFF4E3;    /* 橘色淺底 */
+  --orange-tint: #FFF4E3;
   --teal-tint:   #E6F0F0;
 
   --radius:    18px;
@@ -39,7 +35,6 @@
   --num: "Manrope", "Noto Sans TC", sans-serif;
 }
 
-/* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -66,9 +61,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .skip-link:focus { top: 16px; }
 
-/* ============================================================
-   按鈕
-   ============================================================ */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   font-weight: 700; font-size: 15.5px; line-height: 1;
@@ -86,7 +78,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-outline { background: transparent; color: var(--orange); border: 1.6px solid var(--orange); }
 .btn-outline:hover { background: var(--orange-tint); }
 
-/* hero 上深色背景用的白外框 */
 .btn-outline.btn-lg { color: #fff; border-color: rgba(255,255,255,.7); }
 .slide .btn-outline:hover { background: rgba(255,255,255,.14); border-color: #fff; }
 
@@ -96,9 +87,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .btn-ghost { background: transparent; color: var(--ink); border: 1.6px solid var(--line); padding: 11px 18px; }
 .btn-ghost:hover { background: var(--bg); border-color: #cfd2d9; }
 
-/* ============================================================
-   區段標題
-   ============================================================ */
 section { position: relative; }
 .section-head { max-width: 720px; margin: 0 auto 52px; text-align: center; }
 .section-head.align-left { margin-left: 0; text-align: left; }
@@ -113,13 +101,10 @@ section { position: relative; }
 }
 .section-lead { margin-top: 16px; color: var(--sub); font-size: 16.5px; }
 
-/* ============================================================
-   導覽列
-   ============================================================ */
 .site-header {
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,.86);
-  backdrop-filter: saturate(160%) blur(14px);   /* 毛玻璃：桌機可用 */
+  backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom: 1px solid transparent;
   transition: box-shadow .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
@@ -151,7 +136,6 @@ section { position: relative; }
 .nav-link .chev { width: 16px; height: 16px; transition: transform .25s var(--ease); }
 .nav-item.has-sub:hover .chev { transform: rotate(180deg); }
 
-/* —— 下拉站圖（桌機 hover）—— */
 .nav-dropdown {
   position: absolute; top: calc(100% + 10px); left: 0;
   background: #fff; border: 1px solid var(--line);
@@ -163,7 +147,7 @@ section { position: relative; }
 }
 .nav-dropdown.align-right { left: auto; right: 0; }
 .nav-item.has-sub:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-/* hover 之間留一條看不見的橋，避免移到下拉時消失 */
+
 .nav-item.has-sub::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }
 
 .dropdown-grid { display: grid; grid-template-columns: 1fr; gap: 2px; }
@@ -181,7 +165,6 @@ section { position: relative; }
 .nav-cta { display: flex; align-items: center; gap: 10px; }
 .nav-cta-mobile { display: none; }
 
-/* 漢堡 */
 .nav-toggle { display: none; width: 44px; height: 44px; border-radius: 12px; position: relative; }
 .nav-toggle span {
   position: absolute; left: 11px; right: 11px; height: 2px; background: var(--ink); border-radius: 2px;
@@ -200,9 +183,6 @@ section { position: relative; }
 }
 .nav-overlay.open { opacity: 1; visibility: visible; }
 
-/* ============================================================
-   1. Hero 輪播
-   ============================================================ */
 .hero { position: relative; height: clamp(460px, 72vh, 680px); overflow: hidden; background: var(--ink); }
 .hero-track { position: absolute; inset: 0; }
 .slide {
@@ -229,12 +209,12 @@ section { position: relative; }
   font-family: var(--serif); font-weight: 700;
   font-size: clamp(30px, 5vw, 54px); line-height: 1.25; letter-spacing: -.01em;
   text-shadow: 0 2px 24px rgba(0,0,0,.3);
-  /* 標題不截斷 */
+
 }
 .slide-desc {
   margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: rgba(255,255,255,.92);
   max-width: 560px;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; /* 摘要最多 2 行 */
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .slide-desc strong { color: #fff; font-weight: 700; }
 .slide-actions { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
@@ -260,9 +240,6 @@ section { position: relative; }
 }
 .hero-dots button.active { background: var(--orange); width: 30px; border-radius: 999px; }
 
-/* ============================================================
-   2. 快速服務列（疊在 hero 下緣的浮卡）
-   ============================================================ */
 .quicklinks { margin-top: -52px; position: relative; z-index: 10; padding-bottom: 8px; }
 .quick-grid {
   background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
@@ -286,9 +263,6 @@ section { position: relative; }
 .quick-text { font-weight: 700; font-size: 17px; color: var(--ink); }
 .quick-sub { font-size: 13px; color: var(--sub); }
 
-/* ============================================================
-   3. 產品介紹
-   ============================================================ */
 .products { padding: 96px 0 88px; }
 .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
 .product-card {
@@ -325,7 +299,6 @@ section { position: relative; }
 .text-link svg { width: 18px; height: 18px; }
 .text-link:hover { gap: 12px; color: var(--orange); }
 
-/* 加值小卡 */
 .product-mini-grid { margin-top: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .mini-card {
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
@@ -343,9 +316,6 @@ section { position: relative; }
 .mini-icon svg { width: 24px; height: 24px; }
 .mini-t { font-weight: 700; font-size: 15.5px; color: var(--ink); }
 
-/* ============================================================
-   4. 方案區
-   ============================================================ */
 .plans { padding: 92px 0; background: var(--bg); }
 .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; align-items: stretch; }
 .plan-card {
@@ -384,9 +354,6 @@ section { position: relative; }
 }
 .plan-btn { width: 100%; }
 
-/* ============================================================
-   5. 橘色理念帶 + SERVICE
-   ============================================================ */
 .ethos {
   padding: 92px 0; color: #fff;
   background:
@@ -404,9 +371,6 @@ section { position: relative; }
 .ethos-title { font-family: var(--serif); font-weight: 700; font-size: 30px; margin-top: 8px; }
 .ethos-body { margin-top: 18px; font-size: 16.5px; line-height: 2; color: rgba(255,255,255,.95); }
 
-/* ============================================================
-   6. 數據 count-up
-   ============================================================ */
 .stats-band { padding: 70px 0; background: #fff; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .stat { text-align: center; position: relative; }
@@ -420,9 +384,6 @@ section { position: relative; }
 }
 .stat-label { display: block; margin-top: 12px; font-size: 16px; color: var(--sub); font-weight: 500; }
 
-/* ============================================================
-   7. 最新消息
-   ============================================================ */
 .news { padding: 92px 0; background: var(--bg); }
 .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .news-card {
@@ -450,9 +411,6 @@ section { position: relative; }
 }
 .news-more { text-align: center; margin-top: 44px; }
 
-/* ============================================================
-   8. FAQ
-   ============================================================ */
 .faq { padding: 92px 0; }
 .faq-inner { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
 .faq-list { display: flex; flex-direction: column; gap: 14px; }
@@ -472,9 +430,6 @@ section { position: relative; }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease); }
 .faq-a p { padding: 0 24px 24px; color: var(--sub); font-size: 15.5px; }
 
-/* ============================================================
-   9. CTA 帶
-   ============================================================ */
 .cta-band { padding: 84px 0; background: var(--bg); }
 .cta-inner {
   background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg);
@@ -491,9 +446,6 @@ section { position: relative; }
 .cta-text p { margin-top: 12px; color: var(--sub); font-size: 16.5px; }
 .cta-actions { position: relative; display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* ============================================================
-   頁尾
-   ============================================================ */
 .site-footer { background: var(--ink); color: rgba(255,255,255,.72); }
 .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding: 64px 24px 48px; }
 .footer-logo { background: #fff; }
@@ -510,9 +462,6 @@ section { position: relative; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; }
 .footer-bottom p { font-size: 13.5px; color: rgba(255,255,255,.55); text-align: center; }
 
-/* ============================================================
-   捲動淡入
-   ============================================================ */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in { opacity: 1; transform: none; }
 .reveal[data-d="1"] { transition-delay: .05s; }
@@ -527,9 +476,6 @@ section { position: relative; }
   .slide { transition: opacity .3s; transform: none !important; }
 }
 
-/* ============================================================
-   RWD
-   ============================================================ */
 @media (max-width: 1080px) {
   .product-mini-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -540,13 +486,9 @@ section { position: relative; }
   .section-head.align-left { text-align: center; }
 }
 
-/* —— 手機：≤860px 切換漢堡 —— */
 @media (max-width: 860px) {
   :root { --header-h: 64px; }
 
-  /* 🔴 重要：手機把 header 的 backdrop-filter 關掉並改實心底色。
-     否則 header 上的 backdrop-filter 會建立 containing block，
-     使 position:fixed 的選單抽屜被困在 header 內、撐不開。 */
   .site-header {
     background: #fff;
     backdrop-filter: none; -webkit-backdrop-filter: none;
@@ -557,7 +499,6 @@ section { position: relative; }
   .nav-cta { display: none; }
   .nav-toggle { display: block; margin-left: auto; }
 
-  /* 抽屜：滿版固定，獨立於 header（不被 header 困住、不被遮住） */
   .nav-menu {
     position: fixed; top: 0; right: 0; bottom: 0;
     width: min(86vw, 360px);
@@ -579,7 +520,6 @@ section { position: relative; }
   }
   .nav-link:hover { background: var(--orange-tint); }
 
-  /* 手機下拉：點擊折疊 */
   .nav-dropdown {
     position: static; opacity: 1; visibility: visible; transform: none;
     box-shadow: none; border: none; border-radius: 0; padding: 0;
@@ -597,21 +537,18 @@ section { position: relative; }
   .nav-cta-mobile { display: flex; flex-direction: column; gap: 12px; padding: 22px 24px 8px; }
   .nav-cta-mobile .btn { width: 100%; }
 
-  /* hero */
   .hero { height: clamp(440px, 78vh, 560px); }
   .slide { align-items: flex-end; }
   .slide-content { padding-bottom: 72px; }
   .slide-overlay { background: linear-gradient(0deg, rgba(25,25,25,.82) 8%, rgba(25,25,25,.3) 60%, rgba(25,25,25,.45) 100%); }
   .hero-arrow { display: none; }
 
-  /* quicklinks */
   .quicklinks { margin-top: -36px; }
   .quick-grid { grid-template-columns: repeat(2, 1fr); }
   .quick-item { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 22px 14px; }
   .quick-item:nth-child(2n) { border-right: none; }
   .quick-item:last-child { grid-column: 1 / -1; }
 
-  /* sections */
   .products, .plans, .news, .faq, .ethos, .cta-band { padding: 64px 0; }
   .product-grid { grid-template-columns: 1fr; gap: 24px; }
   .plan-grid { grid-template-columns: 1fr; gap: 22px; }

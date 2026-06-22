@@ -1,14 +1,11 @@
-/* ============================================================
-   K — 極簡單色 / Swiss minimal
-   台灣佳光電訊 哈Net
-   ============================================================ */
+
 
 :root{
-  --ink:#1F3A34;          /* 深墨綠 主色 */
+  --ink:#1F3A34;
   --ink-soft:#3a534d;
-  --paper:#FCFCFA;        /* 近白紙 */
-  --paper-2:#F4F3EE;      /* 淡灰底 */
-  --line:#dcdbd4;         /* 細線 */
+  --paper:#FCFCFA;
+  --paper-2:#F4F3EE;
+  --line:#dcdbd4;
   --line-ink:#cfd6d3;
   --mute:#8a8d87;
   --maxw:1240px;
@@ -36,7 +33,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 
 ::selection{background:var(--ink);color:var(--paper)}
 
-/* ---------- shared section frame ---------- */
 .block{
   max-width:var(--maxw);
   margin:0 auto;
@@ -67,7 +63,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   color:var(--mute);
 }
 
-/* ---------- buttons ---------- */
 .btn{
   --bh:46px;
   display:inline-flex;align-items:center;gap:.55em;
@@ -96,9 +91,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .btn--outline-i{border-color:rgba(255,255,255,.4);color:var(--paper)}
 .btn--outline-i:hover{background:rgba(255,255,255,.12)}
 
-/* ============================================================
-   NAV
-   ============================================================ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:60;
   background:transparent;
@@ -145,7 +137,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .nav__burger.is-open span:nth-child(2){opacity:0}
 .nav__burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* drawer */
 .drawer{
   position:fixed;inset:0;z-index:55;
   background:var(--paper);
@@ -167,9 +158,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .drawer__cta{display:flex;gap:12px;margin-top:30px}
 .drawer__cta .btn{flex:1;justify-content:center}
 
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero{
   max-width:var(--maxw);margin:0 auto;
   padding:clamp(120px,16vw,180px) var(--gut) 0;
@@ -239,9 +227,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 }
 .hero__ticker i{color:var(--line-ink)}
 
-/* ============================================================
-   SERVICES
-   ============================================================ */
 .svc{border-top:1px solid var(--line)}
 .svc__row{
   display:grid;
@@ -273,9 +258,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .svc__go svg{width:18px;height:18px}
 .svc__row:hover .svc__go{background:var(--ink);color:var(--paper);transform:rotate(0) scale(1.05)}
 
-/* ============================================================
-   PLANS
-   ============================================================ */
 .block--plans{background:var(--paper-2);max-width:none}
 .block--plans .block__head,
 .block--plans .plans{max-width:var(--maxw);margin-left:auto;margin-right:auto}
@@ -315,9 +297,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .plan--hot .plan__btn.btn--solid{background:var(--paper);color:var(--ink)}
 .plan--hot .plan__btn.btn--solid:hover{background:var(--paper-2)}
 
-/* ============================================================
-   FEATURES
-   ============================================================ */
 .feat{
   display:grid;grid-template-columns:repeat(4,1fr);
   border-top:1px solid var(--line);border-left:1px solid var(--line);
@@ -336,9 +315,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .feat__cell h3{font-family:var(--serif);font-weight:400;font-size:21px;margin-bottom:10px}
 .feat__cell p{font-size:14.5px;color:var(--ink-soft)}
 
-/* ============================================================
-   STATS
-   ============================================================ */
 .stats{background:var(--ink);color:var(--paper)}
 .stats__grid{
   max-width:var(--maxw);margin:0 auto;
@@ -363,9 +339,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   color:rgba(255,255,255,.62);
 }
 
-/* ============================================================
-   NEWS
-   ============================================================ */
 .news{list-style:none;border-top:1px solid var(--line)}
 .news__row{
   display:grid;
@@ -387,9 +360,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .news__go svg{width:18px;height:18px}
 .news__row:hover .news__go{color:var(--ink);transform:translateX(5px)}
 
-/* ============================================================
-   CTA
-   ============================================================ */
 .cta{background:var(--ink);color:var(--paper)}
 .cta__inner{
   max-width:var(--maxw);margin:0 auto;
@@ -406,9 +376,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 .cta__phone a{border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
 .cta__phone a:hover{border-color:var(--paper)}
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
 .foot{background:var(--paper-2);border-top:1px solid var(--line)}
 .foot__top{
   max-width:var(--maxw);margin:0 auto;
@@ -436,9 +403,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   font-size:13px;color:var(--mute);
 }
 
-/* ============================================================
-   REVEAL
-   ============================================================ */
 .reveal{
   opacity:0;transform:translateY(26px);
   transition:opacity .9s var(--ease),transform .9s var(--ease);
@@ -456,9 +420,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   *{scroll-behavior:auto!important}
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width:1024px){
   .nav__menu{display:none}
   .nav__cta{display:none}
@@ -494,9 +455,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   .stat:first-child{border-top:none}
 }
 
-/* ============================================================
-   NAV — 站圖下拉 (桌機 hover)
-   ============================================================ */
 .nav__item--drop{position:relative}
 .nav__top{
   display:inline-flex;align-items:center;gap:5px;
@@ -524,7 +482,7 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
   box-shadow:0 18px 40px -28px rgba(31,58,52,.4);
 }
 .nav__item--drop:hover .nav__panel{opacity:1;visibility:visible;transform:translateY(0)}
-/* 補一段透明橋接，hover 移到面板途中不會斷 */
+
 .nav__item--drop::after{content:"";position:absolute;top:100%;left:0;right:0;height:16px}
 .nav__panel--wide{grid-template-columns:1fr 1fr;min-width:380px}
 .nav__panel--right{left:auto;right:0}
@@ -535,9 +493,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 }
 .nav__panel a:hover{background:var(--paper-2);color:var(--ink)}
 
-/* ============================================================
-   DRAWER — 手機折疊子選單
-   ============================================================ */
 .drawer__group{border-bottom:1px solid var(--line)}
 .drawer__parent{
   width:100%;background:none;border:none;cursor:pointer;text-align:left;
@@ -563,9 +518,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 }
 .drawer__sub a:last-child{padding-bottom:20px}
 
-/* ============================================================
-   HERO — 精選文章固定模板（與輪播同步淡入）
-   ============================================================ */
 .hero__lead{position:relative}
 .feature{
   position:absolute;inset:0;
@@ -591,9 +543,6 @@ svg{stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-l
 }
 .feature__sub{margin-top:28px}
 
-/* ============================================================
-   ETHOS / SERVICE — 品牌理念 + 服務內容
-   ============================================================ */
 .ethos__grid{
   display:grid;grid-template-columns:1fr 1fr;
   gap:clamp(40px,6vw,90px);align-items:start;

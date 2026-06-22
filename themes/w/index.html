@@ -13,7 +13,6 @@
 </head>
 <body>
 
-<!-- ============ 行動版頂部列（≤980px 顯示） ============ -->
 <header class="mobile-bar" id="mobileBar">
   <a href="#top" class="mobile-brand" aria-label="台灣佳光電訊 首頁">
     <img src="../../assets/logo-horizontal.png" alt="台灣佳光電訊" class="mobile-logo">
@@ -23,17 +22,14 @@
   </button>
 </header>
 
-<!-- 行動版抽屜遮罩（JS 控制；放在 body 直系，無 transform/filter 祖先） -->
 <div class="drawer-scrim" id="drawerScrim" hidden></div>
 
-<!-- ============ 左側固定側邊欄 ============ -->
 <aside class="sidebar" id="sidebar" aria-label="主導覽">
-  <!-- 頂部方形大 LOGO -->
+
   <a href="#top" class="side-logo" aria-label="台灣佳光電訊（西海岸有線電視）首頁">
     <img src="../../assets/logo-square.webp" alt="台灣佳光電訊 西海岸區" class="side-logo-img">
   </a>
 
-  <!-- 直立主選單：有子選單用就地展開 accordion -->
   <nav class="side-nav" id="sideNav" aria-label="主選單">
     <a href="#plans" class="side-link">優惠方案</a>
 
@@ -91,7 +87,6 @@
     </div>
   </nav>
 
-  <!-- 側邊欄底部：搜尋 + CTA + 專線 -->
   <div class="side-foot">
     <form class="side-search" role="search" onsubmit="return false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -105,10 +100,8 @@
   </div>
 </aside>
 
-<!-- ============ 主內容 ============ -->
 <main class="content" id="top">
 
-<!-- 1. Hero 輪播 -->
 <section class="hero" id="hero" aria-label="主視覺輪播">
   <div class="hero-track" id="heroTrack">
 
@@ -162,7 +155,6 @@
   <div class="hero-dots" id="heroDots" role="tablist" aria-label="輪播指示"></div>
 </section>
 
-<!-- 2. 快速服務 -->
 <section class="quick" aria-label="快速服務">
   <div class="wrap quick-grid">
     <a href="#" class="quick-item reveal">
@@ -188,7 +180,6 @@
   </div>
 </section>
 
-<!-- 3. 產品介紹 -->
 <section class="products" id="products" aria-label="產品介紹">
   <div class="wrap">
     <header class="sec-head reveal">
@@ -233,7 +224,6 @@
   </div>
 </section>
 
-<!-- 4. 方案區（資費卡） -->
 <section class="plans" id="plans" aria-label="優惠方案">
   <div class="wrap">
     <header class="sec-head reveal">
@@ -283,7 +273,6 @@
   </div>
 </section>
 
-<!-- 5. 橘色理念帶 + SERVICE 服務內容帶（必留語料原文） -->
 <section class="ethos" id="about" aria-label="品牌理念">
   <div class="wrap ethos-inner reveal">
     <p class="ethos-en">The Most Thoughtful Service,<br>Made a Beautiful Life.</p>
@@ -299,7 +288,6 @@
   </div>
 </section>
 
-<!-- 6. 數據 count-up -->
 <section class="stats-band" aria-label="服務數據">
   <div class="wrap stats" id="stats">
     <div class="stat reveal"><span class="stat-num" data-target="30" data-suffix="">0</span><span class="stat-label">年在地深耕</span></div>
@@ -309,7 +297,6 @@
   </div>
 </section>
 
-<!-- 7. 最新消息 -->
 <section class="news" id="news" aria-label="最新消息">
   <div class="wrap">
     <header class="sec-head reveal">
@@ -348,7 +335,6 @@
   </div>
 </section>
 
-<!-- 8. FAQ 手風琴 -->
 <section class="faq" id="faq" aria-label="常見問題">
   <div class="wrap faq-wrap">
     <header class="sec-head reveal">
@@ -394,7 +380,6 @@
 
 </main>
 
-<!-- ============ 9. 頁尾 ============ -->
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">

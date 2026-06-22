@@ -1,8 +1,4 @@
-/* ============================================================
-   哈Net — F 自助入口式版型
-   核心：自助、無障礙、大字、大點擊區、高對比
-   主色 #15568C ‧ Noto Sans TC
-   ============================================================ */
+
 
 :root{
   --blue:#15568C;
@@ -32,7 +28,7 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:"Noto Sans TC",system-ui,"Microsoft JhengHei",sans-serif;
-  /* 字級偏大、年長友善 */
+
   font-size:calc(18px * var(--fs-scale));
   line-height:1.75;
   color:var(--ink);
@@ -46,11 +42,9 @@ h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:900;color:var(--ink)}
 
 .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-/* 字級切換套到三檔（normal 已是 1） */
 body[data-fontsize="small"]{--fs-scale:.92}
 body[data-fontsize="large"]{--fs-scale:1.14}
 
-/* 無障礙：跳至主內容 */
 .skip-link{
   position:absolute;left:16px;top:-60px;z-index:2000;
   background:var(--blue);color:#fff;padding:12px 20px;border-radius:0 0 12px 12px;
@@ -58,14 +52,12 @@ body[data-fontsize="large"]{--fs-scale:1.14}
 }
 .skip-link:focus{top:0}
 
-/* 高對比的鍵盤焦點環（無障礙） */
 a:focus-visible,button:focus-visible{
   outline:3px solid var(--amber);
   outline-offset:3px;
   border-radius:6px;
 }
 
-/* ---------- Buttons：大點擊區 ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.5em;
   font-family:inherit;font-weight:700;font-size:1.05em;
@@ -83,9 +75,6 @@ a:focus-visible,button:focus-visible{
 .btn--xl{font-size:1.15em;padding:1.05em 2em;min-height:62px}
 .btn--block{width:100%}
 
-/* ============================================================
-   ① 導覽
-   ============================================================ */
 .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid var(--line);transition:box-shadow .25s}
 .site-header.is-scrolled{box-shadow:var(--shadow-sm)}
 
@@ -118,7 +107,6 @@ a:focus-visible,button:focus-visible{
 }
 .nav__menu a:hover{background:var(--blue-soft);color:var(--blue)}
 
-/* 下拉站圖（桌機 hover 展開、手機點擊折疊） */
 .nav__sub-toggle{display:flex;align-items:center;gap:4px}
 .nav__caret{width:18px;height:18px;flex:0 0 auto;transition:transform .2s}
 .nav__has-sub:hover>.nav__sub-toggle,
@@ -148,13 +136,9 @@ a:focus-visible,button:focus-visible{
 .hamburger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .hamburger[aria-expanded="true"] span:nth-child(3){transform:translateY(-9px) rotate(-45deg)}
 
-/* ============================================================
-   ② 窄 hero + 公告橫幅
-   ============================================================ */
 .hero{background:linear-gradient(160deg,var(--blue-tint) 0%,#fff 60%);overflow:hidden}
 .hero__inner{padding:46px 24px 34px}
 
-/* 輪播：固定模板，每張＝一篇精選文章 */
 .hero__carousel{position:relative}
 .hero__slide{
   display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;
@@ -175,7 +159,6 @@ a:focus-visible,button:focus-visible{
 .hero__media{position:relative}
 .hero__media img{border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);width:100%;height:auto;object-fit:cover}
 
-/* 輪播指示點 */
 .hero__dots{display:flex;justify-content:center;gap:12px;margin-top:30px}
 .hero__dot{
   width:14px;height:14px;border-radius:50%;border:2px solid var(--blue);background:transparent;
@@ -184,7 +167,6 @@ a:focus-visible,button:focus-visible{
 .hero__dot:hover{background:var(--blue-soft)}
 .hero__dot.is-active{background:var(--blue);transform:scale(1.1)}
 
-/* 公告橫幅 */
 .ticker{background:var(--blue);color:#fff}
 .ticker__inner{display:flex;align-items:center;gap:18px;min-height:54px;overflow:hidden}
 .ticker__tag{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;font-weight:900;background:rgba(255,255,255,.16);padding:8px 16px;border-radius:999px}
@@ -194,9 +176,6 @@ a:focus-visible,button:focus-visible{
 .ticker__track a:hover{text-decoration:underline}
 .ticker__dot{opacity:.6}
 
-/* ============================================================
-   ③ 快速服務 九宮格（第一屏主角）
-   ============================================================ */
 .self{padding:60px 0 56px;background:var(--bg-2)}
 .sect-head{text-align:center;max-width:620px;margin:0 auto 40px}
 .sect-head--left{text-align:left;margin-left:0}
@@ -225,17 +204,11 @@ a:focus-visible,button:focus-visible{
 .self-card__title{font-size:1.4em;font-weight:900;color:var(--ink)}
 .self-card__desc{font-size:.96em;color:var(--ink-2)}
 
-/* ============================================================
-   數據 count-up
-   ============================================================ */
 .stats{background:var(--blue);color:#fff;padding:46px 0}
 .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
 .stat__num{display:block;font-size:clamp(2.2rem,4vw,3.1rem);font-weight:900;line-height:1;letter-spacing:.5px}
 .stat__label{display:block;margin-top:10px;font-size:1.05em;opacity:.92}
 
-/* ============================================================
-   ④ 方案區
-   ============================================================ */
 .services{padding:64px 0 70px}
 .svc-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:60px}
 .svc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .2s,box-shadow .2s}
@@ -247,7 +220,6 @@ a:focus-visible,button:focus-visible{
 .svc-card__body h3{font-size:1.5em;color:var(--blue)}
 .svc-card__body p{margin:10px 0 0;color:var(--ink-2)}
 
-/* 寬頻方案 */
 .plans{margin-bottom:56px}
 .plans .sect-head--left{margin-bottom:28px}
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
@@ -277,7 +249,6 @@ a:focus-visible,button:focus-visible{
   background:var(--blue-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2315568C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-11'/%3E%3C/svg%3E") center/12px no-repeat;
 }
 
-/* 特色 */
 .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .feature{
   display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;
@@ -290,9 +261,6 @@ a:focus-visible,button:focus-visible{
 .feature__title{font-size:1.2em;font-weight:900}
 .feature__desc{font-size:.96em;color:var(--ink-2)}
 
-/* ============================================================
-   申辦帶
-   ============================================================ */
 .apply{padding:10px 0 64px}
 .apply__inner{
   background:linear-gradient(120deg,var(--blue) 0%,var(--blue-l) 100%);color:#fff;
@@ -307,9 +275,6 @@ a:focus-visible,button:focus-visible{
 .apply__actions .btn--outline{background:#fff;border-color:#fff;color:var(--blue)}
 .apply__actions .btn--outline:hover{background:var(--blue-soft)}
 
-/* ============================================================
-   ⑤ 最新消息
-   ============================================================ */
 .news{padding:14px 0 72px;background:var(--bg-2)}
 .news-list{display:flex;flex-direction:column;gap:16px;max-width:920px;margin:0 auto}
 .news-item a{
@@ -329,9 +294,6 @@ a:focus-visible,button:focus-visible{
 .news-item__arrow{width:22px;height:22px;color:var(--blue);flex:0 0 auto;transition:transform .18s}
 .news-item a:hover .news-item__arrow{transform:translateX(4px)}
 
-/* ============================================================
-   品牌理念 + 服務內容（必留語料）
-   ============================================================ */
 .ethos{padding:6px 0 70px}
 .ethos__inner{
   display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;
@@ -344,24 +306,18 @@ a:focus-visible,button:focus-visible{
 .ethos__body h2{margin:8px 0 16px;font-size:clamp(1.6rem,3vw,2.2rem)}
 .ethos__text{margin:0;color:var(--ink-2);font-size:1.08em;line-height:1.95}
 
-/* ============================================================
-   標題不截斷保護（方案名如「好視成雙」需完整顯示）
-   ============================================================ */
 .hero__title,.sect-head h2,.sect-head h3,
 .svc-card__body h3,.plan__name,.self-card__title,
 .news-item__title,.feature__title,.ethos__body h2{
   overflow:visible;text-overflow:clip;white-space:normal;
   -webkit-line-clamp:none;display:block;
 }
-/* 摘要可保留最多 2 行截斷 */
+
 .news-item__excerpt{
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;
   overflow:hidden;
 }
 
-/* ============================================================
-   ⑥ footer
-   ============================================================ */
 .site-footer{background:var(--ink);color:#cdd9e3}
 .footer__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;padding:54px 24px 40px}
 .brand--footer{color:#fff}
@@ -378,7 +334,6 @@ a:focus-visible,button:focus-visible{
 .footer__bottom{border-top:1px solid rgba(255,255,255,.12);padding:18px 0;font-size:.92em;color:#9fb1c0}
 .footer__bottom p{margin:0;text-align:center}
 
-/* 回到頂端 */
 .to-top{
   position:fixed;right:22px;bottom:22px;z-index:900;width:56px;height:56px;border-radius:50%;
   background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow);
@@ -388,9 +343,6 @@ a:focus-visible,button:focus-visible{
 .to-top[hidden]{opacity:0;transform:translateY(16px);pointer-events:none;display:grid}
 .to-top svg{width:28px;height:28px}
 
-/* ============================================================
-   捲動淡入
-   ============================================================ */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .6s ease}
 .reveal.is-in{opacity:1;transform:none}
 .reveal[data-d="1"]{transition-delay:.08s}
@@ -402,9 +354,6 @@ a:focus-visible,button:focus-visible{
   .reveal{opacity:1;transform:none}
 }
 
-/* ============================================================
-   RWD
-   ============================================================ */
 @media (max-width:1024px){
   .nav__menu,.nav__cta{display:none}
   .hamburger{display:flex}
@@ -419,7 +368,6 @@ a:focus-visible,button:focus-visible{
   .topbar__inner{flex-wrap:wrap;min-height:0;padding-top:8px;padding-bottom:8px;gap:8px}
   .nav{min-height:68px}
 
-  /* 行動選單面板 */
   .nav__menu{
     position:absolute;left:0;right:0;top:100%;display:none;flex-direction:column;gap:0;
     background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow);padding:8px 16px 16px;margin:0;
@@ -428,12 +376,11 @@ a:focus-visible,button:focus-visible{
   .nav__menu a{padding:16px 12px;font-size:1.15em;border-bottom:1px solid var(--line)}
   .nav__menu>li:last-child>a{border-bottom:none}
 
-  /* 手機：子選單改成點擊折疊 */
   .nav__menu>li{position:static}
   .nav__sub-toggle{justify-content:space-between}
   .nav__has-sub .nav__caret{transition:transform .2s}
   .nav__has-sub.is-open>.nav__sub-toggle .nav__caret{transform:rotate(180deg)}
-  /* 桌機 hover 規則在手機停用，改由 .is-open 控制 */
+
   .nav__dropdown{
     position:static;left:auto;right:auto;top:auto;
     grid-template-columns:1fr;min-width:0;
@@ -456,7 +403,6 @@ a:focus-visible,button:focus-visible{
   }
   .nav__menu.is-open ~ .nav__cta .btn{width:100%}
 
-  /* 九宮格 → 2 欄，大鈕大字依舊 */
   .self-grid{grid-template-columns:1fr 1fr;gap:14px}
   .self-card{min-height:170px;padding:24px 14px}
   .self-card__icon{width:64px;height:64px}

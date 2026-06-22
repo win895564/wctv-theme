@@ -1,13 +1,11 @@
-/* ===========================================================
-   台灣佳光電訊（哈Net）— R 新粗獷 / Neo-brutalism
-   =========================================================== */
+
 :root{
   --ink:#111111;
-  --paper:#FDF6E3;     /* 米黃底 */
+  --paper:#FDF6E3;
   --white:#ffffff;
-  --yellow:#FFE600;    /* 亮黃 */
-  --blue:#2D7DFF;      /* 亮藍 */
-  --pink:#FF5DA2;      /* 亮粉 */
+  --yellow:#FFE600;
+  --blue:#2D7DFF;
+  --pink:#FF5DA2;
   --green:#19D27C;
   --bd:3px solid var(--ink);
   --bd2:2px solid var(--ink);
@@ -34,7 +32,6 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 .ic{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 
-/* ===== 按鈕 ===== */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.4em;
   font-family:var(--mono);font-weight:700;letter-spacing:.02em;
@@ -55,7 +52,6 @@ a{color:inherit;text-decoration:none}
 .btn--dark{background:var(--ink);color:var(--yellow)}
 .btn--outline-dark{background:transparent;border-color:var(--ink);color:var(--ink)}
 
-/* ===== 跑馬燈 ===== */
 .marquee{
   background:var(--ink);color:var(--yellow);
   font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.06em;
@@ -66,7 +62,6 @@ a{color:inherit;text-decoration:none}
 .marquee__track span{padding-right:20px}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
-/* ===== 導覽列 ===== */
 .nav{
   position:sticky;top:0;z-index:60;
   background:var(--paper);border-bottom:var(--bd);
@@ -89,7 +84,7 @@ a{color:inherit;text-decoration:none}
 .nav__link:hover,.nav__item--has:hover>.nav__link{background:var(--ink);color:var(--paper)}
 .nav__caret{font-size:11px;line-height:1;transition:transform .15s}
 .nav__item--has:hover .nav__caret{transform:rotate(180deg)}
-/* 下拉面板（桌機 hover 展開） */
+
 .nav__panel{
   position:absolute;top:100%;left:0;min-width:220px;
   background:var(--paper);border:var(--bd);box-shadow:var(--shadow);
@@ -115,7 +110,6 @@ a{color:inherit;text-decoration:none}
 .nav__burger.open span:nth-child(2){opacity:0}
 .nav__burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-/* ===== 主視覺 ===== */
 .hero{
   border-bottom:var(--bd);
   background:
@@ -139,7 +133,6 @@ a{color:inherit;text-decoration:none}
 .hero__sub{font-size:17px;max-width:32em;margin-bottom:28px;font-weight:500}
 .hero__btns{display:flex;gap:14px;flex-wrap:wrap}
 
-/* slider（固定模板＝一篇精選文章） */
 .hero__slider{
   position:relative;border:var(--bd);box-shadow:var(--shadow-lg);
   background:#fff;overflow:hidden;
@@ -174,13 +167,11 @@ a{color:inherit;text-decoration:none}
 }
 @keyframes wobble{0%,100%{transform:rotate(-12deg)}50%{transform:rotate(-2deg)}}
 
-/* ===== 區段共用 ===== */
 .sec-head{margin-bottom:38px}
 .sec-kicker{font-family:var(--mono);font-weight:700;font-size:14px;color:var(--ink);background:var(--yellow);border:var(--bd2);padding:3px 10px;display:inline-block;box-shadow:2px 2px 0 var(--ink)}
 .sec-title{font-size:clamp(28px,4vw,44px);font-weight:900;margin-top:14px;letter-spacing:-.01em}
 section{padding:64px 0}
 
-/* ===== 三大服務 ===== */
 .svc__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{
   position:relative;border:var(--bd);box-shadow:var(--shadow);
@@ -201,7 +192,6 @@ section{padding:64px 0}
 .card p{font-size:15px;font-weight:500;flex:1;margin-bottom:18px}
 .card__more{font-family:var(--mono);font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px}
 
-/* ===== 數據 ===== */
 .stats{background:var(--ink);border-top:var(--bd);border-bottom:var(--bd);padding:52px 0}
 .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
 .stat{color:var(--paper)}
@@ -209,7 +199,6 @@ section{padding:64px 0}
 .stat__unit{font-family:var(--mono);font-weight:700;font-size:22px;color:var(--pink);margin-left:2px}
 .stat p{font-weight:700;font-size:15px;margin-top:8px;color:var(--paper)}
 
-/* ===== 方案 ===== */
 .plans__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .plan{
   position:relative;background:#fff;border:var(--bd);box-shadow:var(--shadow);
@@ -235,7 +224,6 @@ section{padding:64px 0}
 .plan__list .ic{color:var(--blue);font-size:18px}
 .plan--hot .plan__list .ic{color:var(--ink)}
 
-/* ===== 特色 ===== */
 .feat__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .feat__item{
   background:#fff;border:var(--bd);box-shadow:var(--shadow-sm);padding:26px 22px;
@@ -250,7 +238,6 @@ section{padding:64px 0}
 .feat__item h3{font-size:20px;font-weight:900;margin-bottom:6px}
 .feat__item p{font-size:14px;font-weight:500}
 
-/* ===== 申辦 CTA ===== */
 .cta{background:var(--green);border-top:var(--bd);border-bottom:var(--bd)}
 .cta__box{
   background:#fff;border:var(--bd);box-shadow:var(--shadow-lg);
@@ -262,7 +249,6 @@ section{padding:64px 0}
 .cta__phone{font-family:var(--mono);font-weight:700;font-size:16px}
 .cta__phone b{font-size:22px;color:var(--pink)}
 
-/* ===== 品牌理念 + 服務內容 ===== */
 .ethos{background:var(--paper);border-top:var(--bd);border-bottom:var(--bd)}
 .ethos__grid{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center}
 .ethos__head{
@@ -277,7 +263,6 @@ section{padding:64px 0}
 .ethos__title{font-size:clamp(28px,4vw,42px);font-weight:900;margin:14px 0 18px;letter-spacing:-.01em}
 .ethos__text{font-size:16px;font-weight:500;line-height:1.9;max-width:38em}
 
-/* ===== 最新消息 ===== */
 .news__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .ncard{
   background:#fff;border:var(--bd);box-shadow:var(--shadow);padding:24px 22px;
@@ -299,7 +284,6 @@ section{padding:64px 0}
 }
 .ncard__more{font-family:var(--mono);font-weight:700;font-size:14px;text-decoration:underline;text-underline-offset:4px}
 
-/* ===== 頁尾 ===== */
 .foot{background:var(--ink);color:var(--paper);border-top:var(--bd);padding-top:54px}
 .foot__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:30px;padding-bottom:40px}
 .foot__logobox{display:inline-flex;background:#fff;padding:6px 10px;border:var(--bd2);box-shadow:3px 3px 0 var(--yellow);margin-bottom:16px}
@@ -318,11 +302,9 @@ section{padding:64px 0}
   max-width:1180px;margin:0 auto;
 }
 
-/* ===== 捲動淡入 ===== */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ===== RWD ===== */
 @media(max-width:980px){
   .slide{grid-template-columns:1fr}
   .slide__media{border-right:none;border-bottom:var(--bd);aspect-ratio:16/9}
@@ -345,7 +327,7 @@ section{padding:64px 0}
     justify-content:space-between;
   }
   .nav__menu.open .nav__link:hover{background:var(--ink);color:var(--yellow)}
-  /* 手機：子選單點擊折疊 */
+
   .nav__menu.open .nav__panel,
   .nav__menu.open .nav__panel--wide{
     position:static;display:none;grid-template-columns:1fr;

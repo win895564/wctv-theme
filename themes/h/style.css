@@ -1,7 +1,4 @@
-/* ============================================================
-   哈Net — H 消息雜誌式首頁
-   編輯乾淨．近黑 #16181d．紅／藍點綴．襯線標題
-   ============================================================ */
+
 
 :root{
   --ink:#16181d;
@@ -35,7 +32,6 @@ a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%}
 .section-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-/* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   font-family:var(--sans);font-weight:700;font-size:15px;
@@ -55,9 +51,6 @@ img{display:block;max-width:100%}
 .btn-lg{padding:14px 28px;font-size:16px}
 .btn-block{width:100%}
 
-/* ============================================================
-   ① NAV
-   ============================================================ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   background:rgba(255,255,255,.86);
@@ -95,7 +88,6 @@ img{display:block;max-width:100%}
 .nav-menu > a:hover,.nav-parent:hover{color:var(--ink);background:var(--paper-2)}
 .nav-caret{width:15px;height:15px;transition:transform .2s var(--ease)}
 
-/* 下拉群組 */
 .nav-group{position:relative}
 .nav-drop{
   position:absolute;top:calc(100% + 6px);left:0;z-index:120;
@@ -113,7 +105,7 @@ img{display:block;max-width:100%}
   transition:color .2s var(--ease),background .2s var(--ease);
 }
 .nav-drop a:hover{color:var(--ink);background:var(--paper-2)}
-/* 桌機 hover 展開 */
+
 @media (min-width:861px){
   .nav-group:hover .nav-drop,
   .nav-group:focus-within .nav-drop{display:grid}
@@ -133,9 +125,6 @@ img{display:block;max-width:100%}
 .nav-burger.open span:nth-child(2){opacity:0}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ============================================================
-   ② MASTHEAD — 新聞頭條版
-   ============================================================ */
 .masthead{padding:96px 0 56px;background:
   radial-gradient(900px 400px at 12% -8%, rgba(224,36,36,.05), transparent 60%),
   radial-gradient(700px 380px at 96% 0%, rgba(29,95,216,.05), transparent 60%),
@@ -156,7 +145,6 @@ img{display:block;max-width:100%}
   display:grid;grid-template-columns:1.7fr 1fr;gap:32px;align-items:stretch;
 }
 
-/* 左：頭條 */
 .lead-story{display:flex;flex-direction:column}
 .lead-media{
   position:relative;display:block;border-radius:var(--r);overflow:hidden;
@@ -194,7 +182,6 @@ img{display:block;max-width:100%}
 .lead-excerpt{margin-top:16px;color:var(--ink-soft);font-size:17px;max-width:60ch}
 .lead-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
 
-/* 右：次要消息列表 */
 .side-stories{
   display:flex;flex-direction:column;
   background:var(--paper-2);border:1px solid var(--line);
@@ -238,7 +225,6 @@ img{display:block;max-width:100%}
 .side-more svg{width:17px;height:17px}
 .side-more:hover{gap:13px;color:var(--red)}
 
-/* 自助服務 quicklinks */
 .quicklinks{
   display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:32px;
 }
@@ -252,17 +238,11 @@ img{display:block;max-width:100%}
 .quicklinks a:hover{transform:translateY(-3px);border-color:var(--ink);color:var(--ink);box-shadow:var(--shadow)}
 .quicklinks a:hover svg{color:var(--red)}
 
-/* ============================================================
-   section heads
-   ============================================================ */
 .sec-head{max-width:760px;margin-bottom:42px}
 .sec-kicker{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;letter-spacing:1px;color:var(--ink-soft);margin-bottom:14px}
 .sec-title{font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.2vw,38px);line-height:1.25;letter-spacing:-.5px}
 .sec-sub{margin-top:14px;color:var(--ink-soft);font-size:17px}
 
-/* ============================================================
-   ③ SERVICES 橫帶
-   ============================================================ */
 .services{padding:78px 0;background:var(--paper)}
 .service-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .service-card{
@@ -293,9 +273,6 @@ img{display:block;max-width:100%}
 .service-link svg{width:17px;height:17px}
 .service-card:hover .service-link{color:var(--red);gap:12px}
 
-/* ============================================================
-   STATS
-   ============================================================ */
 .stats{background:var(--ink);color:#fff;padding:56px 0}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
 .stat{position:relative;padding:0 10px}
@@ -305,9 +282,6 @@ img{display:block;max-width:100%}
 .stat-unit{font-family:var(--serif);font-weight:700;font-size:24px;margin-left:2px;color:var(--red)}
 .stat p{margin-top:10px;color:rgba(255,255,255,.7);font-size:15px;letter-spacing:1px}
 
-/* ============================================================
-   ④ FEATURES
-   ============================================================ */
 .features{padding:78px 0;background:var(--paper-2)}
 .feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .feature{
@@ -325,9 +299,6 @@ img{display:block;max-width:100%}
 .feature h3{font-family:var(--serif);font-weight:900;font-size:20px;margin-bottom:8px}
 .feature p{color:var(--ink-soft);font-size:15px}
 
-/* ============================================================
-   品牌理念 + 服務內容
-   ============================================================ */
 .ethos{padding:78px 0;background:var(--paper)}
 .ethos-inner{
   display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;
@@ -347,9 +318,6 @@ img{display:block;max-width:100%}
 .ethos-title{font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.2vw,34px);line-height:1.25;letter-spacing:-.5px;margin-bottom:18px}
 .ethos-text{color:var(--ink-soft);font-size:16.5px;line-height:1.9}
 
-/* ============================================================
-   ⑤ PLANS + CTA
-   ============================================================ */
 .plans{padding:78px 0;background:var(--paper)}
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
 .plan-card{
@@ -375,7 +343,6 @@ img{display:block;max-width:100%}
 .plan-feat li:last-child{border-bottom:0}
 .plan-feat svg{width:18px;height:18px;flex-shrink:0;color:var(--red);margin-top:3px}
 
-/* CTA band */
 .cta-band{
   margin-top:48px;background:var(--ink);border-radius:var(--r);
   padding:46px 48px;display:flex;align-items:center;justify-content:space-between;
@@ -387,9 +354,6 @@ img{display:block;max-width:100%}
 .cta-text p{margin-top:8px;color:rgba(255,255,255,.72);font-size:16px}
 .cta-actions{display:flex;gap:12px;position:relative;flex-wrap:wrap}
 
-/* ============================================================
-   ⑥ FOOTER
-   ============================================================ */
 .footer{background:#101216;color:rgba(255,255,255,.72);padding:60px 0 0}
 .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;padding-bottom:46px}
 .brand-footer .brand-text{color:#fff}
@@ -408,15 +372,9 @@ img{display:block;max-width:100%}
 }
 .footer-tag{font-family:var(--serif);color:var(--red);font-weight:700}
 
-/* ============================================================
-   REVEAL animation
-   ============================================================ */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 
-/* ============================================================
-   RWD
-   ============================================================ */
 @media (max-width:1024px){
   .headline-grid{grid-template-columns:1.3fr 1fr}
   .quicklinks{grid-template-columns:repeat(3,1fr)}
@@ -436,7 +394,6 @@ img{display:block;max-width:100%}
   .nav-menu.open .mobile-cta{display:flex;gap:10px;margin-top:10px}
   .nav-menu.open .mobile-cta .btn{flex:1}
 
-  /* 手機：下拉改點擊折疊 */
   .nav-group{position:static}
   .nav-parent{justify-content:space-between;width:100%}
   .nav-drop{
@@ -469,7 +426,7 @@ img{display:block;max-width:100%}
   .quicklinks{grid-template-columns:repeat(2,1fr)}
   .feature-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  /* F 風友善：大字、大點擊區、高對比 */
+
   .quicklinks a{padding:22px 8px;font-size:16px}
   .btn-lg{width:100%;padding:16px 28px;font-size:17px}
   .lead-actions{flex-direction:column}

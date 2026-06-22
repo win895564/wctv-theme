@@ -1,12 +1,9 @@
-/* ============================================================
-   哈Net 首頁 — U「在地服務入口 Portal」 互動腳本 (vanilla JS)
-   ============================================================ */
+
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- 1. 導覽列：捲動縮高 + 陰影 ---------- */
     var header = document.getElementById('siteHeader');
     function onScroll() {
       if (window.scrollY > 12) header.classList.add('scrolled');
@@ -15,7 +12,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    /* ---------- 2. 漢堡選單 + 手機下拉折疊 ---------- */
     var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('navMenu');
 
@@ -58,7 +54,6 @@
     menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', closeMenu); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
-    /* ---------- 3. Hero 輪播 ---------- */
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
     var prevBtn = document.getElementById('heroPrev');
@@ -103,7 +98,6 @@
     });
     start();
 
-    /* ---------- 3b. 重疊快速服務卡 輪播 ---------- */
     var qcSlides = Array.prototype.slice.call(document.querySelectorAll('.quickcard-slide'));
     var qcCurrent = 0;
     var qcTimer = null;
@@ -121,7 +115,6 @@
     }
     startQuick();
 
-    /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
     document.querySelectorAll('.news-grid, .tools-grid, .plan-cards, .stats, .faq-list').forEach(function (grid) {
       var kids = grid.querySelectorAll('.reveal');
       kids.forEach(function (el, i) { el.setAttribute('data-d', String((i % 4) + 1)); });
@@ -139,7 +132,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- 5. 數據 count-up ---------- */
     var statNums = document.querySelectorAll('.stat-num');
     var DURATION = 1800;
     function formatNum(n) { return n.toLocaleString('en-US'); }
@@ -170,7 +162,6 @@
       });
     }
 
-    /* ---------- 6. FAQ 手風琴 ---------- */
     var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
     faqItems.forEach(function (item) {
       var q = item.querySelector('.faq-q');
@@ -178,7 +169,7 @@
       if (!q || !a) return;
       q.addEventListener('click', function () {
         var willOpen = !item.classList.contains('open');
-        // 單開模式：收起其他
+
         faqItems.forEach(function (other) {
           if (other !== item) {
             other.classList.remove('open');

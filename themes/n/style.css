@@ -1,16 +1,13 @@
-/* ============================================================
-   台灣佳光電訊（哈Net）— N 極光漸層風格
-   Aurora / mesh gradient, SaaS glow
-   ============================================================ */
+
 
 :root{
-  --indigo:#5B6CFF;        /* 主色 藍紫 */
+  --indigo:#5B6CFF;
   --indigo-deep:#3B3BD6;
   --violet:#8B5CFF;
   --cyan:#22D3EE;
   --sky:#5EC9FF;
 
-  --ink:#0B1020;           /* 深底 */
+  --ink:#0B1020;
   --ink-2:#0E1430;
   --panel:rgba(255,255,255,.045);
   --panel-line:rgba(255,255,255,.10);
@@ -48,7 +45,6 @@ ul{list-style:none}
 
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-/* ---------- 極光背景 ---------- */
 .aurora{
   position:fixed;inset:0;z-index:-2;overflow:hidden;
   background:
@@ -84,7 +80,6 @@ ul{list-style:none}
   .blob{animation:none}
 }
 
-/* ---------- 按鈕 ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.5em;
   font-family:var(--display);font-weight:700;font-size:.95rem;
@@ -113,7 +108,6 @@ ul{list-style:none}
   -webkit-background-clip:text;background-clip:text;color:transparent;
 }
 
-/* ---------- 導覽列 ---------- */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   transition:background .3s, box-shadow .3s, backdrop-filter .3s, border-color .3s;
@@ -142,7 +136,6 @@ ul{list-style:none}
 }
 .nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
 
-/* 下拉站圖 */
 .nav-item{position:relative}
 .nav-parent{display:inline-flex;align-items:center;gap:.3em}
 .nav-parent .caret{transition:transform .25s;opacity:.8}
@@ -176,7 +169,6 @@ ul{list-style:none}
 }
 .burger:hover{background:rgba(255,255,255,.08)}
 
-/* ---------- HERO ---------- */
 .hero{padding:150px 0 90px;position:relative}
 .hero-inner{
   max-width:var(--maxw);margin:0 auto;padding:0 24px;
@@ -204,7 +196,6 @@ ul{list-style:none}
 .hero-trust li{display:flex;align-items:center;gap:.65em;color:var(--text-soft);font-size:.96rem}
 .hero-trust svg{color:var(--cyan);flex-shrink:0}
 
-/* HERO 輪播 */
 .hero-stage{position:relative}
 .stage-glow{
   position:absolute;inset:-30px;border-radius:36px;z-index:0;
@@ -241,7 +232,6 @@ ul{list-style:none}
 }
 .slider-dots button.active{width:26px;background:linear-gradient(90deg,var(--indigo),var(--violet))}
 
-/* ---------- Section 共用 ---------- */
 .section{padding:90px 0;position:relative}
 .section-head{text-align:center;max-width:42em;margin:0 auto 54px}
 .kicker{
@@ -254,7 +244,6 @@ ul{list-style:none}
 }
 .section-head p{color:var(--text-soft);font-size:1.06rem}
 
-/* ---------- 發光卡（服務） ---------- */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .glow-card{
   position:relative;overflow:hidden;
@@ -286,7 +275,6 @@ ul{list-style:none}
 }
 .card-link:hover{gap:.7em;color:#fff}
 
-/* ---------- 寬頻方案 ---------- */
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
 .plan-card{
   position:relative;overflow:hidden;
@@ -327,7 +315,6 @@ ul{list-style:none}
 }
 .plan-card .btn{margin-top:auto}
 
-/* ---------- 特色 ---------- */
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .feat-item{
   background:var(--panel);border:1px solid var(--panel-line);
@@ -343,7 +330,6 @@ ul{list-style:none}
 .feat-item h3{font-family:var(--display);font-size:1.16rem;font-weight:700;margin-bottom:8px}
 .feat-item p{color:var(--text-soft);font-size:.94rem}
 
-/* ---------- 數據 ---------- */
 .stats-wrap{
   position:relative;overflow:hidden;
   display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
@@ -364,7 +350,6 @@ ul{list-style:none}
 .stat-suffix{font-size:.5em;font-weight:600;margin-left:3px;color:var(--text-soft);-webkit-text-fill-color:var(--text-soft)}
 .stat-label{color:var(--text-soft);font-size:.96rem;margin-top:8px}
 
-/* ---------- 最新消息 ---------- */
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .news-card{
   background:var(--panel);border:1px solid var(--panel-line);
@@ -387,7 +372,6 @@ ul{list-style:none}
 .news-body h3{font-family:var(--display);font-size:1.18rem;font-weight:700;margin-bottom:8px;line-height:1.4}
 .news-body p{color:var(--text-soft);font-size:.94rem}
 
-/* ---------- 品牌理念 / 服務內容 ---------- */
 .ethos-card{
   position:relative;overflow:hidden;
   padding:52px 54px;border-radius:28px;
@@ -415,7 +399,6 @@ ul{list-style:none}
 }
 .ethos-body p{color:var(--text-soft);font-size:1.04rem;line-height:1.9}
 
-/* ---------- CTA 帶 ---------- */
 .cta-inner{
   position:relative;overflow:hidden;
   display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
@@ -431,7 +414,6 @@ ul{list-style:none}
 .cta-text p{color:var(--text-soft);font-size:1.05rem}
 .cta-actions{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap}
 
-/* ---------- 頁尾 ---------- */
 .footer{position:relative;margin-top:40px;padding-top:64px;
   background:linear-gradient(180deg,transparent,rgba(6,9,20,.7));
   border-top:1px solid var(--panel-line)}
@@ -449,14 +431,12 @@ ul{list-style:none}
 .footer-bottom-inner{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
 .footer-bottom p{color:var(--text-dim);font-size:.86rem}
 
-/* ---------- 捲動淡入 ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
 }
 
-/* ---------- RWD ---------- */
 @media (max-width:1024px){
   .hero-inner{grid-template-columns:1fr;gap:48px}
   .hero-stage{max-width:460px}
@@ -482,7 +462,6 @@ ul{list-style:none}
   .nav-links.open .mobile-cta .btn{flex:1}
   .nav.scrolled .nav-inner,.nav-inner{position:relative}
 
-  /* 手機：下拉改為點擊折疊（靜態流） */
   .nav-item{width:100%}
   .nav-parent{justify-content:space-between;width:100%}
   .nav-item:hover .nav-parent .caret{transform:none}

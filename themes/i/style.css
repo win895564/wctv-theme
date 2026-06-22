@@ -1,7 +1,4 @@
-/* =========================================================
-   哈Net — I Bento 格狀首頁
-   主色 #1466E0 / 暖橘 #FF7A45 / Inter + Noto Sans TC
-   ========================================================= */
+
 
 :root{
   --blue:#1466E0;
@@ -42,7 +39,6 @@ a{color:inherit;text-decoration:none}
 img{display:block;width:100%;height:100%;object-fit:cover}
 svg{width:1em;height:1em;display:block}
 
-/* ---------- 按鈕 ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:.5em;
   font-family:inherit;font-weight:700;font-size:15px;
@@ -61,9 +57,6 @@ svg{width:1em;height:1em;display:block}
 .btn-lg{font-size:17px;padding:16px 28px}
 .btn-block{display:flex;width:100%}
 
-/* =========================================================
-   ① 導覽
-   ========================================================= */
 .nav{position:sticky;top:0;z-index:50;transition:background .3s var(--ease),box-shadow .3s var(--ease),backdrop-filter .3s}
 .nav-inner{
   max-width:1240px;margin:0 auto;padding:18px 24px;
@@ -90,7 +83,6 @@ svg{width:1em;height:1em;display:block}
 .nav-link:hover{background:var(--blue-soft);color:var(--blue)}
 .nav-cta{display:flex;gap:10px;margin-left:auto}
 
-/* 下拉站圖 */
 .nav-item{position:relative}
 .nav-parent .caret{width:15px;height:15px;transition:transform .25s var(--ease)}
 .nav-item:hover .nav-parent .caret{transform:rotate(180deg)}
@@ -102,7 +94,7 @@ svg{width:1em;height:1em;display:block}
   opacity:0;visibility:hidden;transform:translateY(8px);
   transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s;z-index:60;
 }
-/* hover 之間留一條看不見的橋，避免移到下拉時關閉 */
+
 .nav-item::after{content:"";position:absolute;top:100%;left:0;right:0;height:10px}
 .nav-item:hover .nav-sub{opacity:1;visibility:visible;transform:translateY(0)}
 .nav-sub-2col{grid-template-columns:1fr 1fr;min-width:380px}
@@ -119,9 +111,6 @@ svg{width:1em;height:1em;display:block}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* =========================================================
-   ② Bento 不對稱格狀
-   ========================================================= */
 .bento-wrap{max-width:1240px;margin:0 auto;padding:28px 24px 40px}
 .bento{
   display:grid;
@@ -138,7 +127,6 @@ svg{width:1em;height:1em;display:block}
 }
 .cell:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:transparent}
 
-/* 不對稱配置 */
 .cell-hero{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
 .cell-plan{grid-column:span 1;grid-row:span 2;
   background:linear-gradient(160deg,var(--blue),#2E78F0 60%,#3D86FF);color:#fff;border-color:transparent;
@@ -155,7 +143,6 @@ svg{width:1em;height:1em;display:block}
   display:flex;gap:16px;align-items:center;
 }
 
-/* hero cell */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px;color:var(--blue);
   background:var(--blue-soft);padding:7px 13px;border-radius:999px;align-self:flex-start}
 .eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(255,122,69,.2)}
@@ -167,7 +154,6 @@ svg{width:1em;height:1em;display:block}
 .hero-feats li{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14.5px;color:var(--ink-2)}
 .hero-feats svg{width:18px;height:18px;color:var(--blue)}
 
-/* hero 精選文章輪播（固定模板） */
 .hero-carousel{flex:1;display:flex;flex-direction:column;position:relative}
 .hero-track{position:relative;flex:1;display:grid}
 .hero-slide{
@@ -185,7 +171,6 @@ svg{width:1em;height:1em;display:block}
 }
 .hero-dots button.is-active{width:26px;background:var(--blue)}
 
-/* plan cell */
 .badge-hot{position:absolute;top:16px;right:16px;background:var(--orange);color:#fff;font-weight:800;font-size:12.5px;padding:5px 12px;border-radius:999px;box-shadow:0 4px 12px rgba(255,122,69,.4);letter-spacing:.02em}
 .cell-kicker{font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .cell-kicker-light{color:rgba(255,255,255,.65)}
@@ -199,12 +184,10 @@ svg{width:1em;height:1em;display:block}
 .cell-plan .btn-primary{background:#fff;color:var(--blue)}
 .cell-plan .btn-primary:hover{background:var(--orange);color:#fff}
 
-/* stats cell */
 .stat{display:flex;flex-direction:column;gap:2px}
 .stat-num{font-size:clamp(26px,3vw,34px);font-weight:900;color:var(--blue);line-height:1;letter-spacing:-.02em;font-family:"Inter",sans-serif}
 .stat-label{font-size:13px;color:var(--muted);font-weight:600}
 
-/* news cell */
 .cell-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .link-more{display:inline-flex;align-items:center;gap:3px;font-size:13.5px;font-weight:700;color:var(--blue)}
 .link-more svg{width:15px;height:15px;transition:transform .25s var(--ease)}
@@ -220,7 +203,6 @@ svg{width:1em;height:1em;display:block}
 .tag-note{background:var(--blue-soft);color:var(--blue)}
 .tag-svc{background:#E6F7EE;color:#16915A}
 
-/* app cell */
 .cell-app h3{font-size:18px;font-weight:800;line-height:1.35;margin-top:10px}
 .app-btns{display:flex;flex-direction:column;gap:9px;margin-top:16px}
 .store{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
@@ -230,14 +212,12 @@ svg{width:1em;height:1em;display:block}
 .store span{display:flex;flex-direction:column;font-weight:700;font-size:14px;line-height:1.25}
 .store small{font-size:10.5px;font-weight:500;opacity:.7}
 
-/* support cell */
 .support-icon{width:54px;height:54px;flex:none;border-radius:16px;display:grid;place-items:center;background:#fff;color:var(--orange);font-size:26px;box-shadow:0 6px 16px rgba(255,122,69,.25)}
 .cell-support .cell-kicker{color:#C2541E}
 .cell-support h3{font-size:18px;font-weight:800;line-height:1.3;margin:4px 0 8px;color:var(--ink)}
 .support-tel{font-weight:900;font-size:18px;color:var(--blue);font-variant-numeric:tabular-nums;font-family:"Inter",sans-serif}
 .support-tel:hover{color:var(--orange)}
 
-/* 自助服務快捷 */
 .quick{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:18px}
 .quick-item{
   display:flex;flex-direction:column;align-items:center;gap:10px;
@@ -250,9 +230,6 @@ svg{width:1em;height:1em;display:block}
 .quick-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);color:var(--blue);border-color:transparent}
 .quick-item:hover svg{transform:scale(1.12)}
 
-/* =========================================================
-   ③ 三大服務 + 方案
-   ========================================================= */
 .services{max-width:1240px;margin:0 auto;padding:40px 24px}
 .section-head{max-width:680px;margin-bottom:34px}
 .section-head .cell-kicker{display:inline-block;margin-bottom:12px}
@@ -277,7 +254,6 @@ svg{width:1em;height:1em;display:block}
 .svc-link svg{width:17px;height:17px;transition:transform .25s var(--ease)}
 .svc-link:hover svg{transform:translateX(4px)}
 
-/* 方案比較 */
 .plans{margin-top:56px}
 .plan-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .pcard{
@@ -297,9 +273,6 @@ svg{width:1em;height:1em;display:block}
 .pcard li{display:flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ink-2);font-weight:500}
 .pcard li svg{width:17px;height:17px;flex:none;color:#16915A}
 
-/* =========================================================
-   最新消息 完整
-   ========================================================= */
 .news{max-width:1240px;margin:0 auto;padding:24px 24px 56px}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .news-card{
@@ -314,9 +287,6 @@ svg{width:1em;height:1em;display:block}
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .news-card time{font-size:13px;color:var(--muted);font-weight:700;font-variant-numeric:tabular-nums}
 
-/* =========================================================
-   品牌理念 + 服務內容
-   ========================================================= */
 .ethos{max-width:1240px;margin:0 auto;padding:16px 24px 40px}
 .ethos-card{
   background:var(--card);border:1px solid var(--line);border-radius:var(--radius-xl);
@@ -334,9 +304,6 @@ svg{width:1em;height:1em;display:block}
 .ethos-body h2{font-size:clamp(26px,3vw,34px);font-weight:900;letter-spacing:-.02em;line-height:1.15;margin-bottom:16px}
 .ethos-body p{color:var(--ink-2);font-size:16px;line-height:1.85}
 
-/* =========================================================
-   ④ footer
-   ========================================================= */
 .footer{background:#0E1726;color:#C5CDDB;margin-top:20px}
 .footer-inner{max-width:1240px;margin:0 auto;padding:56px 24px 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
 .brand-foot .brand-text{color:#fff}
@@ -352,15 +319,9 @@ svg{width:1em;height:1em;display:block}
 .footer-bar{border-top:1px solid rgba(255,255,255,.08)}
 .footer-bar p{max-width:1240px;margin:0 auto;padding:22px 24px;font-size:13px;color:#7A8699;text-align:center}
 
-/* =========================================================
-   捲動淡入
-   ========================================================= */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0ms)}
 .reveal.in{opacity:1;transform:none}
 
-/* =========================================================
-   RWD
-   ========================================================= */
 @media (max-width:1080px){
   .bento{grid-template-columns:repeat(2,1fr)}
   .cell-hero{grid-column:span 2;grid-row:span 1}
@@ -386,7 +347,6 @@ svg{width:1em;height:1em;display:block}
   .nav-links.show .nav-link{font-size:17px;padding:14px;justify-content:space-between}
   .nav-links.show + .nav-cta{display:none}
 
-  /* 手機：下拉改點擊折疊 */
   .nav-item{width:100%}
   .nav-item::after{display:none}
   .nav-parent .caret{margin-left:auto}
@@ -411,7 +371,6 @@ svg{width:1em;height:1em;display:block}
   .ethos-body{padding:32px 26px}
   .footer-inner{grid-template-columns:1fr 1fr;gap:28px 24px;padding:40px 22px 28px}
 
-  /* 年長 / 無障礙：大字、大點擊區、高對比 */
   body{font-size:16.5px}
   .nav-links.show a,.quick-item,.btn{min-height:48px}
   .hero-title{font-size:clamp(32px,9vw,44px)}
@@ -425,7 +384,6 @@ svg{width:1em;height:1em;display:block}
   .cell-stats{grid-template-columns:1fr 1fr}
 }
 
-/* 尊重 reduce motion */
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}

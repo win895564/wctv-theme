@@ -1,11 +1,7 @@
-/* ============================================================
-   哈Net — H 消息雜誌式首頁 互動腳本
-   純 vanilla JS，無外部依賴
-   ============================================================ */
+
 (function () {
   "use strict";
 
-  /* ---------- 今日日期 ---------- */
   (function setDate() {
     var el = document.getElementById("todayDate");
     if (!el) return;
@@ -15,7 +11,6 @@
     el.textContent = d.getFullYear() + "." + mm + "." + dd;
   })();
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById("nav");
   function onScroll() {
     if (!nav) return;
@@ -25,11 +20,9 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡選單 ---------- */
   var burger = document.getElementById("navBurger");
   var menu = document.getElementById("navMenu");
 
-  // 為行動版選單注入 CTA（桌機隱藏，行動版顯示在展開選單底部）
   if (menu && !menu.querySelector(".mobile-cta")) {
     var ctaWrap = document.createElement("div");
     ctaWrap.className = "mobile-cta";
@@ -39,7 +32,6 @@
     menu.appendChild(ctaWrap);
   }
 
-  /* ---------- 下拉子選單：桌機交給 CSS :hover；手機點父項展開 ---------- */
   document.querySelectorAll(".nav-parent").forEach(function (parent) {
     parent.addEventListener("click", function (e) {
       if (window.innerWidth > 860) return; // 桌機由 CSS hover 處理
@@ -66,12 +58,12 @@
       burger.setAttribute("aria-expanded", open ? "true" : "false");
       burger.setAttribute("aria-label", open ? "關閉選單" : "開啟選單");
     });
-    // 點選單連結後自動收合（父項展開鈕除外）
+
     menu.querySelectorAll("a").forEach(function (a) {
       if (a.classList.contains("nav-parent")) return;
       a.addEventListener("click", closeMenu);
     });
-    // 視窗放大回桌機尺寸時收合
+
     window.addEventListener("resize", function () {
       if (window.innerWidth > 860) {
         closeMenu();
@@ -84,7 +76,6 @@
     });
   }
 
-  /* ---------- 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll(".reveal");
   var prefersReduced =
     window.matchMedia &&
@@ -98,7 +89,7 @@
         entries.forEach(function (entry, i) {
           if (entry.isIntersecting) {
             var el = entry.target;
-            // 同組元素輕微階梯延遲
+
             var siblings = Array.prototype.slice.call(
               el.parentElement ? el.parentElement.querySelectorAll(":scope > .reveal") : [el]
             );
@@ -114,7 +105,6 @@
     reveals.forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- 數據 count-up ---------- */
   function animateCount(el) {
     var target = parseInt(el.getAttribute("data-count"), 10) || 0;
     var suffix = el.getAttribute("data-suffix") || "";
@@ -127,7 +117,7 @@
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
-      // easeOutCubic
+
       var eased = 1 - Math.pow(1 - p, 3);
       var val = Math.round(target * eased);
       el.textContent = fmt(val) + suffix;
@@ -158,7 +148,6 @@
     nums.forEach(function (el) { statsIO.observe(el); });
   }
 
-  /* ---------- 平滑錨點（補強 file:// 下的偏移，避開固定導覽列） ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener("click", function (e) {
       var id = a.getAttribute("href");

@@ -1,11 +1,7 @@
-/* =========================================================
-   哈Net — I Bento 首頁互動
-   純 vanilla JS．無外部庫
-   ========================================================= */
+
 (function () {
   'use strict';
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 12) nav.classList.add('scrolled');
@@ -14,7 +10,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡選單 ---------- */
   var burger = document.getElementById('hamburger');
   var links = document.getElementById('navLinks');
   function isMobileNav() {
@@ -42,7 +37,7 @@
     });
     links.addEventListener('click', function (e) {
       var parent = e.target.closest('.nav-parent');
-      // 手機：點父項 → 折疊展開，不導頁、不關整個選單
+
       if (parent && isMobileNav()) {
         e.preventDefault();
         var item = parent.closest('.nav-item');
@@ -52,12 +47,11 @@
         }
         return;
       }
-      // 點到一般連結 → 關閉手機選單
+
       if (e.target.closest('a')) closeMobileNav();
     });
   }
 
-  /* ---------- 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries, obs) {
@@ -73,7 +67,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- 數據 count-up ---------- */
   function formatNum(n) {
     return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -85,7 +78,7 @@
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
-      // easeOutCubic
+
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = formatNum(target * eased) + suffix;
       if (p < 1) requestAnimationFrame(step);
@@ -114,7 +107,6 @@
     nums.forEach(countUp);
   }
 
-  /* ---------- Hero 精選文章輪播 ---------- */
   (function () {
     var carousel = document.getElementById('heroCarousel');
     var dotsWrap = document.getElementById('heroDots');

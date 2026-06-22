@@ -1,7 +1,4 @@
-/* ════════════════════════════════════════════════
-   T 霓虹夜色 ‧ 台灣佳光電訊（哈Net）
-   Cyberpunk neon night theme
-   ════════════════════════════════════════════════ */
+
 
 :root{
   --bg:#0a0a18;
@@ -34,7 +31,6 @@ body{
   letter-spacing:.01em;
 }
 
-/* ── 背景格線 ── */
 .grid-bg{
   position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
@@ -63,11 +59,9 @@ img{max-width:100%;display:block}
 .ic{width:1.15em;height:1.15em;fill:none;stroke:currentColor;stroke-width:1.8;
   stroke-linecap:round;stroke-linejoin:round;flex:none}
 
-/* ── logo 白底襯板 ── */
 .logo-plate{display:inline-flex;background:#fff;padding:6px 10px;border-radius:8px;
   box-shadow:0 0 0 1px rgba(33,230,255,.35),0 0 16px rgba(33,230,255,.22)}
 
-/* ════════ 按鈕 ════════ */
 .btn{
   display:inline-flex;align-items:center;gap:.5em;
   font-weight:700;font-size:.95rem;
@@ -99,7 +93,6 @@ img{max-width:100%;display:block}
   box-shadow:var(--glow-cyan);
 }
 
-/* ════════ 導覽列 ════════ */
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   transition:background .3s,backdrop-filter .3s,box-shadow .3s,border-color .3s;
@@ -133,7 +126,6 @@ img{max-width:100%;display:block}
 .nav-cta{display:flex;gap:.6rem;align-items:center}
 .nav-cta .btn{padding:.55em 1.05em;font-size:.9rem}
 
-/* ── 站圖下拉 ── */
 .nav-item{position:relative}
 .nav-parent{display:inline-flex;align-items:center;gap:.25em}
 .nav-parent .caret{width:.9em;height:.9em;transition:transform .25s}
@@ -172,7 +164,6 @@ img{max-width:100%;display:block}
 .hamburger.open span:nth-child(2){opacity:0}
 .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ════════ Hero ════════ */
 .hero{position:relative;padding:9rem 1.4rem 5rem;overflow:hidden}
 .hero-glow{
   position:absolute;top:-10%;left:50%;transform:translateX(-50%);
@@ -219,7 +210,6 @@ img{max-width:100%;display:block}
 .hero-badges li{display:inline-flex;align-items:center;gap:.5em}
 .hero-badges .ic{color:var(--cyan)}
 
-/* Hero 輪播 */
 .hero-stage{position:relative}
 .carousel{
   position:relative;border-radius:var(--radius);overflow:hidden;
@@ -227,7 +217,7 @@ img{max-width:100%;display:block}
   box-shadow:0 0 0 1px var(--panel-line),0 0 40px rgba(33,230,255,.18),
     0 24px 60px rgba(0,0,0,.6);
 }
-/* 精選文章型 hero：寬版、文字疊圖 */
+
 .hero-carousel{
   aspect-ratio:auto;min-height:clamp(420px,56vh,560px);
 }
@@ -243,7 +233,7 @@ img{max-width:100%;display:block}
   position:absolute;left:1.1rem;bottom:1.1rem;right:1.1rem;
   font-weight:700;font-size:1.05rem;z-index:2;display:flex;align-items:center;gap:.6rem;
 }
-/* hero 文字疊層（固定模板：標籤＋標題＋摘要＋兩鈕） */
+
 .slide .slide-copy{
   position:absolute;inset:auto 0 0 0;
   display:flex;flex-direction:column;align-items:flex-start;gap:1rem;
@@ -278,7 +268,6 @@ img{max-width:100%;display:block}
 }
 .carousel-dots button.active{background:var(--grad);box-shadow:var(--glow-cyan);width:42px}
 
-/* ════════ 區塊通用 ════════ */
 section{padding:5.5rem 1.4rem}
 .section-head{max-width:var(--maxw);margin:0 auto 3rem;text-align:center}
 .section-head .kicker{justify-content:center}
@@ -294,7 +283,6 @@ section{padding:5.5rem 1.4rem}
   display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;
 }
 
-/* 玻璃面板共用 */
 .svc-card,.plan-card,.news-card,.stat,.feat{
   background:var(--panel);
   border:1px solid var(--panel-line);
@@ -304,7 +292,6 @@ section{padding:5.5rem 1.4rem}
   transition:transform .3s,border-color .3s,box-shadow .3s;
 }
 
-/* ════════ 三大服務 ════════ */
 .svc-card{padding:2rem 1.7rem;overflow:hidden}
 .svc-card::before{
   content:"";position:absolute;top:0;left:0;right:0;height:2px;
@@ -330,7 +317,6 @@ section{padding:5.5rem 1.4rem}
   font-weight:700;font-size:.92rem;transition:gap .25s,text-shadow .25s}
 .link-arrow:hover{gap:.75em;text-shadow:var(--glow-cyan)}
 
-/* ════════ 方案 ════════ */
 .plans-grid{margin-top:.5rem}
 .plan-card{padding:2.2rem 1.8rem;text-align:center;overflow:hidden}
 .plan-card:hover{transform:translateY(-8px);border-color:rgba(33,230,255,.45);
@@ -362,7 +348,6 @@ section{padding:5.5rem 1.4rem}
   font-size:.95rem}
 .plan-feat .ic{color:var(--cyan);margin-top:.2em}
 
-/* ════════ 特色 ════════ */
 .feat-grid{max-width:var(--maxw);margin:0 auto;
   display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
 .feat{padding:1.8rem 1.5rem;text-align:center}
@@ -374,7 +359,6 @@ section{padding:5.5rem 1.4rem}
 .feat h3{font-family:var(--font-display);font-size:1.2rem;margin-bottom:.5rem}
 .feat p{color:var(--ink-dim);font-size:.95rem}
 
-/* ════════ 數據 ════════ */
 .stats{padding:4rem 1.4rem}
 .stats-grid{max-width:var(--maxw);margin:0 auto;
   display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
@@ -387,7 +371,6 @@ section{padding:5.5rem 1.4rem}
 .stat-num .suffix{font-size:.55em}
 .stat-label{color:var(--ink-dim);margin-top:.6rem;font-size:.95rem;letter-spacing:.05em}
 
-/* ════════ 品牌理念 ‧ 服務內容 ════════ */
 .ethos-inner{
   max-width:var(--maxw);margin:0 auto;
   display:grid;grid-template-columns:1fr 1.15fr;gap:3rem;align-items:center;
@@ -413,7 +396,6 @@ section{padding:5.5rem 1.4rem}
 }
 .ethos-body{color:var(--ink-dim);margin-top:1.2rem;font-size:1.02rem;line-height:1.9}
 
-/* ════════ 最新消息 ════════ */
 .news-card{overflow:hidden;display:flex;flex-direction:column}
 .news-card:hover{transform:translateY(-8px);border-color:rgba(33,230,255,.45);
   box-shadow:0 24px 50px rgba(0,0,0,.5),0 0 40px rgba(33,230,255,.15)}
@@ -434,7 +416,6 @@ section{padding:5.5rem 1.4rem}
 .news-body p{color:var(--ink-dim);font-size:.93rem;flex:1}
 .news-body .link-arrow{margin-top:.3rem}
 
-/* ════════ CTA Band ════════ */
 .cta-band{position:relative;overflow:hidden}
 .cta-inner{
   max-width:880px;margin:0 auto;text-align:center;
@@ -454,7 +435,6 @@ section{padding:5.5rem 1.4rem}
 .cta-inner p{color:var(--ink-dim);margin:1rem 0 2rem;font-size:1.1rem}
 .cta-inner .hero-actions{justify-content:center}
 
-/* ════════ 頁尾 ════════ */
 .footer{border-top:1px solid var(--panel-line);background:rgba(6,6,18,.7);
   padding:3.5rem 1.4rem 0;position:relative}
 .footer-inner{max-width:var(--maxw);margin:0 auto;
@@ -473,12 +453,10 @@ section{padding:5.5rem 1.4rem}
   border-top:1px solid rgba(33,230,255,.1);padding:1.4rem 0;
   text-align:center;color:var(--ink-faint);font-size:.85rem}
 
-/* ════════ 捲動淡入 ════════ */
 .reveal{opacity:0;transform:translateY(28px);
   transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 
-/* ════════ RWD ════════ */
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;gap:2.5rem}
   .hero-copy{order:2}
@@ -502,7 +480,7 @@ section{padding:5.5rem 1.4rem}
   .nav.open .nav-menu{transform:translateY(0)}
   .nav.open .nav-cta{transform:translateY(0);position:fixed;top:auto;
     margin-top:0}
-  /* 簡化：手機選單合併展開 */
+
   .nav.open .nav-menu{transform:translateY(0)}
   .nav-menu{overflow-y:auto;max-height:calc(100vh - 64px)}
   .nav-menu a{padding:.7em .5em;border-radius:8px}
@@ -511,7 +489,6 @@ section{padding:5.5rem 1.4rem}
   .hamburger{display:flex;margin-left:auto}
   .hero{padding-top:7rem}
 
-  /* 手機站圖：父項點擊折疊 */
   .nav-item{width:100%}
   .nav-parent{justify-content:space-between;width:100%}
   .dropdown{

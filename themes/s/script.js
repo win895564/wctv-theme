@@ -1,6 +1,6 @@
-// 萬用補件:reveal 直接 inline 解除隱藏(繞過各主題 visible class 差異)+ count-up + nav 捲動 + 漢堡 + 輪播(best-effort)
+
 (function () {
-  // 1) 捲動淡入 — 直接設 inline,保證顯示
+
   var rev = document.querySelectorAll('.reveal');
   if (rev.length) {
     var io = new IntersectionObserver(function (es) {
@@ -16,7 +16,6 @@
     rev.forEach(function (el) { io.observe(el); });
   }
 
-  // 2) 數字 count-up
   var cs = document.querySelectorAll('.count,[data-target]');
   if (cs.length) {
     var cio = new IntersectionObserver(function (es) {
@@ -36,11 +35,9 @@
     cs.forEach(function (el) { cio.observe(el); });
   }
 
-  // 3) 導覽列捲動加 class
   var hd = document.querySelector('header') || document.querySelector('.nav');
   if (hd) addEventListener('scroll', function () { hd.classList.toggle('scrolled', scrollY > 10); }, { passive: true });
 
-  // 4) 手機漢堡（切換抽屜）
   var bt = document.querySelector('.hamburger,.nav-toggle,.nav-burger');
   var mn = document.querySelector('.nav-menu');
   var drawer = document.getElementById('mobileDrawer');
@@ -52,7 +49,6 @@
     if (mn) { mn.classList.toggle('open'); mn.classList.toggle('is-open'); mn.classList.toggle('active'); }
   });
 
-  // 4b) 手機抽屜：父項點擊展開子選單（桌機交給 CSS :hover）
   document.querySelectorAll('.m-parent').forEach(function (p) {
     p.addEventListener('click', function () {
       var sub = p.nextElementSibling;
@@ -62,7 +58,6 @@
     });
   });
 
-  // 5) 輪播（transform 滑動 + 箭頭 + 圓點 + 自動播放）
   var track = document.getElementById('slides');
   var slidesEls = track ? track.querySelectorAll('.slide') : [];
   if (track && slidesEls.length > 1) {

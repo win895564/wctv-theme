@@ -1,14 +1,10 @@
-/* ============================================================
-   哈Net — F 自助入口式版型 互動
-   vanilla JS，無相依。
-   ============================================================ */
+
 (function () {
   'use strict';
 
   var prefersReduced = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- 1. 導覽列捲動變化 ---------- */
   var header = document.getElementById('header');
   var toTop = document.getElementById('toTop');
 
@@ -23,14 +19,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 2. 回到頂端 ---------- */
   if (toTop) {
     toTop.addEventListener('click', function () {
       window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
     });
   }
 
-  /* ---------- 3. 手機漢堡選單 ---------- */
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('navMenu');
 
@@ -46,18 +40,18 @@
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
       hamburger.setAttribute('aria-label', open ? '關閉選單' : '開啟選單');
     });
-    // 點選單項目後自動收合（父項展開鈕除外，讓它只負責折疊子選單）
+
     navMenu.addEventListener('click', function (e) {
       var link = e.target.closest('a');
       if (!link) return;
       if (link.classList.contains('nav__sub-toggle') && window.innerWidth <= 760) return;
       closeMenu();
     });
-    // Esc 關閉
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
-    // 桌機寬度時確保收合
+
     window.addEventListener('resize', function () {
       if (window.innerWidth > 760) {
         closeMenu();
@@ -71,12 +65,11 @@
     });
   }
 
-  /* ---------- 3b. 手機子選單折疊（桌機交給 CSS :hover） ---------- */
   if (navMenu) {
     var subToggles = navMenu.querySelectorAll('.nav__has-sub > .nav__sub-toggle');
     Array.prototype.forEach.call(subToggles, function (toggle) {
       toggle.addEventListener('click', function (e) {
-        // 僅在手機（漢堡顯示）攔截，桌機讓 hover 處理、連結維持可點
+
         if (window.innerWidth > 760) return;
         e.preventDefault();
         var li = toggle.parentNode;
@@ -87,7 +80,6 @@
     });
   }
 
-  /* ---------- 3c. Hero 輪播（固定模板，每張＝一篇精選文章） ---------- */
   var carousel = document.getElementById('heroCarousel');
   if (carousel) {
     var slides = carousel.querySelectorAll('.hero__slide');
@@ -130,7 +122,6 @@
       });
     });
 
-    // 滑入暫停、離開續播（年長友善：給足閱讀時間）
     carousel.addEventListener('mouseenter', stopAuto);
     carousel.addEventListener('mouseleave', startAuto);
     carousel.addEventListener('focusin', stopAuto);
@@ -139,10 +130,9 @@
     startAuto();
   }
 
-  /* ---------- 4. 字級切換（年長友善 / 無障礙） ---------- */
   var sizeBtns = document.querySelectorAll('.fontsize-btn');
   if (sizeBtns.length) {
-    // 記住上次選擇
+
     var saved = null;
     try { saved = localStorage.getItem('hanet-fontsize'); } catch (e) {}
     if (saved) applySize(saved);
@@ -162,9 +152,8 @@
     try { localStorage.setItem('hanet-fontsize', size); } catch (e) {}
   }
 
-  /* ---------- 5. 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll('.reveal');
-  // 同群組內加階梯延遲，進場更有層次
+
   groupDelay('.self-grid', '.self-card');
   groupDelay('.plan-grid', '.plan');
   groupDelay('.features', '.feature');
@@ -195,7 +184,6 @@
     Array.prototype.forEach.call(reveals, function (el) { io.observe(el); });
   }
 
-  /* ---------- 6. 數據 count-up ---------- */
   var nums = document.querySelectorAll('.stat__num');
 
   function formatNum(v) {
@@ -211,7 +199,7 @@
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / dur, 1);
-      // easeOutCubic
+
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = formatNum(Math.round(target * eased)) + suffix;
       if (p < 1) requestAnimationFrame(step);
@@ -235,8 +223,5 @@
       Array.prototype.forEach.call(nums, function (el) { ioNum.observe(el); });
     }
   }
-
-  /* ---------- 7. 公告橫幅：滑入動畫（純裝飾，可略） ---------- */
-  // ticker 內容靜態水平排列，視覺上由 reveal 帶進場，這裡不做無限捲動以維持可讀性（年長友善）。
 
 })();

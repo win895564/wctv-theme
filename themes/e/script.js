@@ -1,12 +1,7 @@
-/* ============================================================
-   哈Net — E 方案首頁互動
-   導覽列捲動變化 · 手機選單 · 捲動淡入 · 數據 count-up
-   純 vanilla JS，無外部相依
-   ============================================================ */
+
 (function () {
   'use strict';
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 12) nav.classList.add('scrolled');
@@ -15,7 +10,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡選單 ---------- */
   var hamburger = document.getElementById('hamburger');
   var navMenu = document.getElementById('navMenu');
   function closeMenu() {
@@ -32,7 +26,6 @@
     if (e.target.closest('a')) closeMenu();
   });
 
-  /* ---------- 子選單折疊（手機點擊展開；桌機交給 CSS :hover） ---------- */
   var navGroups = Array.prototype.slice.call(navMenu.querySelectorAll('.nav-group'));
   var MOBILE_NAV = '(max-width:760px)';
   navGroups.forEach(function (group) {
@@ -42,7 +35,7 @@
       if (!window.matchMedia(MOBILE_NAV).matches) return;
       var open = group.classList.toggle('open');
       toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      // 手風琴：同時只開一個
+
       navGroups.forEach(function (g) {
         if (g !== group) {
           g.classList.remove('open');
@@ -52,7 +45,7 @@
       });
     });
   });
-  // 關閉手機選單時一併收起所有子選單
+
   var _closeMenu = closeMenu;
   closeMenu = function () {
     _closeMenu();
@@ -63,14 +56,13 @@
     });
   };
 
-  /* ---------- 捲動淡入（IntersectionObserver） ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry, i) {
         if (entry.isIntersecting) {
           var el = entry.target;
-          // 同一群組依序錯開進場
+
           var siblings = el.parentElement
             ? Array.prototype.indexOf.call(el.parentElement.children, el)
             : 0;
@@ -85,7 +77,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- Hero 輪播（固定模板＝精選文章） ---------- */
   (function () {
     var carousel = document.getElementById('heroCarousel');
     var track = document.getElementById('heroTrack');
@@ -100,7 +91,6 @@
     var timer = null;
     var DELAY = 6000;
 
-    // 建立指示點
     var dots = [];
     if (dotsWrap) {
       slides.forEach(function (_, i) {
@@ -146,7 +136,6 @@
     if (!reduce) start();
   })();
 
-  /* ---------- 數據 count-up ---------- */
   function formatNum(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -157,7 +146,7 @@
     function step(ts) {
       if (start === null) start = ts;
       var p = Math.min((ts - start) / duration, 1);
-      // easeOutCubic
+
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = formatNum(Math.floor(eased * target));
       if (p < 1) requestAnimationFrame(step);
@@ -183,6 +172,4 @@
     });
   }
 
-  /* ---------- 年份自動更新（footer） ---------- */
-  // 保留 2026 文案，如需動態可在此擴充。
 })();

@@ -1,12 +1,7 @@
-/* =========================================================
-   哈Net — G 版型互動
-   導覽列捲動變化 / 漢堡選單 / 捲動淡入 / 數據 count-up / 查址示意
-   純 vanilla，無外部依賴
-   ========================================================= */
+
 (function () {
   'use strict';
 
-  /* ---------- ① 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 24) nav.classList.add('scrolled');
@@ -15,13 +10,12 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡選單 ---------- */
   var burger = document.getElementById('burger');
   function closeMenu() {
     nav.classList.remove('open');
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
-    // 收合所有展開的子站圖
+
     document.querySelectorAll('.nav__item.has-sub.open').forEach(function (item) {
       item.classList.remove('open');
       var t = item.querySelector('.nav__link');
@@ -33,7 +27,7 @@
     burger.classList.toggle('open', open);
     burger.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
-  // 手機：點父項展開子站圖（桌機交給 CSS :hover）
+
   var MOBILE_NAV = '(max-width:760px)';
   document.querySelectorAll('.nav__item.has-sub > .nav__link').forEach(function (toggle) {
     toggle.addEventListener('click', function (e) {
@@ -45,19 +39,17 @@
     });
   });
 
-  // 點實際連結（子項 / 單一主項 / CTA） / 遮罩後關閉選單
   document.querySelectorAll('.nav__sub a, .nav__menu > a.nav__link, .nav__cta a').forEach(function (a) {
     a.addEventListener('click', closeMenu);
   });
   nav.addEventListener('click', function (e) {
-    // 點到遮罩（::after 涵蓋整個 nav 但選單在上層）時關閉
+
     if (e.target === nav) closeMenu();
   });
   window.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeMenu();
   });
 
-  /* ---------- ③ 捲動淡入（IntersectionObserver） ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries, obs) {
@@ -74,7 +66,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- ④ 數據 count-up ---------- */
   function formatNum(n) { return n.toLocaleString('en-US'); }
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10) || 0;
@@ -107,7 +98,6 @@
     }
   }
 
-  /* ---------- ② 查址互動（純前端示意） ---------- */
   var form = document.getElementById('lookupForm');
   var input = document.getElementById('lookupInput');
   var btn = document.getElementById('lookupBtn');
@@ -117,7 +107,6 @@
   var resultFill = document.getElementById('resultFill');
   var resultPlans = document.getElementById('resultPlans');
 
-  // 依輸入內容生成「穩定」的假結果（同地址查兩次結果一致）
   var SCENARIOS = [
     {
       speed: '最高 1G',
@@ -164,12 +153,12 @@
       resultPlans.appendChild(chip);
     });
     result.hidden = false;
-    // 重觸發進場動畫
+
     result.style.animation = 'none';
-    // eslint-disable-next-line no-unused-expressions
+
     result.offsetHeight;
     result.style.animation = '';
-    // 速率條動畫
+
     resultFill.style.width = '0';
     requestAnimationFrame(function () {
       requestAnimationFrame(function () { resultFill.style.width = scn.fill + '%'; });
@@ -188,7 +177,7 @@
         setTimeout(function () { input.style.borderColor = ''; }, 1400);
         return;
       }
-      // 假查詢：loading 0.9s → 出結果
+
       btn.disabled = true;
       var oldLabel = btnLabel ? btnLabel.textContent : '';
       if (btnLabel) btnLabel.textContent = '查詢中…';
@@ -202,8 +191,5 @@
       }, 900);
     });
   }
-
-  /* ---------- 年份自動帶（保險，若日後改用） ---------- */
-  // 目前頁面已寫死 2026，此處保留掛點不動作。
 
 })();

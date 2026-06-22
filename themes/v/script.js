@@ -1,14 +1,9 @@
-/* ============================================================
-   哈Net 首頁 — V「西海岸・現代化」 互動腳本 (vanilla JS)
-   navbar 捲動 / 漢堡 + 下拉折疊 / hero 輪播 / 捲動淡入 /
-   count-up / FAQ 手風琴
-   ============================================================ */
+
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- 1. 導覽列：捲動陰影 ---------- */
     var header = document.getElementById('siteHeader');
     function onScroll() {
       if (window.scrollY > 12) header.classList.add('scrolled');
@@ -17,7 +12,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    /* ---------- 2. 漢堡選單 + 手機下拉折疊 ---------- */
     var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('navMenu');
 
@@ -68,17 +62,16 @@
       if (menu.classList.contains('open')) closeMenu(); else openMenu();
     });
     overlay.addEventListener('click', closeMenu);
-    // 點選單裡的實際連結（非父層展開鈕）才關閉抽屜
+
     menu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeMenu);
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
-    // 視窗放大回桌機尺寸時重置抽屜狀態
+
     mqMobile.addEventListener('change', function (e) { if (!e.matches) closeMenu(); });
 
-    /* ---------- 3. Hero 輪播 ---------- */
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
     var prevBtn = document.getElementById('heroPrev');
@@ -124,7 +117,6 @@
 
     start();
 
-    /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
     var reveals = document.querySelectorAll('.reveal');
 
     document.querySelectorAll('.product-grid, .product-mini-grid, .news-grid, .quick-grid, .plan-grid, .stats')
@@ -144,7 +136,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- 5. 數據 count-up ---------- */
     var statNums = document.querySelectorAll('.stat-num');
     var DURATION = 1900;
 
@@ -177,7 +168,6 @@
       });
     }
 
-    /* ---------- 6. FAQ 手風琴 ---------- */
     var faqItems = Array.prototype.slice.call(document.querySelectorAll('.faq-item'));
     faqItems.forEach(function (item) {
       var q = item.querySelector('.faq-q');
@@ -185,7 +175,7 @@
       if (!q || !a) return;
       q.addEventListener('click', function () {
         var willOpen = !item.classList.contains('open');
-        // 單開：先收合其他
+
         faqItems.forEach(function (other) {
           if (other !== item && other.classList.contains('open')) {
             other.classList.remove('open');

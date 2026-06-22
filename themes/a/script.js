@@ -1,12 +1,9 @@
-/* ============================================================
-   哈Net 首頁 — A 沉穩專業  互動腳本 (vanilla JS)
-   ============================================================ */
+
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- 1. 導覽列：捲動縮高 + 陰影 ---------- */
     var header = document.getElementById('siteHeader');
     function onScroll() {
       if (window.scrollY > 12) header.classList.add('scrolled');
@@ -15,11 +12,9 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    /* ---------- 2. 漢堡選單 ---------- */
     var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('navMenu');
 
-    // 動態建立遮罩
     var overlay = document.createElement('div');
     overlay.className = 'nav-overlay';
     document.body.appendChild(overlay);
@@ -37,11 +32,10 @@
       toggle.classList.remove('open');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
-      // 收合所有展開的子選單
+
       menu.querySelectorAll('.nav-item.open').forEach(function (it) { it.classList.remove('open'); });
     }
 
-    /* 下拉子選單：手機點擊展開折疊（桌機由 CSS hover 處理） */
     var mqMobile = window.matchMedia('(max-width:860px)');
     menu.querySelectorAll('.nav-item.has-sub > .nav-sub-toggle').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
@@ -49,7 +43,7 @@
         e.preventDefault();
         var item = btn.parentElement;
         var willOpen = !item.classList.contains('open');
-        // 同層只展開一個
+
         menu.querySelectorAll('.nav-item.open').forEach(function (it) { if (it !== item) it.classList.remove('open'); });
         item.classList.toggle('open', willOpen);
         btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
@@ -66,7 +60,6 @@
       if (e.key === 'Escape') closeMenu();
     });
 
-    /* ---------- 3. Hero 輪播 ---------- */
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
     var prevBtn = document.getElementById('heroPrev');
@@ -76,7 +69,6 @@
     var timer = null;
     var INTERVAL = 5000;
 
-    // 建立圓點
     slides.forEach(function (_, i) {
       var b = document.createElement('button');
       b.setAttribute('role', 'tab');
@@ -105,21 +97,17 @@
     nextBtn.addEventListener('click', function () { next(); restart(); });
     prevBtn.addEventListener('click', function () { prev(); restart(); });
 
-    // 滑入暫停
     heroEl.addEventListener('mouseenter', stop);
     heroEl.addEventListener('mouseleave', start);
 
-    // 分頁切走時暫停，避免堆積
     document.addEventListener('visibilitychange', function () {
       if (document.hidden) stop(); else start();
     });
 
     if (slides.length > 1) start();
 
-    /* ---------- 4. 捲動淡入 (IntersectionObserver) ---------- */
     var reveals = document.querySelectorAll('.reveal');
 
-    // 為同一容器內的卡片加上漸進延遲
     document.querySelectorAll('.service-grid, .news-grid, .feature-grid, .quick-grid, .stats').forEach(function (grid) {
       var kids = grid.querySelectorAll('.reveal');
       kids.forEach(function (el, i) { el.setAttribute('data-d', String((i % 4) + 1)); });
@@ -139,7 +127,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- 5. 數據 count-up ---------- */
     var statNums = document.querySelectorAll('.stat-num');
     var DURATION = 1800;
 
@@ -153,7 +140,7 @@
       function step(ts) {
         if (!startTime) startTime = ts;
         var p = Math.min((ts - startTime) / DURATION, 1);
-        // easeOutCubic
+
         var eased = 1 - Math.pow(1 - p, 3);
         var val = Math.floor(eased * target);
         el.textContent = formatNum(val) + suffix;

@@ -1,11 +1,7 @@
-/* ============================================================
-   台灣佳光電訊（哈Net）— R 新粗獷  互動腳本
-   純 vanilla JS，無外部依賴
-   ============================================================ */
+
 (function () {
   'use strict';
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 24) nav.classList.add('scrolled');
@@ -14,14 +10,13 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡選單 ＋ 子選單折疊 ---------- */
   var burger = document.getElementById('burger');
   var menu = document.getElementById('navMenu');
   function closeMenu() {
     menu.classList.remove('open');
     burger.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
-    // 收合所有展開的子選單
+
     menu.querySelectorAll('.nav__item--open').forEach(function (it) {
       it.classList.remove('nav__item--open');
       var t = it.querySelector('.nav__toggle');
@@ -38,14 +33,13 @@
       if (!open) closeMenu();
     });
 
-    // 有子選單的父項：手機點擊展開／收合（桌機交給 CSS :hover）
     menu.querySelectorAll('.nav__item--has > .nav__toggle').forEach(function (toggle) {
       toggle.addEventListener('click', function (e) {
         if (!isMobile()) return; // 桌機不攔截，交給 hover
         e.preventDefault();
         var item = toggle.closest('.nav__item');
         var willOpen = !item.classList.contains('nav__item--open');
-        // 同一層只展開一個
+
         menu.querySelectorAll('.nav__item--open').forEach(function (it) {
           if (it !== item) {
             it.classList.remove('nav__item--open');
@@ -58,13 +52,11 @@
       });
     });
 
-    // 點「葉子」連結後關閉整個選單（父項 toggle 不算）
     menu.querySelectorAll('a:not(.nav__toggle)').forEach(function (a) {
       a.addEventListener('click', closeMenu);
     });
   }
 
-  /* ---------- 主視覺輪播 ---------- */
   var slider = document.getElementById('heroSlider');
   if (slider) {
     var slides = Array.prototype.slice.call(slider.querySelectorAll('.slide'));
@@ -91,12 +83,11 @@
     function start() { timer = setInterval(next, 3800); }
     function reset() { clearInterval(timer); start(); }
     start();
-    // 滑鼠移入暫停
+
     slider.addEventListener('mouseenter', function () { clearInterval(timer); });
     slider.addEventListener('mouseleave', start);
   }
 
-  /* ---------- 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -112,7 +103,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- 數據 count-up ---------- */
   var counters = document.querySelectorAll('.count');
   function format(n) { return n.toLocaleString('en-US'); }
   function runCount(el) {
@@ -121,7 +111,7 @@
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / dur, 1);
-      // easeOutCubic
+
       var eased = 1 - Math.pow(1 - p, 3);
       el.textContent = format(Math.floor(eased * target));
       if (p < 1) requestAnimationFrame(step);

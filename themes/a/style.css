@@ -1,6 +1,4 @@
-/* ============================================================
-   哈Net 首頁 — A 沉穩專業 (Corporate / Trust / Serif)
-   ============================================================ */
+
 
 :root{
   --bg:        #f3f5f8;
@@ -46,7 +44,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 
 .container{ width:100%; max-width:var(--maxw); margin:0 auto; padding:0 24px; }
 
-/* ---------- 按鈕 ---------- */
 .btn{
   --pad:11px 22px;
   display:inline-flex; align-items:center; justify-content:center; gap:8px;
@@ -73,9 +70,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 .btn-gold{ background:var(--gold); color:#3a2c08; font-weight:700; box-shadow:0 8px 22px -10px rgba(201,162,75,.8); }
 .btn-gold:hover{ background:var(--gold-deep); color:#fff; }
 
-/* ============================================================
-   導覽列
-   ============================================================ */
 .site-header{
   position:sticky; top:0; z-index:100;
   background:rgba(255,255,255,.92);
@@ -115,7 +109,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 .nav-link .chev{ width:14px; height:14px; transition:transform .25s var(--ease); }
 .nav-item.has-sub:hover .chev{ transform:rotate(180deg); }
 
-/* ---- 下拉子選單（桌機 hover） ---- */
 .nav-dropdown{
   position:absolute; top:100%; left:0; transform:translateY(8px);
   background:var(--card); border:1px solid var(--line); border-radius:10px;
@@ -145,9 +138,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 .nav-toggle.open span:nth-child(2){ opacity:0; }
 .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
 
-/* ============================================================
-   Hero
-   ============================================================ */
 .hero{ position:relative; height:clamp(460px, 68vh, 640px); overflow:hidden; background:var(--brand); }
 .hero-track{ position:absolute; inset:0; }
 .slide{
@@ -178,11 +168,10 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 }
 .slide-desc strong{ color:var(--gold); font-weight:700; }
 .slide-actions{ display:flex; gap:14px; flex-wrap:wrap; opacity:0; transform:translateY(22px); }
-.btn-primary{ /* on hero keep readable */ }
+.btn-primary{  }
 .slide-actions .btn-outline{ color:#fff; border-color:rgba(255,255,255,.6); }
 .slide-actions .btn-outline:hover{ background:#fff; color:var(--brand); border-color:#fff; }
 
-/* 進場文字動畫（active 才跑） */
 .slide.is-active .slide-eyebrow{ animation:heroIn .7s var(--ease) .15s forwards; }
 .slide.is-active .slide-title{ animation:heroIn .8s var(--ease) .28s forwards; }
 .slide.is-active .slide-desc{ animation:heroIn .8s var(--ease) .42s forwards; }
@@ -207,9 +196,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 }
 .hero-dots button.active{ background:var(--gold); border-color:var(--gold); width:28px; border-radius:6px; }
 
-/* ============================================================
-   快捷列
-   ============================================================ */
 .quicklinks{ background:var(--card); border-bottom:1px solid var(--line); }
 .quick-grid{ display:grid; grid-template-columns:repeat(4,1fr); }
 .quick-item{
@@ -229,9 +215,6 @@ h1,h2,h3,h4{ font-family:var(--serif); line-height:1.3; margin:0; font-weight:70
 .quick-item:hover .quick-icon{ background:var(--brand); color:#fff; }
 .quick-text{ font-size:1.05rem; font-weight:500; font-family:var(--serif); }
 
-/* ============================================================
-   區塊共用 head
-   ============================================================ */
 section{ padding:92px 0; }
 .section-head{ max-width:680px; margin:0 0 52px; }
 .section-eyebrow{
@@ -242,9 +225,6 @@ section{ padding:92px 0; }
 .section-title::after{ content:""; position:absolute; left:0; bottom:0; width:54px; height:3px; background:var(--gold); border-radius:2px; }
 .section-lead{ margin:24px 0 0; color:var(--ink-soft); font-size:1.05rem; font-weight:300; }
 
-/* ============================================================
-   核心服務
-   ============================================================ */
 .services{ background:var(--bg); }
 .service-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
 .service-card{
@@ -266,9 +246,6 @@ section{ padding:92px 0; }
 .service-link svg{ width:18px; height:18px; transition:transform .3s var(--ease); }
 .service-card:hover .service-link svg{ transform:translateX(5px); }
 
-/* ============================================================
-   為什麼選哈Net + 數據
-   ============================================================ */
 .why{ background:var(--card); }
 .feature-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-bottom:72px; }
 .feature-item{ text-align:left; padding:8px 4px; }
@@ -297,12 +274,8 @@ section{ padding:92px 0; }
 .stat-label{ display:block; margin-top:12px; font-size:.92rem; color:rgba(255,255,255,.78); font-weight:300; letter-spacing:.04em; }
 .stat .stat-num{ position:relative; }
 
-/* gold accent under stat number */
 .stat-num{ position:relative; }
 
-/* ============================================================
-   品牌理念 + 服務內容（常駐語料）
-   ============================================================ */
 .ethos{ background:var(--card); }
 .ethos-inner{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 .ethos-quote{ border-left:3px solid var(--gold); padding:6px 0 6px 34px; }
@@ -318,9 +291,6 @@ section{ padding:92px 0; }
   .ethos-quote{ padding-left:26px; }
 }
 
-/* ============================================================
-   最新消息
-   ============================================================ */
 .news{ background:var(--bg); }
 .news-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
 .news-card{
@@ -345,9 +315,6 @@ section{ padding:92px 0; }
 .news-excerpt{ color:var(--ink-soft); font-size:.93rem; font-weight:300; margin:0; }
 .news-more{ text-align:center; margin-top:48px; }
 
-/* ============================================================
-   CTA band
-   ============================================================ */
 .cta-band{
   padding:0; background:var(--footer);
   background-image:linear-gradient(115deg,#0f1d33 0%, #13386b 100%);
@@ -364,9 +331,6 @@ section{ padding:92px 0; }
 .cta-text h2{ font-size:clamp(1.6rem,2.6vw,2.1rem); color:#fff; margin:0 0 12px; }
 .cta-text p{ color:rgba(255,255,255,.82); margin:0; font-weight:300; max-width:560px; }
 
-/* ============================================================
-   頁尾
-   ============================================================ */
 .site-footer{ background:var(--footer); color:rgba(255,255,255,.7); }
 .footer-grid{ display:grid; grid-template-columns:1.6fr 1fr 1fr 1fr; gap:40px; padding:72px 24px 56px; }
 .brand-footer .brand-text{ color:#fff; }
@@ -384,9 +348,6 @@ section{ padding:92px 0; }
 .footer-bottom{ border-top:1px solid rgba(255,255,255,.1); padding:22px 0; }
 .footer-bottom p{ margin:0; font-size:.84rem; color:rgba(255,255,255,.5); text-align:center; letter-spacing:.03em; }
 
-/* ============================================================
-   捲動淡入
-   ============================================================ */
 .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
 .reveal.in{ opacity:1; transform:translateY(0); }
 .reveal[data-d="1"]{ transition-delay:.08s; }
@@ -398,9 +359,6 @@ section{ padding:92px 0; }
   .reveal{ opacity:1; transform:none; }
 }
 
-/* ============================================================
-   RWD
-   ============================================================ */
 @media (max-width:980px){
   .feature-grid{ grid-template-columns:repeat(2,1fr); gap:32px 24px; }
   .footer-grid{ grid-template-columns:1fr 1fr; gap:40px 24px; }
@@ -421,7 +379,7 @@ section{ padding:92px 0; }
   .nav-link{ width:100%; justify-content:space-between; padding:15px 6px; font-size:1.05rem; border-radius:0; }
   .nav-link::after{ display:none; }
   .nav-item.open .chev{ transform:rotate(180deg); }
-  /* 手機：下拉改折疊，預設收合、.open 展開 */
+
   .nav-dropdown{
     position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; border:none;
     padding:0 0 8px; background:transparent; display:none;

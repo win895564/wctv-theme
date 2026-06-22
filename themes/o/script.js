@@ -1,8 +1,7 @@
-/* 台灣佳光電訊 哈Net — O 圓潤插畫風格 互動 */
+
 (function () {
   'use strict';
 
-  /* ---- 導覽列捲動變化 ---- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 30) nav.classList.add('scrolled');
@@ -11,7 +10,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---- 手機漢堡選單 ---- */
   var burger = document.getElementById('navBurger');
   var menu = document.getElementById('navMenu');
   function closeMenu() {
@@ -26,12 +24,11 @@
     a.addEventListener('click', closeMenu);
   });
 
-  /* ---- 站圖下拉：手機點父項展開（桌機交給 CSS :hover） ---- */
   menu.querySelectorAll('.nav-sub-toggle').forEach(function (btn) {
     btn.addEventListener('click', function () {
       var item = btn.closest('.nav-item');
       var willOpen = !item.classList.contains('open');
-      // 同層其他子選單收合
+
       menu.querySelectorAll('.nav-item.open').forEach(function (other) {
         if (other !== item) {
           other.classList.remove('open');
@@ -44,7 +41,6 @@
     });
   });
 
-  /* ---- 主視覺輪播 ---- */
   var carousel = document.getElementById('carousel');
   if (carousel) {
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('.slide'));
@@ -77,7 +73,6 @@
     carousel.addEventListener('mouseleave', restart);
   }
 
-  /* ---- 捲動淡入 + 進場 ---- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -93,7 +88,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- 數據 count-up ---- */
   function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function countUp(el) {
     var target = parseInt(el.getAttribute('data-count'), 10);

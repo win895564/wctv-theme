@@ -1,13 +1,9 @@
-/* ============================================================
-   台灣佳光電訊（哈Net）— N 極光漸層風格 互動腳本
-   純 vanilla JS，瀏覽器原生 API
-   ============================================================ */
+
 (function () {
   'use strict';
 
   document.addEventListener('DOMContentLoaded', function () {
 
-    /* ---------- 1. 導覽列捲動變化 ---------- */
     var nav = document.getElementById('nav');
     function onScroll() {
       if (window.scrollY > 24) nav.classList.add('scrolled');
@@ -16,11 +12,9 @@
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    /* ---------- 2. 手機漢堡選單 ---------- */
     var burger = document.getElementById('burger');
     var navLinks = document.getElementById('navLinks');
 
-    // 行動版選單內補上 CTA（線上繳費 / 立即申辦）
     if (navLinks && !navLinks.querySelector('.mobile-cta')) {
       var mob = document.createElement('div');
       mob.className = 'mobile-cta';
@@ -40,7 +34,7 @@
         burger.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
       navLinks.addEventListener('click', function (e) {
-        // 手機：點父項只折疊子選單，不關整個選單
+
         var parent = e.target.closest('.nav-parent');
         if (parent && isMobileNav()) {
           e.preventDefault();
@@ -50,7 +44,7 @@
           parent.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
           return;
         }
-        // 點真正的連結（子項或一般項）才收合選單
+
         if (e.target.closest('a') && !parent) {
           navLinks.classList.remove('open');
           burger.setAttribute('aria-expanded', 'false');
@@ -58,13 +52,11 @@
       });
     }
 
-    /* ---------- 3. HERO 進場 ---------- */
     var heroReveals = document.querySelectorAll('.hero .reveal');
     heroReveals.forEach(function (el, i) {
       setTimeout(function () { el.classList.add('in'); }, 120 + i * 110);
     });
 
-    /* ---------- 4. HERO 方案輪播 ---------- */
     var slidesWrap = document.getElementById('slides');
     var dotsWrap = document.getElementById('sliderDots');
     if (slidesWrap && dotsWrap) {
@@ -101,7 +93,6 @@
       start();
     }
 
-    /* ---------- 5. 捲動淡入（IntersectionObserver） ---------- */
     var reveals = document.querySelectorAll('.reveal:not(.in)');
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries, obs) {
@@ -117,7 +108,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---------- 6. 數據 count-up ---------- */
     var counters = document.querySelectorAll('.count');
     function formatNum(n, mode) {
       var s = Math.round(n).toLocaleString('en-US');
@@ -149,7 +139,6 @@
       counters.forEach(animate);
     }
 
-    /* ---------- 7. 卡片 hover 光暈跟隨滑鼠 ---------- */
     var hoverCards = document.querySelectorAll('.glow-card, .plan-card');
     hoverCards.forEach(function (card) {
       var aura = card.querySelector('.card-aura');

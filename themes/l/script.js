@@ -1,10 +1,7 @@
-/* =========================================================
-   台灣佳光電訊 哈Net — Theme L 互動
-   ========================================================= */
+
 (function () {
   'use strict';
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   var toTop = document.getElementById('toTop');
   function onScroll() {
@@ -15,7 +12,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡 ---------- */
   var burger = document.getElementById('burger');
   var menu = document.getElementById('navMenu');
   function isMobileNav() { return window.matchMedia('(max-width:900px)').matches; }
@@ -40,12 +36,12 @@
     });
     menu.addEventListener('click', function (e) {
       var toggle = e.target.closest ? e.target.closest('.nav__sub-toggle') : null;
-      // 手機：點父項只折疊展開，不關整個選單
+
       if (toggle && isMobileNav()) {
         e.preventDefault();
         var item = toggle.parentElement;
         var willOpen = !item.classList.contains('is-open');
-        // 收合其他已展開項
+
         Array.prototype.forEach.call(menu.querySelectorAll('.nav__item.is-open'), function (it) {
           if (it !== item) {
             it.classList.remove('is-open');
@@ -57,14 +53,13 @@
         toggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
         return;
       }
-      // 點到一般連結（含子項連結）→ 關閉選單
+
       if (e.target.tagName === 'A' && !toggle) {
         closeMenu();
       }
     });
   }
 
-  /* ---------- 主視覺輪播 ---------- */
   var slider = document.getElementById('heroSlider');
   var dotsWrap = document.getElementById('heroDots');
   if (slider) {
@@ -92,9 +87,8 @@
     if (slides.length > 1) start();
   }
 
-  /* ---------- 捲動淡入（含階梯式 delay） ---------- */
   var reveals = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
-  // 對群組內元素設遞增延遲
+
   ['.svc-grid', '.plans', '.feat-grid', '.news-grid', '.stat-grid', '.hero__copy', '.hero__points'].forEach(function (sel) {
     document.querySelectorAll(sel).forEach(function (group) {
       var kids = group.classList.contains('reveal') ? [group] : group.querySelectorAll('.reveal');
@@ -118,7 +112,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- 數據 count-up ---------- */
   function formatNum(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }

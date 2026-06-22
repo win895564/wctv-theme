@@ -1,16 +1,13 @@
-/* =====================================================================
-   台灣佳光電訊 哈Net — Q 新擬物 Neumorphism Theme
-   單一淺灰底 + 同色凸起/凹陷雙陰影（亮上暗下）柔軟浮雕
-   ===================================================================== */
+
 
 :root{
-  /* base surface */
+
   --bg:#e6e9ef;
   --bg-2:#e9ecf2;
-  /* neumorphic shadow pair (light top-left / dark bottom-right) */
+
   --sh-light:#ffffff;
   --sh-dark:#c2c7d2;
-  /* low-chroma blue accent */
+
   --blue:#5b7cc8;
   --blue-deep:#4163ac;
   --blue-soft:#7e9add;
@@ -18,11 +15,10 @@
   --ink-soft:#6b7280;
   --ink-faint:#9098a6;
 
-  /* raised (凸) */
   --raise: 7px 7px 16px var(--sh-dark), -7px -7px 16px var(--sh-light);
   --raise-sm: 4px 4px 9px var(--sh-dark), -4px -4px 9px var(--sh-light);
   --raise-lg: 11px 11px 26px var(--sh-dark), -11px -11px 26px var(--sh-light);
-  /* sunken (凹) inset */
+
   --sink: inset 6px 6px 13px var(--sh-dark), inset -6px -6px 13px var(--sh-light);
   --sink-sm: inset 4px 4px 8px var(--sh-dark), inset -4px -4px 8px var(--sh-light);
 
@@ -59,11 +55,9 @@ svg{width:1em;height:1em}
   margin-bottom:18px;
 }
 
-/* ---------- shared neumorphic card classes ---------- */
 .card-raised{background:var(--bg);box-shadow:var(--raise);border-radius:var(--r-lg)}
 .card-sunken{background:var(--bg);box-shadow:var(--sink);border-radius:var(--r-lg)}
 
-/* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:9px;
   font-family:inherit;font-weight:700;font-size:.96rem;
@@ -82,9 +76,6 @@ svg{width:1em;height:1em}
 .btn-lg{padding:16px 32px;font-size:1.02rem}
 .btn-block{width:100%}
 
-/* =====================================================================
-   NAV
-   ===================================================================== */
 .nav{
   position:fixed;inset:0 0 auto 0;z-index:100;
   padding:18px 0;
@@ -118,7 +109,6 @@ svg{width:1em;height:1em}
 .nav-link:hover{color:var(--blue-deep);box-shadow:var(--sink-sm)}
 .nav-caret{width:1em;height:1em;transition:transform .25s var(--ease)}
 
-/* ---- dropdown (桌機 hover / 手機 click) ---- */
 .nav-group{position:relative}
 .nav-panel{
   position:absolute;top:calc(100% + 14px);left:0;z-index:120;
@@ -154,9 +144,6 @@ svg{width:1em;height:1em}
 .nav-burger.open span:nth-child(2){opacity:0}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* =====================================================================
-   HERO
-   ===================================================================== */
 .hero{padding:150px 24px 70px;max-width:var(--maxw);margin:0 auto}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
 .hero-eyebrow{
@@ -179,7 +166,6 @@ svg{width:1em;height:1em}
 .hero-lead strong{color:var(--blue-deep);font-weight:700}
 .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
 
-/* hero copy slider (固定模板:每張一篇精選文章) */
 .hero-slider-copy{position:relative}
 .hero-slider-copy .slide{
   opacity:0;transform:translateY(16px);
@@ -190,7 +176,6 @@ svg{width:1em;height:1em}
 }
 .hero-slider-copy .slide.is-active{opacity:1;transform:none;position:relative}
 
-/* hero visual / stage */
 .hero-visual{position:relative}
 .hero-stage{
   position:relative;border-radius:var(--r-lg);
@@ -221,9 +206,6 @@ svg{width:1em;height:1em}
 .hero-float span{font-size:.82rem;color:var(--ink-faint)}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-/* =====================================================================
-   STATS
-   ===================================================================== */
 .stats{max-width:var(--maxw);margin:0 auto;padding:30px 24px}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .stat{padding:38px 24px;text-align:center;border-radius:var(--r-lg)}
@@ -233,16 +215,10 @@ svg{width:1em;height:1em}
 }
 .stat-label{display:block;margin-top:12px;color:var(--ink-soft);font-weight:500;font-size:.98rem}
 
-/* =====================================================================
-   SECTION HEADS
-   ===================================================================== */
 .section-head{text-align:center;max-width:38em;margin:0 auto 56px}
 .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:900;color:var(--ink);letter-spacing:-.01em;line-height:1.25}
 .section-head p{margin-top:14px;color:var(--ink-soft);font-size:1.05rem}
 
-/* =====================================================================
-   SERVICES
-   ===================================================================== */
 .services{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .svc-card{
@@ -265,9 +241,6 @@ svg{width:1em;height:1em}
 .svc-link svg{width:1em;height:1em;transition:transform .25s var(--ease)}
 .svc-link:hover svg{transform:translateX(5px)}
 
-/* =====================================================================
-   PLANS
-   ===================================================================== */
 .plans{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;align-items:center}
 .plan{
@@ -299,9 +272,6 @@ svg{width:1em;height:1em}
   padding:5px;border-radius:50%;background:var(--bg);box-shadow:var(--raise-sm);
 }
 
-/* =====================================================================
-   FEATURES
-   ===================================================================== */
 .features{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
 .feat{padding:34px 28px;text-align:center;transition:box-shadow .3s var(--ease)}
@@ -315,9 +285,6 @@ svg{width:1em;height:1em}
 .feat h4{font-size:1.12rem;font-weight:700;margin-bottom:8px}
 .feat p{color:var(--ink-soft);font-size:.92rem}
 
-/* =====================================================================
-   PROMO
-   ===================================================================== */
 .promo{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .promo-card{
   display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center;
@@ -329,9 +296,6 @@ svg{width:1em;height:1em}
 .promo-img{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--sink);padding:14px}
 .promo-img img{border-radius:var(--r-sm);width:100%;height:100%;object-fit:cover}
 
-/* =====================================================================
-   NEWS
-   ===================================================================== */
 .news{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
 .news-item{padding:36px 32px;transition:box-shadow .35s var(--ease), transform .35s var(--ease)}
@@ -351,14 +315,10 @@ svg{width:1em;height:1em}
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
 }
 
-/* 標題一律不截斷(方案名等需完整呈現) */
 .hero-title,.svc-card h3,.plan-name,.news-item h3,.feat h4,.section-head h2{
   overflow:visible;text-overflow:clip;-webkit-line-clamp:none;white-space:normal;
 }
 
-/* =====================================================================
-   ETHOS / SERVICE
-   ===================================================================== */
 .ethos{max-width:var(--maxw);margin:0 auto;padding:80px 24px}
 .ethos-card{
   display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;
@@ -373,17 +333,11 @@ svg{width:1em;height:1em}
 .ethos-body h2{font-size:clamp(1.6rem,2.8vw,2.2rem);font-weight:900;color:var(--ink);margin-bottom:16px;line-height:1.3}
 .ethos-body p{color:var(--ink-soft);font-size:1.02rem;line-height:1.9}
 
-/* =====================================================================
-   CTA BAND
-   ===================================================================== */
 .cta-band{max-width:var(--maxw);margin:0 auto;padding:40px 24px 100px}
 .cta-band-inner{padding:64px 40px;text-align:center;border-radius:var(--r-lg)}
 .cta-band-inner h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;margin-bottom:14px}
 .cta-band-inner p{color:var(--ink-soft);font-size:1.05rem;max-width:34em;margin:0 auto 30px}
 
-/* =====================================================================
-   FOOTER
-   ===================================================================== */
 .footer{max-width:var(--maxw);margin:0 auto;padding:30px 24px 50px}
 .footer-inner{
   display:grid;grid-template-columns:1.3fr 2fr;gap:50px;
@@ -400,18 +354,12 @@ svg{width:1em;height:1em}
 .footer-col a:hover{color:var(--blue-deep)}
 .footer-bottom{text-align:center;padding:26px 0 0;color:var(--ink-faint);font-size:.86rem}
 
-/* =====================================================================
-   SCROLL REVEAL
-   ===================================================================== */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .7s var(--ease), transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 .reveal.d1{transition-delay:.08s}
 .reveal.d2{transition-delay:.16s}
 .reveal.d3{transition-delay:.24s}
 
-/* =====================================================================
-   RESPONSIVE
-   ===================================================================== */
 @media(max-width:980px){
   .hero-grid{grid-template-columns:1fr;gap:48px}
   .hero-visual{max-width:560px;margin:0 auto;width:100%}
@@ -443,7 +391,6 @@ svg{width:1em;height:1em}
   .nav-link{padding:14px 18px;font-size:1.05rem;border-radius:var(--r-sm);width:100%;justify-content:space-between}
   .nav-link:hover{box-shadow:var(--sink-sm)}
 
-  /* 手機:下拉改點擊折疊 */
   .nav-group{width:100%}
   .nav-panel{
     position:static;min-width:0;box-shadow:none;background:none;

@@ -1,8 +1,7 @@
-/* ====== 台灣佳光電訊 哈Net｜M 玻璃擬態 互動 ====== */
+
 (function () {
   'use strict';
 
-  /* ---------- 導覽列捲動變化 ---------- */
   var nav = document.getElementById('nav');
   function onScroll() {
     if (window.scrollY > 24) nav.classList.add('scrolled');
@@ -11,7 +10,6 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- 手機漢堡 ---------- */
   var burger = document.getElementById('hamburger');
   var menu = document.getElementById('navMenu');
   var MOBILE = '(max-width: 760px)';
@@ -36,7 +34,6 @@
       if (!open) closeMenu();
     });
 
-    /* 手機：點父項 → 展開／收合子選單（桌機交給 CSS :hover） */
     menu.querySelectorAll('.nav-parent').forEach(function (p) {
       p.addEventListener('click', function (e) {
         if (!matchMedia(MOBILE).matches) return;
@@ -48,14 +45,12 @@
       });
     });
 
-    /* 點到實際連結（非父項）→ 收起整個選單 */
     menu.querySelectorAll('a').forEach(function (a) {
       if (a.classList.contains('nav-parent')) return;
       a.addEventListener('click', closeMenu);
     });
   }
 
-  /* ---------- Hero 輪播 ---------- */
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var dotsWrap = document.getElementById('dots');
   var idx = 0, timer = null, DELAY = 4500;
@@ -88,7 +83,6 @@
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) start();
   }
 
-  /* ---------- 捲動淡入 (IntersectionObserver) ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -107,7 +101,6 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------- 數據 count-up ---------- */
   function format(n) { return n.toLocaleString('en-US'); }
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-target'), 10) || 0;
