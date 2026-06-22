@@ -194,10 +194,11 @@ svg{ flex:none; }
    3. Hero
    ============================================================ */
 .hero{
-  position:relative; overflow:hidden;
+  position:relative;
   background:var(--navy);
   padding-bottom:120px;   /* 給重疊快速卡留空間 */
 }
+.hero-track{ overflow:hidden; border-radius:0; }  /* 只裁切輪播背景圖，不裁切懸浮卡 */
 .hero-track{ position:relative; min-height:min(72vh, 620px); }
 .slide{
   position:absolute; inset:0; display:flex; align-items:center;
