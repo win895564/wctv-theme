@@ -1,5 +1,4 @@
-/* 哈Net 主題 X「光徑」— 互動腳本
-   nav 抽屜 / 桌機下拉、hero 固定模板輪播、scroll reveal、count-up 數據 */
+
 (function () {
   'use strict';
 
@@ -8,7 +7,6 @@
     var prefersReduced = window.matchMedia &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* ---- header 滾動陰影 ---- */
     var header = document.getElementById('siteHeader');
     function onScroll() {
       if (window.scrollY > 12) header.classList.add('scrolled');
@@ -17,7 +15,6 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    /* ---- 手機抽屜 ＋ 桌機下拉 ---- */
     var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('navMenu');
 
@@ -64,7 +61,6 @@
       if (e.key === 'Escape') closeMenu();
     });
 
-    /* ---- Hero 固定模板輪播 ---- */
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
     var prevBtn = document.getElementById('heroPrev');
@@ -107,7 +103,6 @@
     });
     start();
 
-    /* ---- scroll reveal ---- */
     var reveals = document.querySelectorAll('.reveal');
     document.querySelectorAll('.quick-grid, .product-grid, .plan-grid, .news-grid, .stats').forEach(function (grid) {
       grid.querySelectorAll('.reveal').forEach(function (el, i) {
@@ -126,7 +121,6 @@
       reveals.forEach(function (el) { el.classList.add('in'); });
     }
 
-    /* ---- count-up 數據 ---- */
     var statNums = document.querySelectorAll('.stat-num');
     var DURATION = 1800;
     function formatNum(n) { return n.toLocaleString('en-US'); }

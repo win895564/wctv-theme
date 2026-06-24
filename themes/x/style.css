@@ -1,20 +1,17 @@
-/* ============================================================
-   哈Net 台灣佳光電訊 — 主題 X「光徑」
-   題材：光訊號在光纖中傳遞。招牌元素＝訊號光徑（會流動的光點）。
-   ============================================================ */
+
 
 :root {
-  /* ---- 配色 named tokens ---- */
-  --ink-sea: #0A1E38;      /* 深海墨藍：主深色 / hero / footer */
-  --ink-sea-2: #0c264a;    /* 深藍漸層輔色 */
-  --signal: #22D3DE;       /* 訊號青：發光的光、重點線條 / hover */
-  --signal-deep: #0FA9B5;  /* 訊號青（深） */
-  --brand: #F29600;        /* 西海岸招牌橘：主要 CTA、強調 */
+
+  --ink-sea: #0A1E38;
+  --ink-sea-2: #0c264a;
+  --signal: #22D3DE;
+  --signal-deep: #0FA9B5;
+  --brand: #F29600;
   --brand-deep: #d98300;
-  --paper: #EEF2F6;        /* 冷調淺底：內容區 */
-  --ink: #13202E;          /* 內文墨 */
-  --muted: #5A6B7B;        /* 次要文字 */
-  --line: #DDE4EC;         /* 分隔線 / 邊框 */
+  --paper: #EEF2F6;
+  --ink: #13202E;
+  --muted: #5A6B7B;
+  --line: #DDE4EC;
   --white: #ffffff;
 
   --maxw: 1180px;
@@ -28,7 +25,6 @@
   --f-tech: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif;
 }
 
-/* ---- reset ---- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
@@ -48,17 +44,12 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-/* 可見鍵盤焦點 */
 :focus-visible {
   outline: 3px solid var(--signal);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ============================================================
-   招牌元素：訊號光徑（light paths）
-   一道光點沿著細橫線奔流，呼應 logo 條紋與「光在傳遞」。
-   ============================================================ */
 .lightpaths {
   position: absolute;
   inset: 0;
@@ -66,14 +57,14 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   pointer-events: none;
   z-index: 1;
 }
-/* 單一光徑：底線 1px + 一段流動的光 */
+
 .lp {
   position: absolute;
   left: 0;
   right: 0;
   top: var(--top, 50%);
   height: 1px;
-  background: rgba(34, 211, 222, .14);     /* 安靜的底線 */
+  background: rgba(34, 211, 222, .14);
 }
 .lp::after {
   content: "";
@@ -83,7 +74,7 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   width: 26%;
   height: 3px;
   border-radius: 3px;
-  /* 一段奔流的光 */
+
   background: linear-gradient(90deg,
     transparent 0%,
     rgba(34, 211, 222, .15) 35%,
@@ -99,7 +90,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   100% { left: 102%; opacity: 0; }
 }
 
-/* 流動光徑分隔線（區段之間） */
 .path-divider {
   position: relative;
   height: 1px;
@@ -119,15 +109,12 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   animation: lp-run 7s linear infinite;
 }
 
-/* ============================================================
-   Header / Nav
-   ============================================================ */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: rgba(255, 255, 255, .92);
-  /* 桌機才用毛玻璃（手機抽屜陷阱：見 @media 處理） */
+
   backdrop-filter: saturate(140%) blur(10px);
   -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid transparent;
@@ -167,7 +154,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .nav-link .chev { width: 15px; height: 15px; transition: transform .2s var(--ease); }
 .nav-item.has-sub:hover .chev { transform: rotate(180deg); }
 
-/* 桌機下拉 */
 .nav-dropdown {
   position: absolute;
   top: calc(100% + 10px);
@@ -210,11 +196,9 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .nav-dropdown a:hover { background: var(--paper); color: var(--signal-deep); }
 
-/* 桌機 CTA */
 .nav-cta { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .nav-cta-mobile { display: none; }
 
-/* 漢堡 */
 .nav-toggle {
   display: none;
   width: 44px; height: 44px;
@@ -239,9 +223,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
-/* ============================================================
-   Buttons
-   ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -265,11 +246,9 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-ghost:hover { border-color: var(--signal); color: var(--signal-deep); }
 
-/* hero 上的次要鈕：描邊訊號青 */
 .btn-outline { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-outline:hover { border-color: var(--signal-deep); color: var(--signal-deep); background: rgba(34, 211, 222, .06); }
 
-/* hero 深底的 outline */
 .slide-actions .btn-outline {
   color: #fff;
   border-color: rgba(255, 255, 255, .55);
@@ -280,9 +259,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   background: rgba(34, 211, 222, .08);
 }
 
-/* ============================================================
-   Hero
-   ============================================================ */
 .hero {
   position: relative;
   background:
@@ -329,14 +305,14 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   line-height: 1.18;
   color: #fff;
   letter-spacing: .005em;
-  /* 標題一律不截斷 */
+
 }
 .slide-desc {
   margin: 0 0 30px;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
   color: rgba(255, 255, 255, .82);
   max-width: 600px;
-  /* 摘要最多 2 行 */
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -346,7 +322,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .slide-desc strong { color: var(--signal); font-weight: 700; }
 .slide-actions { display: flex; flex-wrap: wrap; gap: 14px; }
 
-/* hero 箭頭 */
 .hero-arrow {
   position: absolute;
   top: 50%;
@@ -367,7 +342,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .hero-prev { left: 20px; }
 .hero-next { right: 20px; }
 
-/* hero dots */
 .hero-dots {
   position: absolute;
   left: 0; right: 0; bottom: 26px;
@@ -385,9 +359,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .hero-dots button.active { background: var(--signal); width: 40px; box-shadow: 0 0 8px rgba(34, 211, 222, .7); }
 
-/* ============================================================
-   Section heading（標題下短光徑底線）
-   ============================================================ */
 .section-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
 .section-eyebrow {
   font-family: var(--f-tech);
@@ -406,7 +377,7 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   display: inline-block;
   padding-bottom: 16px;
 }
-/* 標題下方短光徑底線 */
+
 .section-title::after {
   content: "";
   position: absolute;
@@ -424,9 +395,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   max-width: 620px;
 }
 
-/* ============================================================
-   Quicklinks
-   ============================================================ */
 .quicklinks { background: var(--white); padding: 40px 0; }
 .quick-grid {
   display: grid;
@@ -457,9 +425,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .quick-icon svg { width: 22px; height: 22px; }
 .quick-text { font-weight: 700; font-size: 16px; color: var(--ink); }
 
-/* ============================================================
-   Products（冷白內容區）
-   ============================================================ */
 .products { background: var(--paper); padding: 84px 0; }
 .product-grid {
   display: grid;
@@ -500,9 +465,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .text-link svg { width: 18px; height: 18px; }
 .text-link:hover { gap: 12px; color: var(--brand); }
 
-/* ============================================================
-   Plans（安靜克制，僅 featured 一張強調）
-   ============================================================ */
 .plans { background: var(--white); padding: 84px 0; }
 .plan-grid {
   display: grid;
@@ -557,9 +519,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .plan-feats svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 4px; color: var(--signal-deep); }
 
-/* ============================================================
-   Ethos（橘色理念帶 ＋ SERVICE）
-   ============================================================ */
 .ethos {
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
   padding: 84px 0;
@@ -601,9 +560,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   line-height: 1.95;
 }
 
-/* ============================================================
-   Stats band（深藍底，數字 Space Grotesk）
-   ============================================================ */
 .stats-band { background: var(--ink-sea); padding: 64px 0; }
 .stats {
   display: grid;
@@ -631,9 +587,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .stat-label { display: block; margin-top: 10px; font-size: 14.5px; color: rgba(255, 255, 255, .72); }
 
-/* ============================================================
-   News
-   ============================================================ */
 .news { background: var(--paper); padding: 84px 0; }
 .news-grid {
   display: grid;
@@ -681,9 +634,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .news-more { text-align: center; margin-top: 44px; }
 
-/* ============================================================
-   FAQ
-   ============================================================ */
 .faq { background: var(--white); padding: 84px 0; }
 .faq-list { max-width: 760px; margin: 0 auto; }
 .faq-item {
@@ -711,9 +661,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .faq-item[open] .faq-chev { transform: rotate(180deg); color: var(--signal-deep); }
 .faq-item p { margin: 0; padding: 0 22px 22px; color: var(--muted); line-height: 1.85; }
 
-/* ============================================================
-   CTA band（深藍 + 光徑）
-   ============================================================ */
 .cta-band {
   position: relative;
   background: radial-gradient(120% 120% at 20% 0%, var(--ink-sea-2), var(--ink-sea) 65%);
@@ -734,9 +681,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 .cta-text h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); font-weight: 900; color: #fff; margin: 0 0 10px; }
 .cta-text p { color: rgba(255, 255, 255, .82); margin: 0; max-width: 560px; }
 
-/* ============================================================
-   Footer
-   ============================================================ */
 .site-footer { background: var(--ink-sea); color: rgba(255, 255, 255, .8); }
 .footer-grid {
   display: grid;
@@ -782,9 +726,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   color: rgba(255, 255, 255, .55);
 }
 
-/* ============================================================
-   Reveal on scroll
-   ============================================================ */
 .reveal {
   opacity: 0;
   transform: translateY(20px);
@@ -793,9 +734,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
 }
 .reveal.in { opacity: 1; transform: none; }
 
-/* ============================================================
-   RWD
-   ============================================================ */
 @media (max-width: 980px) {
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-brand { grid-column: 1 / -1; }
@@ -810,8 +748,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   .stats { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
   .stat:nth-child(3)::before, .stat:nth-child(1)::before { display: none; }
 
-  /* 🔴 手機抽屜陷阱：header 此時若帶 backdrop-filter，
-     祖先建立 containing block 會困住 position:fixed 抽屜 → 關掉。 */
   .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: #fff; }
 
   .nav-toggle { display: inline-flex; order: 3; }
@@ -890,9 +826,6 @@ h1, h2, h3, h4 { margin: 0; line-height: 1.28; font-weight: 700; }
   .container { padding: 0 18px; }
 }
 
-/* ============================================================
-   尊重 prefers-reduced-motion：關閉光徑流動等動畫
-   ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
   .lp::after, .lp-flow { animation: none; opacity: 0; }
