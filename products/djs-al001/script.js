@@ -55,7 +55,7 @@
   'use strict';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia && matchMedia('(pointer:fine)').matches;
-  var stage = document.querySelector('.hero-stage');
+  var stage = document.querySelector('.hero');
   var tilt = document.querySelector('.hero-tilt');
   if (!stage || !tilt || reduce || !fine) return;
   var raf = false, nx = 0, ny = 0;
@@ -67,8 +67,8 @@
       raf = true;
       requestAnimationFrame(function () {
         raf = false;
-        tilt.style.setProperty('--ry', (nx * 8).toFixed(2) + 'deg');
-        tilt.style.setProperty('--rx', (ny * -6).toFixed(2) + 'deg');
+        tilt.style.setProperty('--ry', (nx * 16).toFixed(2) + 'deg');
+        tilt.style.setProperty('--rx', (ny * -11).toFixed(2) + 'deg');
       });
     }
   }, { passive: true });
