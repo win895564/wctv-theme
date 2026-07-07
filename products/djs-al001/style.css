@@ -219,4 +219,48 @@ a{color:inherit;text-decoration:none}
 }
 @media (prefers-reduced-motion:reduce){
   .hero-unit,.scroll-cue span::after,.alarm-stage.alarmed .rings span,.alarm-stage.alarmed .alarm-vignette{animation:none}
+  .hero-unit{filter:drop-shadow(0 40px 60px rgba(19,26,36,.18))}
+  .hero-tilt{transform:none !important}
 }
+
+/* ============================================================
+   互動特效：捲動揭示 + hover 回饋 + 產品游標微傾
+   ============================================================ */
+html.js .steps .sec-eyebrow, html.js .steps .sec-title, html.js .step-grid>li,
+html.js .app-copy, html.js .app-phones .hp-frame,
+html.js .feats .sec-eyebrow, html.js .feats .sec-title, html.js .feat-grid>li,
+html.js .places .sec-eyebrow, html.js .places .sec-title, html.js .place-grid>li, html.js .place-note,
+html.js .specs .specs-head, html.js .spec-list>div,
+html.js .cta-in>*{
+  opacity:0; transform:translateY(26px);
+  transition:opacity .7s var(--ease), transform .7s var(--ease);
+}
+html.js .in{opacity:1 !important; transform:none !important}
+
+.feat-grid>li{transition:transform .25s var(--ease)}
+.feat-grid>li svg{transition:color .25s var(--ease), transform .25s var(--ease)}
+.feat-grid>li:hover{transform:translateY(-4px)}
+.feat-grid>li:hover svg{color:var(--alarm); transform:scale(1.08)}
+
+.step-grid li{transition:background .25s var(--ease)}
+.step-grid li:hover{background:#fbfbfc}
+.step-grid li:hover .num{color:var(--alarm)}
+
+.place-grid>li{transition:transform .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease)}
+.place-grid>li:hover{transform:translateY(-3px); border-color:var(--ink)}
+
+.spec-list>div{transition:background .2s var(--ease)}
+.spec-list>div:hover{background:#fbfbfc}
+
+.app-phones .hp-frame{transition:box-shadow .35s var(--ease), transform .35s var(--ease)}
+.app-phones .hp-frame:hover{box-shadow:0 42px 72px rgba(19,26,36,.30); transform:translateY(-6px)}
+
+.hero-phone{transition:transform .4s var(--ease)}
+.hero-phone:hover{transform:translateY(-6px)}
+
+.btn-primary{transition:background .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease)}
+.btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(19,26,36,.22)}
+.btn-outline{transition:background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease)}
+.btn-outline:hover{transform:translateY(-1px)}
+
+.hero-tilt{transform:perspective(1000px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .4s var(--ease);will-change:transform}
