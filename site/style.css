@@ -202,6 +202,7 @@ section { position: relative; }
 .slide-textbox::before { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(20,14,8,.6) 0%, rgba(20,14,8,.32) 34%, rgba(20,14,8,0) 62%); }
 .slide-textbox .container { position: relative; width: 100%; }
 .slide-textbox .slide-content { pointer-events: auto; }
+.slide-demo-bg { background: linear-gradient(118deg, #14233f 0%, #21416e 52%, #b6591d 134%); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .slide-content { position: relative; color: #fff; max-width: 660px; }
 .slide-eyebrow {
