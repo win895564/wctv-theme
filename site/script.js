@@ -194,5 +194,22 @@
       });
     });
 
+    // 右下角社群懸浮框：點主按鈕展開/收合，點外面自動關
+    var sfab = document.getElementById('socialFab');
+    if (sfab) {
+      var sbtn = document.getElementById('socialToggle');
+      sbtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = sfab.classList.toggle('open');
+        sbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      document.addEventListener('click', function (e) {
+        if (!sfab.contains(e.target)) {
+          sfab.classList.remove('open');
+          sbtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
   });
 })();
