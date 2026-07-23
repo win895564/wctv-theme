@@ -482,25 +482,36 @@ section { position: relative; }
 .apply-backdrop { position: absolute; inset: 0; background: rgba(20,15,10,.5); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); }
 .apply-dialog {
   position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-  width: min(92vw, 440px); max-height: 90vh; overflow-y: auto;
+  width: min(92vw, 430px); max-height: 92vh; overflow-y: auto;
   background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
-  padding: 34px 32px 32px;
+  padding: 26px 28px 24px;
+}
+@media (max-width: 480px) {
+  .apply-dialog { padding: 20px 18px 18px; max-height: 94vh; }
+  .apply-title { font-size: 21px; }
+  .apply-sub { margin-bottom: 12px; }
+  .apply-form { gap: 9px; }
+  .apply-field input, .apply-field textarea { padding: 8px 12px; }
+  .apply-field textarea { min-height: 44px; }
+  .apply-note { margin-top: 12px; font-size: 12.5px; }
 }
 .apply-close { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--ink); transition: background .2s var(--ease), color .2s var(--ease); }
 .apply-close:hover { background: var(--orange-tint); color: var(--orange-deep); }
 .apply-close svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .apply-title { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--ink); }
-.apply-sub { margin-top: 6px; color: var(--sub); font-size: 14px; margin-bottom: 22px; }
-.apply-form { display: flex; flex-direction: column; gap: 14px; }
+.apply-sub { margin-top: 5px; color: var(--sub); font-size: 14px; margin-bottom: 16px; }
+.apply-form { display: flex; flex-direction: column; gap: 11px; }
+.apply-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .apply-field { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
 .apply-field .req { color: #e0392b; margin-left: 4px; }
 .apply-field .opt { color: var(--sub); margin-left: 6px; font-weight: 400; font-size: 12px; }
 .apply-field input, .apply-field textarea {
-  display: block; width: 100%; margin-top: 6px;
+  display: block; width: 100%; margin-top: 5px;
   font: inherit; font-weight: 400; font-size: 15px; color: var(--ink);
-  padding: 11px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 9px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm);
   background: var(--bg); transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
+.apply-field textarea { min-height: 52px; }
 .apply-field textarea { resize: vertical; }
 .apply-field input:focus, .apply-field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
 .apply-submit { width: 100%; margin-top: 8px; }
