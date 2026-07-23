@@ -219,7 +219,7 @@
       var applyForm = document.getElementById('applyForm');
       function openApply(e) { if (e) e.preventDefault(); applyModal.classList.add('open'); applyModal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
       function closeApply() { applyModal.classList.remove('open'); applyModal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
-      document.querySelectorAll('a.btn').forEach(function (b) {
+      document.querySelectorAll('.btn').forEach(function (b) {
         if (b.textContent.trim() === '立即申辦') b.addEventListener('click', openApply);
       });
       applyModal.querySelectorAll('[data-close-apply]').forEach(function (el) { el.addEventListener('click', closeApply); });
