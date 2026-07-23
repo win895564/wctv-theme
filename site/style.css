@@ -66,17 +66,18 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 700; font-size: 15.5px; line-height: 1;
   padding: 13px 24px; border-radius: 999px;
   transition: background .22s var(--ease), color .22s var(--ease),
-              border-color .22s var(--ease), box-shadow .22s var(--ease);
+              border-color .22s var(--ease), box-shadow .22s var(--ease),
+              transform .22s var(--ease);
   white-space: nowrap;
 }
 .btn svg { width: 18px; height: 18px; }
 .btn-lg { padding: 16px 32px; font-size: 16.5px; }
 
 .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 8px 20px rgba(242,150,0,.28); }
-.btn-primary:hover { background: var(--orange-deep); box-shadow: 0 10px 26px rgba(194,80,0,.32); }
+.btn-primary:hover { background: var(--orange-deep); box-shadow: 0 10px 26px rgba(194,80,0,.32); transform: translateY(-2px); }
 
 .btn-outline { background: transparent; color: var(--orange); border: 1.6px solid var(--orange); }
-.btn-outline:hover { background: var(--orange-tint); }
+.btn-outline:hover { background: var(--orange-tint); transform: translateY(-2px); }
 
 .btn-outline.btn-lg { color: #fff; border-color: rgba(255,255,255,.7); }
 .slide .btn-outline:hover { background: rgba(255,255,255,.14); border-color: #fff; }
@@ -404,10 +405,6 @@ section { position: relative; }
 .news-card:hover .news-media img { transform: scale(1.06); }
 .news-body { padding: 24px 26px 28px; }
 .news-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.news-tag { font-weight: 700; font-size: 12.5px; padding: 4px 12px; border-radius: 999px; }
-.tag-promo { color: var(--orange-deep); background: var(--orange-tint); }
-.tag-notice { color: var(--teal); background: var(--teal-tint); }
-.tag-service { color: var(--blue); background: #E7F0FF; }
 .news-meta time { font-family: var(--num); font-size: 13.5px; color: var(--sub); }
 .news-title { font-family: var(--serif); font-weight: 700; font-size: 20px; line-height: 1.5; color: var(--ink); }
 .news-title a { transition: color .2s var(--ease); }
