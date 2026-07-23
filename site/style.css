@@ -35,7 +35,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scrollbar-gutter: stable; }
 body {
   font-family: var(--sans);
   color: var(--ink);
@@ -504,6 +504,8 @@ section { position: relative; }
 .apply-field textarea { resize: vertical; }
 .apply-field input:focus, .apply-field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
 .apply-submit { width: 100%; margin-top: 8px; }
+.apply-note { margin-top: 16px; text-align: center; font-size: 13px; color: var(--sub); line-height: 1.6; }
+.apply-note a { color: var(--orange-deep); font-weight: 700; }
 .apply-done { display: none; text-align: center; padding: 18px 0 6px; }
 .apply-done-icon { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; background: var(--orange-tint); color: var(--orange-deep); display: grid; place-items: center; }
 .apply-done-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
