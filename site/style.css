@@ -199,7 +199,7 @@ section { position: relative; }
 .slide-img.mb { display: none; }
 .slide-cta { position: absolute; left: 0; right: 0; bottom: clamp(36px, 9vh, 84px); display: flex; justify-content: center; z-index: 3; }
 .slide-textbox { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; pointer-events: none; }
-.slide-textbox::before { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(20,14,8,.6) 0%, rgba(20,14,8,.32) 34%, rgba(20,14,8,0) 62%); }
+.slide-textbox::before { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(12,9,5,.82) 0%, rgba(12,9,5,.58) 28%, rgba(12,9,5,.18) 50%, rgba(12,9,5,0) 68%); }
 .slide-textbox .container { position: relative; width: 100%; }
 .slide-textbox .slide-content { pointer-events: auto; }
 .slide-demo-bg { background: linear-gradient(118deg, #14233f 0%, #21416e 52%, #b6591d 134%); }
