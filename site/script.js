@@ -213,5 +213,25 @@
       });
     }
 
+    // 線上申辦 modal：所有「立即申辦」按鈕點擊開啟；送出串接由後台處理（各台客服表單、分類固定「裝機」）
+    var applyModal = document.getElementById('applyModal');
+    if (applyModal) {
+      var applyForm = document.getElementById('applyForm');
+      function openApply(e) { if (e) e.preventDefault(); applyModal.classList.add('open'); applyModal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+      function closeApply() { applyModal.classList.remove('open'); applyModal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      document.querySelectorAll('a.btn').forEach(function (b) {
+        if (b.textContent.trim() === '立即申辦') b.addEventListener('click', openApply);
+      });
+      applyModal.querySelectorAll('[data-close-apply]').forEach(function (el) { el.addEventListener('click', closeApply); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
+      if (applyForm) applyForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // 串接點：實際送出到各台後台客服表單、分類固定「裝機」，由台基科串接
+        applyForm.style.display = 'none';
+        var done = document.getElementById('applyDone');
+        if (done) done.style.display = 'block';
+      });
+    }
+
   });
 })();
