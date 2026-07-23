@@ -62,6 +62,8 @@
       if (menu.classList.contains('open')) closeMenu(); else openMenu();
     });
     overlay.addEventListener('click', closeMenu);
+    var navClose = document.getElementById('navClose');
+    if (navClose) navClose.addEventListener('click', closeMenu);
 
     menu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeMenu);
