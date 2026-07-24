@@ -628,22 +628,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <!-- ⬇ 等客服系統有 https（或做好反向代理）後，把下面這段 .bot-body 整塊換成這一行即可：
-    <iframe class="bot-frame" id="botFrame" title="哈NET 智能客服對話" data-src="https://www.wctv.com.tw/chat/9920267248326/Z"></iframe>
-    （script.js 的 data-src → src 延遲載入邏輯已經寫好，不用改） -->
-    <div class="bot-body">
-      <p class="bot-msg">您好，我是哈寶寶。<br>請問想了解哪一項服務？</p>
-      <div class="bot-quick">
-        <a href="#plans">優惠方案與資費</a>
-        <a href="#">線上繳費</a>
-        <a href="#">頻道與節目表</a>
-        <a href="#faq">常見問題</a>
-      </div>
-    </div>
-    <a class="bot-start" href="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z" target="_blank" rel="noopener">
-      其他問題，跟哈寶寶聊聊
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-    </a>
+    <!-- 網址即各台自己的智能客服聊天室。正式站請改成 https（或走同網域反向代理，
+         例：https://www.wctv.com.tw/chat/{聊天室編號}/Z），否則 https 頁面會擋掉 http 的 iframe -->
+    <iframe class="bot-frame" id="botFrame" title="哈NET 智能客服對話" data-src="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z"></iframe>
+    <a class="bot-newtab" href="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z" target="_blank" rel="noopener">看不到內容？在新視窗開啟</a>
   </div>
 
   <button type="button" class="bot-toggle" id="botToggle" aria-expanded="false" aria-label="開啟哈寶寶智能客服">
