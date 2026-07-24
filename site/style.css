@@ -323,7 +323,7 @@ section { position: relative; }
   padding: 26px 16px; box-shadow: var(--shadow-sm);
   transition: transform .35s var(--ease-soft), box-shadow .42s var(--ease-soft);
 }
-.mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.mini-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .mini-icon {
   width: 50px; height: 50px; border-radius: 16px; background: var(--bg); color: var(--ink);
   display: flex; align-items: center; justify-content: center;
