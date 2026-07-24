@@ -167,19 +167,9 @@ section { position: relative; }
 
 .nav-cta { display: flex; align-items: center; gap: 10px; }
 .nav-cta-mobile { display: none; }
-/* 回母集團的次要連結：刻意做成文字而非按鈕，不跟「立即申辦」搶主要動作 */
-.nav-external {
-  display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
-  margin-right: 4px; font-size: 14px; font-weight: 500; color: var(--sub);
-  transition: color .3s var(--ease-soft);
-}
-.nav-external:hover { color: var(--orange-deep); }
-.nav-external svg { width: 13px; height: 13px; }
-.nav-cta-mobile .nav-external { align-self: center; margin: 8px 0 0; }
-/* 中等寬度（切成手機選單之前）空間吃緊：先收起次要連結並收斂選單間距，
-   避免「優惠方案」被折成「優惠／方案」兩行。手機版選單裡仍然保留此連結 */
+/* 中等寬度（切成手機選單之前）空間吃緊，收斂選單間距，
+   避免「優惠方案」被折成「優惠／方案」兩行 */
 @media (max-width: 1180px) {
-  .nav-cta .nav-external { display: none; }
   .nav-link { padding: 10px 9px; font-size: 15px; }
 }
 
