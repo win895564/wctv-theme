@@ -281,7 +281,7 @@ section { position: relative; }
 .quick-text { font-weight: 700; font-size: 17px; color: var(--ink); }
 .quick-sub { font-size: 13px; color: var(--sub); }
 
-/* 優惠四格（動態：每張＝後台「優惠方案」的「首頁圖 700×330」，點擊連詳情頁 /discount/discount_detail/{id}；圖與連結全由後台帶入、取置頂或最新 4 則） */
+/* 優惠四格（每格 700×330 圖片） */
 .promos { padding: 96px 0; }
 .promo-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .promo-card {

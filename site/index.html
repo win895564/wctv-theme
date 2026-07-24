@@ -137,8 +137,7 @@
   <h1 class="sr-only">台灣佳光電訊（西海岸有線電視）— 在地光纖寬頻與數位電視</h1>
   <div class="hero-track" id="heroTrack">
 
-    <!-- 每張＝後台「輪播圖管理」的一張（PC + 手機圖各一張）。「了解更多」連後台指定頁。
-         h3/h2/p 對應後台輪播的文字欄位：有填才於 .slide-img 後插入 .slide-textbox（樣式已備妥，會自動左側顯示＋漸層遮罩）、沒填就純圖。目前三張圖自帶文字，故維持純圖。 -->
+    <!-- 每張 slide 有 PC、手機兩張底圖（依裝置切換）。若有 .slide-textbox 則疊出底部文字帶，沒有就純圖。 -->
     <article class="slide is-active">
       <div class="slide-img pc" style="--img:url('https://www.wctv.com.tw/assets/uploads/banner/24/banner6a460a20d60fd.png')"></div>
       <div class="slide-img mb" style="--img:url('https://www.wctv.com.tw/assets/uploads/banner/24/mobile6a460a20d7abf.png')"></div>
@@ -202,7 +201,6 @@
 <section class="quicklinks" aria-label="快速服務">
   <div class="container">
     <div class="quick-grid">
-      <!-- 原「申裝查詢」改為「優惠方案」（換皮階段無法串接申裝查詢系統）→ 連「優惠方案頁」（獨立頁，待建） -->
       <a href="#" class="quick-item reveal">
         <span class="quick-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
@@ -249,7 +247,7 @@
       <h2 class="section-title">本月熱門優惠</h2>
       <p class="section-lead">限時申辦優惠與組合方案，由官網公告即時更新，把握檔期最划算。</p>
     </header>
-    <!-- 動態：每張＝後台「優惠方案」的「首頁圖 700×330」，點擊連詳情頁 /discount/discount_detail/{id}；取置頂或最新 4 則，圖與連結全由後台帶入 -->
+    <!-- 優惠四格，每格一張 700×330 圖片連向詳情頁 -->
     <div class="promo-grid">
       <a class="promo-card reveal" data-d="1" href="https://www.wctv.com.tw/index.php/tw/discount/discount_detail/209"><img src="https://www.wctv.com.tw/assets/uploads/discount/discount/209/home6a461734cc65e.png" alt="全家同時上網不卡＋有線電視＋送家電｜500M 對等光纖" loading="lazy"></a>
       <a class="promo-card reveal" data-d="2" href="https://www.wctv.com.tw/index.php/tw/discount/discount_detail/210"><img src="https://www.wctv.com.tw/assets/uploads/discount/discount/210/home6a4617421062d.png" alt="100M～500M 光纖對等寬頻｜送 LINE TV 半年" loading="lazy"></a>
@@ -610,9 +608,7 @@
   </button>
 </div>
 
-<!-- 線上申辦 modal（全站共用一份：所有「立即申辦」按鈕都開這一個，轉 PHP 時請做成單一 include，各台只需改自己這份即可全站生效）
-     送出串接「各台後台客服表單」、分類固定「裝機」，由台基科串接。前端刻意不出現分類下拉。
-     不寫服務時間與客服電話：各系統台時段與號碼不同 -->
+<!-- 線上申辦 modal：全站所有「立即申辦」按鈕共用這一個 -->
 <div class="apply-modal" id="applyModal" aria-hidden="true">
   <div class="apply-backdrop" data-close-apply></div>
   <div class="apply-dialog" role="dialog" aria-modal="true" aria-labelledby="applyTitle">

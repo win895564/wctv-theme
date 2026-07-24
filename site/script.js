@@ -235,7 +235,7 @@
       });
     }
 
-    // 線上申辦 modal：所有「立即申辦」按鈕點擊開啟；送出串接由後台處理（各台客服表單、分類固定「裝機」）
+    // 線上申辦 modal：所有「立即申辦」按鈕點擊開啟
     var applyModal = document.getElementById('applyModal');
     if (applyModal) {
       var applyForm = document.getElementById('applyForm');
@@ -259,7 +259,6 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        // 串接點：實際送出到各台後台客服表單、分類固定「裝機」，由台基科串接
         applyDialog.classList.add('is-done');
       });
     }
