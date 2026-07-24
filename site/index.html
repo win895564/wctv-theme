@@ -610,6 +610,33 @@
   </button>
 </div>
 
+<!-- 智能客服浮球（左下，與右下社群浮球分開避免打架）。點擊在哈寶寶旁邊展開對話框，不另開視窗。
+     ⚠️ 客服系統目前只有 http（pweb.topmso.com.tw:96），官網是 https，瀏覽器會以 mixed content
+     直接封鎖這個 iframe（畫面全白）。待台基科提供 https、或在官網主機做反向代理
+     （例：https://www.wctv.com.tw/chat/ → http://pweb.topmso.com.tw:96/）後改掉 src 即可，殼不用動。
+     在那之前底部「在新視窗開啟」是保底出口。 -->
+<div class="bot-fab" id="botFab">
+  <div class="bot-panel" id="botPanel" role="dialog" aria-label="哈NET 智能客服" aria-hidden="true">
+    <div class="bot-head">
+      <span class="bot-avatar">
+        <!-- 圖檔待放入：assets/habao.png（去背 PNG，建議 200×200 以上）。
+             放進去後把這個 svg 換成 <img src="../assets/habao.png" alt="哈寶寶"> 即可 -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 16.5h5"/></svg>
+      </span>
+      <span class="bot-title">哈寶寶<small>哈NET 智能客服</small></span>
+      <button type="button" class="bot-close" id="botClose" aria-label="關閉對話">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <iframe class="bot-frame" id="botFrame" title="哈NET 智能客服對話" data-src="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z"></iframe>
+    <a class="bot-newtab" href="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z" target="_blank" rel="noopener">看不到對話內容？在新視窗開啟</a>
+  </div>
+
+  <button type="button" class="bot-toggle" id="botToggle" aria-expanded="false" aria-label="開啟哈寶寶智能客服">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.5" r="1.5"/><path d="M9 13h.01M15 13h.01"/><path d="M9.5 16.5h5"/></svg>
+  </button>
+</div>
+
 <!-- 線上申辦 modal（全站共用一份：所有「立即申辦」按鈕都開這一個，轉 PHP 時請做成單一 include，各台只需改自己這份即可全站生效）
      送出串接「各台後台客服表單」、分類固定「裝機」，由台基科串接。前端刻意不出現分類下拉。
      不寫服務時間與客服電話：各系統台時段與號碼不同 -->
