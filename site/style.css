@@ -635,9 +635,31 @@ section { position: relative; }
 .bot-close { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: transparent; color: var(--sub); transition: background .25s var(--ease), color .25s var(--ease); }
 .bot-close svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .bot-close:hover { background: var(--bg); color: var(--ink); }
+/* 客服系統有 https 之後才會用到；在那之前顯示下面的 .bot-body 開場 */
 .bot-frame { display: block; width: 100%; height: 440px; border: 0; background: var(--bg); }
-.bot-newtab { display: block; padding: 10px 16px; text-align: center; font-size: 12.5px; color: var(--sub); border-top: 1px solid var(--line); transition: color .25s var(--ease); }
-.bot-newtab:hover { color: var(--orange-deep); }
+
+.bot-body { padding: 18px 16px 4px; }
+/* 對話泡泡：左上角收成小圓角，看起來像從哈寶寶那邊講出來的 */
+.bot-msg {
+  display: inline-block; max-width: 94%;
+  background: var(--bg); color: var(--ink); font-size: 14.5px; line-height: 1.75;
+  padding: 12px 15px; border-radius: 4px 14px 14px 14px;
+}
+.bot-quick { margin-top: 14px; display: grid; gap: 8px; }
+.bot-quick a {
+  display: block; padding: 11px 14px; border-radius: 10px;
+  border: 1px solid var(--line); font-size: 14px; color: var(--ink);
+  transition: border-color .25s var(--ease), background-color .25s var(--ease), color .25s var(--ease);
+}
+.bot-quick a:hover { border-color: var(--orange); background: var(--orange-tint); color: var(--orange-deep); }
+.bot-start {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  margin: 16px; padding: 12px; border-radius: 12px;
+  background: var(--orange); color: #fff; font-weight: 700; font-size: 14.5px;
+  transition: background-color .25s var(--ease);
+}
+.bot-start:hover { background: var(--orange-deep); }
+.bot-start svg { width: 15px; height: 15px; }
 
 @media (max-width: 720px) {
   .bot-fab { left: 16px; bottom: 16px; }
