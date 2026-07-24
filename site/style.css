@@ -343,11 +343,16 @@ section { position: relative; }
   transition: transform .3s var(--ease-soft), box-shadow .35s var(--ease-soft);
 }
 .plan-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+/* 橘框用 inset 陰影而非 border：不佔版面寬度，三張卡的文字才會完全對齊 */
 .plan-card.popular {
-  border: 2px solid var(--orange);
-  box-shadow: 0 26px 64px rgba(242,150,0,.24);
+  box-shadow: inset 0 0 0 2px var(--orange),
+              0 4px 10px rgba(242,150,0,.20), 0 14px 30px rgba(242,150,0,.22);
 }
-.plan-card.popular:hover { transform: translateY(-6px); }
+.plan-card.popular:hover {
+  transform: translateY(-6px);
+  box-shadow: inset 0 0 0 2px var(--orange),
+              0 6px 14px rgba(242,150,0,.24), 0 20px 40px rgba(242,150,0,.30);
+}
 .plan-badge {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
   background: var(--orange); color: #fff; font-weight: 700; font-size: 13px;
