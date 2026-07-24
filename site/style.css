@@ -273,7 +273,7 @@ section { position: relative; }
 .promo-card {
   display: block; overflow: hidden; background: var(--bg);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
-  transition: transform .45s var(--ease-soft), box-shadow .6s var(--ease-soft);
+  transition: transform .4s var(--ease-soft), box-shadow .45s var(--ease-soft);
 }
 .promo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .promo-card img { display: block; width: 100%; aspect-ratio: 700 / 330; object-fit: cover; transition: transform .6s var(--ease); }
@@ -286,7 +286,7 @@ section { position: relative; }
   background: #fff; border-radius: var(--radius-lg);
   overflow: hidden; box-shadow: var(--shadow-sm);
   display: flex; flex-direction: column;
-  transition: transform .45s var(--ease-soft), box-shadow .6s var(--ease-soft);
+  transition: transform .4s var(--ease-soft), box-shadow .45s var(--ease-soft);
 }
 .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .product-media { aspect-ratio: 16/9; overflow: hidden; background: var(--bg); }
@@ -321,7 +321,7 @@ section { position: relative; }
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
   background: #fff; border-radius: var(--radius);
   padding: 26px 16px; box-shadow: var(--shadow-sm);
-  transition: transform .4s var(--ease-soft), box-shadow .55s var(--ease-soft);
+  transition: transform .35s var(--ease-soft), box-shadow .42s var(--ease-soft);
 }
 .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .mini-icon {
@@ -340,7 +340,7 @@ section { position: relative; }
   position: relative; background: #fff; border-radius: var(--radius-lg);
   padding: 38px 34px; box-shadow: var(--shadow-sm);
   display: flex; flex-direction: column;
-  transition: transform .45s var(--ease-soft), box-shadow .6s var(--ease-soft);
+  transition: transform .4s var(--ease-soft), box-shadow .45s var(--ease-soft);
 }
 .plan-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .plan-card.popular {
@@ -407,7 +407,7 @@ section { position: relative; }
 .news-card {
   background: #fff; border-radius: var(--radius-lg); overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: transform .45s var(--ease-soft), box-shadow .6s var(--ease-soft);
+  transition: transform .4s var(--ease-soft), box-shadow .45s var(--ease-soft);
 }
 .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .news-media { display: block; aspect-ratio: 16/10; overflow: hidden; background: var(--bg); }
@@ -572,7 +572,7 @@ section { position: relative; }
   .social-btn { width: 44px; height: 44px; }
 }
 
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .5s var(--ease-soft), box-shadow .6s var(--ease-soft), background-color .4s var(--ease-soft), border-color .4s var(--ease-soft); }
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .4s var(--ease-soft), box-shadow .45s var(--ease-soft), background-color .35s var(--ease-soft), border-color .35s var(--ease-soft); }
 .reveal.in { opacity: 1; transform: none; }
 .reveal[data-d="1"] { transition-delay: .05s; }
 .reveal[data-d="2"] { transition-delay: .13s; }

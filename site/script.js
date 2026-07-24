@@ -130,7 +130,11 @@
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (en) {
-          if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+          if (en.isIntersecting) {
+            en.target.classList.add('in'); io.unobserve(en.target);
+            // 進場完成後移除 stagger 延遲，否則 hover 的過渡也會被延遲 0.05~0.37s（會覺得遲鈍）
+            (function (el) { setTimeout(function () { el.removeAttribute('data-d'); }, 1200); })(en.target);
+          }
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       reveals.forEach(function (el) { io.observe(el); });
