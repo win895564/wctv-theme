@@ -529,11 +529,17 @@ section { position: relative; }
 .apply-field textarea { resize: vertical; }
 .apply-field input:focus, .apply-field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
 .apply-submit { width: 100%; margin-top: 8px; }
-.apply-done { display: none; text-align: center; padding: 18px 0 6px; }
-.apply-done-icon { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; background: var(--orange-tint); color: var(--orange-deep); display: grid; place-items: center; }
-.apply-done-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.apply-done h3 { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--ink); }
-.apply-done p { margin-top: 8px; color: var(--sub); font-size: 15px; }
+/* 送出成功後整個對話框換成完成畫面：標題與副標一併隱藏，
+   否則會變成上半靠左（標題）、下半置中（完成訊息）兩種對齊混在同一個框裡 */
+.apply-dialog.is-done .apply-title,
+.apply-dialog.is-done .apply-sub,
+.apply-dialog.is-done .apply-form { display: none; }
+.apply-done { display: none; text-align: center; padding: 22px 0 10px; }
+.apply-dialog.is-done .apply-done { display: block; }
+.apply-done-icon { width: 60px; height: 60px; margin: 0 auto 18px; border-radius: 50%; background: var(--orange-tint); color: var(--orange-deep); display: grid; place-items: center; }
+.apply-done-icon svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.apply-done h3 { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--ink); }
+.apply-done p { margin-top: 10px; color: var(--sub); font-size: 15px; line-height: 1.75; }
 
 .social-fab { position: fixed; right: 22px; bottom: 22px; z-index: 90; display: flex; flex-direction: column; align-items: center; }
 .social-list { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 14px; }

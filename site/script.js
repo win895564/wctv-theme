@@ -221,8 +221,19 @@
     var applyModal = document.getElementById('applyModal');
     if (applyModal) {
       var applyForm = document.getElementById('applyForm');
+      var applyDialog = applyModal.querySelector('.apply-dialog');
       function openApply(e) { if (e) e.preventDefault(); applyModal.classList.add('open'); applyModal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
-      function closeApply() { applyModal.classList.remove('open'); applyModal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      function closeApply() {
+        applyModal.classList.remove('open');
+        applyModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        // 關閉後還原成表單狀態，否則送出過一次之後再開啟會停在「已收到您的申辦」。
+        // 等關閉動畫跑完再還原，避免使用者看到畫面在收起來的過程中閃回表單。
+        setTimeout(function () {
+          applyDialog.classList.remove('is-done');
+          if (applyForm) applyForm.reset();
+        }, 320);
+      }
       document.querySelectorAll('.btn').forEach(function (b) {
         if (b.textContent.trim() === '立即申辦') b.addEventListener('click', openApply);
       });
@@ -231,9 +242,7 @@
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
         // 串接點：實際送出到各台後台客服表單、分類固定「裝機」，由台基科串接
-        applyForm.style.display = 'none';
-        var done = document.getElementById('applyDone');
-        if (done) done.style.display = 'block';
+        applyDialog.classList.add('is-done');
       });
     }
 
