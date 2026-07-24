@@ -316,7 +316,7 @@ section { position: relative; }
 .text-link svg { width: 18px; height: 18px; }
 .text-link:hover { gap: 12px; color: var(--orange); }
 
-.product-mini-grid { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.product-mini-grid { margin-top: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .mini-card {
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
   background: #fff; border-radius: var(--radius);
@@ -369,12 +369,22 @@ section { position: relative; }
 .plan-price .cur { font-size: 18px; font-weight: 700; margin-right: 4px; vertical-align: 6px; }
 .plan-price .per { font-size: 15px; color: var(--sub); font-weight: 500; margin-left: 4px; }
 .plan-feature { margin: 22px 0 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
-.plan-feature li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; color: var(--ink); }
+/* 用 grid（不是 flex）：文字長到換行時，勾勾與文字才不會被拆成上下兩行 */
+.plan-feature li { display: grid; grid-template-columns: 20px 1fr; gap: 0 10px; align-items: start; font-size: 15px; color: var(--ink); }
+/* 特色底下的補充說明：換到下一列，並對齊上方文字的左緣 */
+.plan-feature li small {
+  grid-column: 2; margin: 5px 0 0;
+  font-size: 12.5px; line-height: 1.75; color: var(--sub);
+}
+/* 只出現在主推方案：把「多 $100 換 200M」的價差直接講白 */
+.plan-hint { margin-top: 10px; font-size: 13.5px; font-weight: 700; color: var(--orange-deep); }
 .plan-feature li::before {
   content: ""; flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 2px;
   background: var(--orange-tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23C25000' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat;
 }
 .plan-btn { width: 100%; }
+.plan-note { margin-top: 30px; text-align: center; font-size: 14.5px; color: var(--sub); }
+.plan-note a { color: var(--orange-deep); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 .ethos {
   padding: 96px 0; color: #fff;
