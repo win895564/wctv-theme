@@ -628,9 +628,11 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <!-- 網址即各台自己的智能客服聊天室。正式站請改成 https（或走同網域反向代理，
-         例：https://www.wctv.com.tw/chat/{聊天室編號}/Z），否則 https 頁面會擋掉 http 的 iframe -->
-    <iframe class="bot-frame" id="botFrame" title="智能客服對話" data-src="http://pweb.topmso.com.tw:96/smartCustomerService/chat/9920267248326/Z"></iframe>
+    <!-- ⚠️ 智能客服有兩套：結尾 /Z 是台基科（集團）的，/N 是各系統台自己的。
+         官網請用「各台自己的那組」（/N），否則客戶的提問會跑到集團端而不是本台。
+         正式站另需改成 https（或走同網域反向代理，例：https://www.wctv.com.tw/chat/{編號}/N），
+         否則 https 頁面會擋掉 http 的 iframe。 -->
+    <iframe class="bot-frame" id="botFrame" title="智能客服對話" data-src="http://pweb.topmso.com.tw:96/smartCustomerService/chat/992026724113039/N"></iframe>
   </div>
 
   <button type="button" class="bot-toggle" id="botToggle" aria-expanded="false" aria-label="開啟哈寶寶智能客服">
