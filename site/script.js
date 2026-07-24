@@ -235,42 +235,6 @@
       });
     }
 
-    // 智能客服浮球：點擊在哈寶寶旁邊展開對話框
-    var botFab = document.getElementById('botFab');
-    if (botFab) {
-      var botToggle = document.getElementById('botToggle');
-      var botPanel = document.getElementById('botPanel');
-      var botFrame = document.getElementById('botFrame');
-
-      function setBot(open) {
-        botFab.classList.toggle('open', open);
-        botToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        botPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
-        // 第一次打開才載入，避免每位訪客一進站就對客服主機發一次請求
-        if (open && botFrame && !botFrame.src) botFrame.src = botFrame.getAttribute('data-src');
-      }
-
-      botToggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        setBot(!botFab.classList.contains('open'));
-      });
-      document.getElementById('botClose').addEventListener('click', function () { setBot(false); });
-
-      var botSize = document.getElementById('botSize');
-      botSize.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var big = botFab.classList.toggle('lg');
-        botSize.setAttribute('aria-pressed', big ? 'true' : 'false');
-        botSize.setAttribute('aria-label', big ? '縮小對話框' : '放大對話框');
-      });
-      document.addEventListener('click', function (e) {
-        if (!botFab.contains(e.target)) setBot(false);
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setBot(false);
-      });
-    }
-
     // 線上申辦 modal：所有「立即申辦」按鈕點擊開啟；送出串接由後台處理（各台客服表單、分類固定「裝機」）
     var applyModal = document.getElementById('applyModal');
     if (applyModal) {
