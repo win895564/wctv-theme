@@ -28,6 +28,7 @@
   --header-h: 76px;
 
   --ease: cubic-bezier(.4,0,.2,1);
+  --ease-soft: cubic-bezier(.25,.8,.25,1);
 
   --sans: "Noto Sans TC", "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
   --serif: "Noto Serif TC", serif;
@@ -252,14 +253,14 @@ section { position: relative; }
 .quick-item {
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px;
   padding: 28px 16px; border-right: 1px solid var(--line);
-  transition: background .2s var(--ease);
+  transition: background .38s var(--ease-soft);
 }
 .quick-item:last-child { border-right: none; }
 .quick-item:hover { background: var(--orange-tint); }
 .quick-icon {
   width: 56px; height: 56px; border-radius: 16px; background: var(--orange-tint); color: var(--orange-deep);
   display: flex; align-items: center; justify-content: center;
-  transition: background .22s var(--ease), color .22s var(--ease);
+  transition: background .38s var(--ease-soft), color .38s var(--ease-soft);
 }
 .quick-item:hover .quick-icon { background: var(--orange); color: #fff; }
 .quick-icon svg { width: 26px; height: 26px; }
@@ -272,7 +273,7 @@ section { position: relative; }
 .promo-card {
   display: block; overflow: hidden; background: var(--bg);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  transition: transform .42s var(--ease-soft), box-shadow .55s var(--ease-soft);
 }
 .promo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .promo-card img { display: block; width: 100%; aspect-ratio: 700 / 330; object-fit: cover; transition: transform .6s var(--ease); }
@@ -285,7 +286,7 @@ section { position: relative; }
   background: #fff; border-radius: var(--radius-lg);
   overflow: hidden; box-shadow: var(--shadow-sm);
   display: flex; flex-direction: column;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  transition: transform .42s var(--ease-soft), box-shadow .55s var(--ease-soft);
 }
 .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .product-media { aspect-ratio: 16/9; overflow: hidden; background: var(--bg); }
@@ -320,13 +321,13 @@ section { position: relative; }
   display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;
   background: #fff; border-radius: var(--radius);
   padding: 26px 16px; box-shadow: var(--shadow-sm);
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+  transition: transform .38s var(--ease-soft), box-shadow .5s var(--ease-soft);
 }
 .mini-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
 .mini-icon {
   width: 50px; height: 50px; border-radius: 16px; background: var(--bg); color: var(--ink);
   display: flex; align-items: center; justify-content: center;
-  transition: background .22s var(--ease), color .22s var(--ease);
+  transition: background .38s var(--ease-soft), color .38s var(--ease-soft);
 }
 .mini-card:hover .mini-icon { background: var(--orange-tint); color: var(--orange-deep); }
 .mini-icon svg { width: 24px; height: 24px; }
@@ -339,7 +340,7 @@ section { position: relative; }
   position: relative; background: #fff; border-radius: var(--radius-lg);
   padding: 38px 34px; box-shadow: var(--shadow-sm);
   display: flex; flex-direction: column;
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  transition: transform .42s var(--ease-soft), box-shadow .55s var(--ease-soft);
 }
 .plan-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .plan-card.popular {
@@ -406,7 +407,7 @@ section { position: relative; }
 .news-card {
   background: #fff; border-radius: var(--radius-lg); overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+  transition: transform .42s var(--ease-soft), box-shadow .55s var(--ease-soft);
 }
 .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .news-media { display: block; aspect-ratio: 16/10; overflow: hidden; background: var(--bg); }
@@ -429,7 +430,7 @@ section { position: relative; }
 .faq-list { display: flex; flex-direction: column; gap: 14px; }
 .faq-item {
   background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; transition: border-color .25s var(--ease), box-shadow .25s var(--ease);
+  overflow: hidden; transition: border-color .35s var(--ease-soft), box-shadow .45s var(--ease-soft);
 }
 .faq-item.open { border-color: var(--orange); box-shadow: var(--shadow-md); }
 .faq-q {
