@@ -204,14 +204,15 @@ section { position: relative; }
 .slide-img.mb { display: none; }
 /* 文字層收在圖片底部的一條漸層帶，不再覆蓋整個左半 —— 促銷類 banner 圖的主標多半在中上部，
    壓上去會兩層字打架。帶狀由下往上淡出，圖片主體維持乾淨。 */
+/* 帶本身貼齊圖片底部（不留縫），改用 padding-bottom 把文字往上推，
+   讓文字落在 .quicklinks 負 margin 疊上來的位置之上 —— 五格卡片本來就設計成會吃到輪播一角 */
 .slide-textbox {
-  position: absolute; left: 0; right: 0; bottom: 58px; z-index: 2;
-  padding: 34px 0 26px; pointer-events: none;
-  background: linear-gradient(to top, rgba(12,9,5,.92) 0%, rgba(12,9,5,.8) 40%, rgba(12,9,5,.36) 76%, rgba(12,9,5,0) 100%);
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 34px 0 80px; pointer-events: none;
+  background: linear-gradient(to top, rgba(12,9,5,.92) 0%, rgba(12,9,5,.82) 42%, rgba(12,9,5,.4) 74%, rgba(12,9,5,0) 100%);
 }
 .slide-textbox .slide-content { display: inline-block; }
-/* bottom 要大於 .quicklinks 的負 margin，否則會被下方五格卡片壓掉 */
-.slide-cta { position: absolute; right: 0; left: 0; bottom: 72px; display: flex; justify-content: flex-end; z-index: 4; }
+.slide-cta { position: absolute; right: 0; left: 0; bottom: 80px; display: flex; justify-content: flex-end; z-index: 4; }
 .slide-textbox .container { position: relative; width: 100%; }
 .slide-link { position: absolute; inset: 0; z-index: 1; }
 .slide-demo-bg { background: linear-gradient(118deg, #14233f 0%, #21416e 52%, #b6591d 134%); }
@@ -689,8 +690,8 @@ section { position: relative; }
   /* 手機版寬度不夠讓文字與按鈕並排，改成按鈕排在文字下方（帶的底部留出它的高度）。
      手機 banner 是直式滿版促銷圖、上下都有內容，帶一厚就吃掉三分之一畫面，
      因此只留標題，眉標與描述收起來 */
-  .slide-textbox { bottom: 42px; padding: 20px 0 64px; }
-  .slide-cta { bottom: 52px; justify-content: flex-start; }
+  .slide-textbox { padding: 20px 0 102px; }
+  .slide-cta { bottom: 48px; justify-content: flex-start; }
   .slide-eyebrow, .slide-desc { display: none; }
   .slide-title { font-size: 21px; }
 
