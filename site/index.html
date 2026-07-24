@@ -352,7 +352,7 @@
           <li>哈 point 點數回饋<small>半年繳送 600 點／年繳送 1,800 點</small></li>
           <li>上傳頻寬 10M，非對稱方案</li>
           <li>日常上網、追劇與社群使用</li>
-          <li>光纖到府施工，24 小時客服</li>
+          <li>光纖到府施工，在地工程團隊</li>
         </ul>
         <button type="button" class="btn btn-outline plan-btn">立即申辦</button>
       </article>
@@ -368,7 +368,7 @@
           <li>好康贈品二選一＋MESH WiFi AP<small>有線電視組合／OTT 盒子組合</small></li>
           <li>上傳與下載對稱同速 500M</li>
           <li>5 人以上、多裝置與遠距工作適用</li>
-          <li>光纖到府施工，24 小時客服</li>
+          <li>光纖到府施工，在地工程團隊</li>
         </ul>
         <button type="button" class="btn btn-primary plan-btn">立即申辦</button>
       </article>
@@ -383,7 +383,7 @@
           <li>好康贈品二選一＋MESH WiFi AP<small>有線電視組合／OTT 盒子組合</small></li>
           <li>上傳與下載對稱同速 300M</li>
           <li>3～4 人、影音與視訊需求適用</li>
-          <li>光纖到府施工，24 小時客服</li>
+          <li>光纖到府施工，在地工程團隊</li>
         </ul>
         <button type="button" class="btn btn-outline plan-btn">立即申辦</button>
       </article>
@@ -609,7 +609,9 @@
   </button>
 </div>
 
-<!-- 線上申辦 modal（模板／思路：送出串接「各台後台客服表單」、分類固定「裝機」，由台基科串接。前端刻意不出現分類下拉。電話請用各台自己的，勿連總公司客服）-->
+<!-- 線上申辦 modal（全站共用一份：所有「立即申辦」按鈕都開這一個，轉 PHP 時請做成單一 include，各台只需改自己這份即可全站生效）
+     送出串接「各台後台客服表單」、分類固定「裝機」，由台基科串接。前端刻意不出現分類下拉。
+     不寫服務時間與客服電話：各系統台時段與號碼不同 -->
 <div class="apply-modal" id="applyModal" aria-hidden="true">
   <div class="apply-backdrop" data-close-apply></div>
   <div class="apply-dialog" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
@@ -641,7 +643,8 @@
       </label>
       <button type="submit" class="btn btn-primary btn-lg apply-submit">送出申辦</button>
     </form>
-    <p class="apply-note">已是用戶、想報修或詢問？請撥 <a href="tel:044495678">客服專線 04-4495678</a>，或洽客服中心。</p>
+    <!-- 不寫死電話與服務時間：各系統台號碼與時段不同，請各台自行連到自己的客服頁 -->
+    <p class="apply-note">已是用戶、想報修或詢問？請洽 <a href="#service">客戶服務中心</a></p>
     <div class="apply-done" id="applyDone">
       <span class="apply-done-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
       <h3>已收到您的申辦</h3>
