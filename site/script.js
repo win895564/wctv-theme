@@ -255,6 +255,14 @@
         setBot(!botFab.classList.contains('open'));
       });
       document.getElementById('botClose').addEventListener('click', function () { setBot(false); });
+
+      var botSize = document.getElementById('botSize');
+      botSize.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var big = botFab.classList.toggle('lg');
+        botSize.setAttribute('aria-pressed', big ? 'true' : 'false');
+        botSize.setAttribute('aria-label', big ? '縮小對話框' : '放大對話框');
+      });
       document.addEventListener('click', function (e) {
         if (!botFab.contains(e.target)) setBot(false);
       });
