@@ -508,7 +508,6 @@ section { position: relative; }
   .apply-form { gap: 9px; }
   .apply-field input, .apply-field textarea { padding: 8px 12px; }
   .apply-field textarea { min-height: 44px; }
-  .apply-note { margin-top: 12px; font-size: 12.5px; }
 }
 .apply-close { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--ink); transition: background .2s var(--ease), color .2s var(--ease); }
 .apply-close:hover { background: var(--orange-tint); color: var(--orange-deep); }
@@ -530,8 +529,6 @@ section { position: relative; }
 .apply-field textarea { resize: vertical; }
 .apply-field input:focus, .apply-field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
 .apply-submit { width: 100%; margin-top: 8px; }
-.apply-note { margin-top: 16px; text-align: center; font-size: 13px; color: var(--sub); line-height: 1.6; }
-.apply-note a { color: var(--orange-deep); font-weight: 700; }
 .apply-done { display: none; text-align: center; padding: 18px 0 6px; }
 .apply-done-icon { width: 56px; height: 56px; margin: 0 auto 16px; border-radius: 50%; background: var(--orange-tint); color: var(--orange-deep); display: grid; place-items: center; }
 .apply-done-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
