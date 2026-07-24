@@ -681,10 +681,8 @@ section { position: relative; }
   .hero { aspect-ratio: 0.6 / 1; }
   .slide-img.pc { display: none; }
   .slide-img.mb { display: block; }
-  .hero-arrow { width: 40px; height: 40px; }
-  .hero-arrow svg { width: 20px; height: 20px; }
-  .hero-prev { left: 10px; }
-  .hero-next { right: 10px; }
+  /* 手機版隱藏左右箭頭：螢幕窄，箭頭會壓在輪播文字上；改以左右滑動＋圓點操作 */
+  .hero-arrow { display: none; }
 
   .quicklinks { margin-top: -36px; }
   .quick-grid { grid-template-columns: repeat(2, 1fr); }

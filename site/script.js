@@ -111,6 +111,24 @@
     if (nextBtn) nextBtn.addEventListener('click', function () { next(); restart(); });
     if (prevBtn) prevBtn.addEventListener('click', function () { prev(); restart(); });
 
+    // 手機沒有左右箭頭（會擋住文字），改用滑動切換
+    var swipeX = null, swipeY = null;
+    heroEl.addEventListener('touchstart', function (e) {
+      swipeX = e.changedTouches[0].clientX;
+      swipeY = e.changedTouches[0].clientY;
+    }, { passive: true });
+    heroEl.addEventListener('touchend', function (e) {
+      if (swipeX === null) return;
+      var dx = e.changedTouches[0].clientX - swipeX;
+      var dy = e.changedTouches[0].clientY - swipeY;
+      // 水平位移要夠大、且明顯大於垂直位移，才算滑動切換，否則會干擾正常的上下捲動
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx < 0) next(); else prev();
+        restart();
+      }
+      swipeX = swipeY = null;
+    }, { passive: true });
+
     heroEl.addEventListener('mouseenter', stop);
     heroEl.addEventListener('mouseleave', start);
     document.addEventListener('visibilitychange', function () {
