@@ -202,27 +202,32 @@ section { position: relative; }
 .slide.is-active { opacity: 1; visibility: visible; }
 .slide-img { position: absolute; inset: 0; background-image: var(--img); background-size: cover; background-position: center; }
 .slide-img.mb { display: none; }
-.slide-cta { position: absolute; left: 0; right: 0; bottom: clamp(36px, 9vh, 84px); display: flex; justify-content: center; z-index: 3; }
-.slide-textbox { position: absolute; inset: 0; z-index: 2; display: flex; align-items: center; pointer-events: none; }
-.slide-textbox::before { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(12,9,5,.82) 0%, rgba(12,9,5,.58) 28%, rgba(12,9,5,.18) 50%, rgba(12,9,5,0) 68%); }
+/* 文字層收在圖片底部的一條漸層帶，不再覆蓋整個左半 —— 促銷類 banner 圖的主標多半在中上部，
+   壓上去會兩層字打架。帶狀由下往上淡出，圖片主體維持乾淨。 */
+.slide-textbox {
+  position: absolute; left: 0; right: 0; bottom: 58px; z-index: 2;
+  padding: 34px 0 26px; pointer-events: none;
+  background: linear-gradient(to top, rgba(12,9,5,.92) 0%, rgba(12,9,5,.8) 40%, rgba(12,9,5,.36) 76%, rgba(12,9,5,0) 100%);
+}
+.slide-textbox .slide-content { display: inline-block; }
+/* bottom 要大於 .quicklinks 的負 margin，否則會被下方五格卡片壓掉 */
+.slide-cta { position: absolute; right: 0; left: 0; bottom: 72px; display: flex; justify-content: flex-end; z-index: 4; }
 .slide-textbox .container { position: relative; width: 100%; }
 .slide-link { position: absolute; inset: 0; z-index: 1; }
 .slide-demo-bg { background: linear-gradient(118deg, #14233f 0%, #21416e 52%, #b6591d 134%); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .slide-content { position: relative; color: #fff; max-width: 660px; }
 .slide-eyebrow {
-  display: block; font-weight: 700; font-size: 18px; letter-spacing: .02em;
-  color: var(--orange-bright); margin-bottom: 8px; text-shadow: 0 2px 8px rgba(0,0,0,.5);
+  display: block; font-weight: 700; font-size: 15px; letter-spacing: .02em;
+  color: var(--orange-bright); margin-bottom: 4px;
 }
 .slide-title {
   font-family: var(--serif); font-weight: 700;
-  font-size: clamp(26px, 3.2vw, 42px); line-height: 1.3; letter-spacing: -.01em;
-  text-shadow: 0 2px 10px rgba(0,0,0,.55);
-
+  font-size: clamp(22px, 2.5vw, 32px); line-height: 1.3; letter-spacing: -.01em;
 }
 .slide-desc {
-  margin-top: 18px; font-size: clamp(16px, 1.5vw, 19px); color: rgba(255,255,255,.92);
-  max-width: 560px;
+  margin-top: 8px; font-size: clamp(14px, 1.2vw, 16px); color: rgba(255,255,255,.9);
+  max-width: 620px;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .slide-desc strong { color: #fff; font-weight: 700; }
@@ -681,6 +686,13 @@ section { position: relative; }
   .slide-img.mb { display: block; }
   /* 手機版隱藏左右箭頭：螢幕窄，箭頭會壓在輪播文字上；改以左右滑動＋圓點操作 */
   .hero-arrow { display: none; }
+  /* 手機版寬度不夠讓文字與按鈕並排，改成按鈕排在文字下方（帶的底部留出它的高度）。
+     手機 banner 是直式滿版促銷圖、上下都有內容，帶一厚就吃掉三分之一畫面，
+     因此只留標題，眉標與描述收起來 */
+  .slide-textbox { bottom: 42px; padding: 20px 0 64px; }
+  .slide-cta { bottom: 52px; justify-content: flex-start; }
+  .slide-eyebrow, .slide-desc { display: none; }
+  .slide-title { font-size: 21px; }
 
   .quicklinks { margin-top: -36px; }
   .quick-grid { grid-template-columns: repeat(2, 1fr); }
