@@ -276,8 +276,10 @@
       });
       applyModal.querySelectorAll('[data-close-apply]').forEach(function (el) { el.addEventListener('click', closeApply); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
-      // 自刻下拉：把原生 <select> 升級成可完整套用網站樣式的清單（原生 select 隱藏但保留、值照樣送出）
-      var csWraps = [];
+      // 自刻下拉：把原生 <select> 升級成可完整套用網站樣式的清單。
+      // 清單掛到 <body> 並用 position:fixed 依按鈕座標定位 —— 才能真正「浮在上層」、
+      // 不被 modal 的 transform／overflow 裁切（原生 select 隱藏但保留、值照樣送出）
+      var csItems = [];
       function enhanceSelect(sel) {
         if (sel.closest('.cs')) return;              // 已增強過就跳過，避免重複
         var wrap = document.createElement('div');
@@ -285,7 +287,7 @@
         sel.parentNode.insertBefore(wrap, sel);
         wrap.appendChild(sel);
         sel.classList.add('cs-native');
-        sel.style.display = 'none';                  // inline 隱藏原生 select（一定蓋過 CSS，避免與自刻按鈕重複顯示）
+        sel.style.display = 'none';                  // inline 隱藏原生 select（一定蓋過 CSS）
 
         var ph = sel.querySelector('option[disabled]');
         var placeholder = ph ? ph.textContent : '請選擇';
@@ -304,6 +306,7 @@
         var list = document.createElement('div');
         list.className = 'cs-list';
         list.setAttribute('role', 'listbox');
+        document.body.appendChild(list);             // 掛到 body：脫離 modal 的 transform/overflow
 
         function refresh() {
           var o = sel.options[sel.selectedIndex];
@@ -318,7 +321,8 @@
           item.setAttribute('role', 'option');
           item.textContent = o.textContent;
           if (o.selected) item.classList.add('sel');
-          item.addEventListener('click', function () {
+          item.addEventListener('click', function (e) {
+            e.stopPropagation();
             sel.value = o.value;
             sel.dispatchEvent(new Event('change', { bubbles: true }));
             list.querySelectorAll('.cs-opt').forEach(function (x) { x.classList.remove('sel'); });
@@ -330,26 +334,44 @@
           list.appendChild(item);
         });
 
+        function positionList() {
+          var r = btn.getBoundingClientRect();
+          var listH = Math.min(list.scrollHeight, 240);
+          var below = window.innerHeight - r.bottom;
+          list.style.left = r.left + 'px';
+          list.style.width = r.width + 'px';
+          if (below < listH + 14 && r.top > listH + 14) list.style.top = (r.top - listH - 6) + 'px';
+          else list.style.top = (r.bottom + 6) + 'px';
+        }
         function openCs() {
-          csWraps.forEach(function (w) { if (w !== wrap) w._close(); });
+          csItems.forEach(function (it) { if (it.wrap !== wrap) it.close(); });
+          positionList();
           wrap.classList.add('open');
+          list.classList.add('cs-open');
           btn.setAttribute('aria-expanded', 'true');
         }
-        function closeCs() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+        function closeCs() {
+          wrap.classList.remove('open');
+          list.classList.remove('cs-open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
 
         btn.addEventListener('click', function (e) {
           e.stopPropagation();
           wrap.classList.contains('open') ? closeCs() : openCs();
         });
         wrap.appendChild(btn);
-        wrap.appendChild(list);
         refresh();
-        wrap._close = closeCs;
-        csWraps.push(wrap);
+        csItems.push({ wrap: wrap, list: list, close: closeCs, isOpen: function () { return wrap.classList.contains('open'); }, reposition: positionList });
       }
       applyForm && applyForm.querySelectorAll('.apply-field select').forEach(enhanceSelect);
-      document.addEventListener('click', function () { csWraps.forEach(function (w) { w._close(); }); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') csWraps.forEach(function (w) { w._close(); }); });
+      // 點外面 / Esc 關閉（按鈕與選項已 stopPropagation，不會誤觸）
+      document.addEventListener('click', function () { csItems.forEach(function (it) { it.close(); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') csItems.forEach(function (it) { it.close(); }); });
+      // 捲動／縮放時，已開啟的重新定位（清單 fixed 在 body，需跟著按鈕座標更新）
+      function repositionOpen() { csItems.forEach(function (it) { if (it.isOpen()) it.reposition(); }); }
+      window.addEventListener('scroll', repositionOpen, true);
+      window.addEventListener('resize', repositionOpen);
 
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
