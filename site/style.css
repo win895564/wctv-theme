@@ -588,8 +588,42 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 }
 .apply-field select:hover { border-color: var(--sub); }
 .apply-field select:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background-color: #fff; }
-/* 未選取時的 placeholder 選項用淡色，選了之後恢復正常色 */
+/* 未選取時的 placeholder 選項用淡色，選了之後恢復正常色（原生 select fallback 用；JS 增強後改用下方自刻下拉） */
 .apply-field select:invalid { color: var(--sub); }
+
+/* 自刻下拉：完整套用網站樣式的選項清單。清單採「就地展開」不用絕對定位，避免被 modal 的 overflow 裁切 */
+.cs { position: relative; margin-top: 5px; }
+.cs-native { display: none; }
+.cs-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%;
+  font: inherit; font-weight: 400; font-size: 15px; color: var(--ink); text-align: left;
+  padding: 9px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--bg); cursor: pointer;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease), background-color .2s var(--ease);
+}
+.cs-btn.placeholder { color: var(--sub); }
+.cs-btn:hover { border-color: var(--sub); }
+.cs.open .cs-btn { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
+.cs-error .cs-btn { border-color: #e0392b; }
+.cs-caret {
+  flex: none; width: 16px; height: 16px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888780' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") center/16px no-repeat;
+  transition: transform .25s var(--ease);
+}
+.cs.open .cs-caret { transform: rotate(180deg); }
+.cs-list {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md); overflow-y: auto;
+  max-height: 0; opacity: 0; visibility: hidden; margin-top: 0; padding: 0 5px;
+  transition: max-height .26s var(--ease-soft), opacity .2s var(--ease), margin-top .26s var(--ease-soft), padding .26s var(--ease-soft), visibility .26s;
+}
+.cs.open .cs-list { max-height: 232px; opacity: 1; visibility: visible; margin-top: 6px; padding: 5px; }
+.cs-opt {
+  padding: 9px 12px; border-radius: 8px; font-size: 15px; color: var(--ink); cursor: pointer;
+  transition: background-color .15s var(--ease), color .15s var(--ease);
+}
+.cs-opt:hover { background: var(--orange-tint); color: var(--orange-deep); }
+.cs-opt.sel { background: var(--orange-tint); color: var(--orange-deep); font-weight: 700; }
 .apply-submit { width: 100%; margin-top: 8px; }
 /* 送出成功後整個對話框換成完成畫面：標題與副標一併隱藏，
    否則會變成上半靠左（標題）、下半置中（完成訊息）兩種對齊混在同一個框裡 */

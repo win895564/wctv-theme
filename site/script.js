@@ -276,13 +276,92 @@
       });
       applyModal.querySelectorAll('[data-close-apply]').forEach(function (el) { el.addEventListener('click', closeApply); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
+      // 自刻下拉：把原生 <select> 升級成可完整套用網站樣式的清單（原生 select 隱藏但保留、值照樣送出）
+      var csWraps = [];
+      function enhanceSelect(sel) {
+        var wrap = document.createElement('div');
+        wrap.className = 'cs';
+        sel.parentNode.insertBefore(wrap, sel);
+        wrap.appendChild(sel);
+        sel.classList.add('cs-native');
+
+        var ph = sel.querySelector('option[disabled]');
+        var placeholder = ph ? ph.textContent : '請選擇';
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'cs-btn';
+        btn.setAttribute('aria-haspopup', 'listbox');
+        btn.setAttribute('aria-expanded', 'false');
+        var label = document.createElement('span');
+        var caret = document.createElement('span');
+        caret.className = 'cs-caret';
+        btn.appendChild(label);
+        btn.appendChild(caret);
+
+        var list = document.createElement('div');
+        list.className = 'cs-list';
+        list.setAttribute('role', 'listbox');
+
+        function refresh() {
+          var o = sel.options[sel.selectedIndex];
+          if (o && o.value) { label.textContent = o.textContent; btn.classList.remove('placeholder'); }
+          else { label.textContent = placeholder; btn.classList.add('placeholder'); }
+        }
+
+        [].forEach.call(sel.options, function (o) {
+          if (o.disabled || o.value === '') return;
+          var item = document.createElement('div');
+          item.className = 'cs-opt';
+          item.setAttribute('role', 'option');
+          item.textContent = o.textContent;
+          if (o.selected) item.classList.add('sel');
+          item.addEventListener('click', function () {
+            sel.value = o.value;
+            sel.dispatchEvent(new Event('change', { bubbles: true }));
+            list.querySelectorAll('.cs-opt').forEach(function (x) { x.classList.remove('sel'); });
+            item.classList.add('sel');
+            wrap.classList.remove('cs-error');
+            refresh();
+            closeCs();
+          });
+          list.appendChild(item);
+        });
+
+        function openCs() {
+          csWraps.forEach(function (w) { if (w !== wrap) w._close(); });
+          wrap.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+        function closeCs() { wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          wrap.classList.contains('open') ? closeCs() : openCs();
+        });
+        wrap.appendChild(btn);
+        wrap.appendChild(list);
+        refresh();
+        wrap._close = closeCs;
+        csWraps.push(wrap);
+      }
+      applyForm && applyForm.querySelectorAll('.apply-field select').forEach(enhanceSelect);
+      document.addEventListener('click', function () { csWraps.forEach(function (w) { w._close(); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') csWraps.forEach(function (w) { w._close(); }); });
+
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        // 把「縣市 + 行政區 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
         var city = applyForm.querySelector('[name="city"]');
         var district = applyForm.querySelector('[name="district"]');
         var detail = document.getElementById('applyAddrDetail');
         var full = document.getElementById('applyAddrFull');
+        // 行政區必選（原生 required 因 select 被隱藏而移除，改在這裡驗證）
+        if (district && !district.value) {
+          var w = district.closest('.cs');
+          if (w) { w.classList.add('cs-error'); var b = w.querySelector('.cs-btn'); if (b) b.focus(); }
+          return;
+        }
+        // 把「縣市 + 行政區 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
         if (city && district && detail && full) full.value = city.value + district.value + detail.value;
         applyDialog.classList.add('is-done');
       });
