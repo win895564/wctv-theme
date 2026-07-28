@@ -574,22 +574,16 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .apply-field textarea { min-height: 52px; }
 .apply-field textarea { resize: vertical; }
 .apply-field input:focus, .apply-field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
-/* 地址：台中市（固定）＋行政區下拉一排，詳細地址在下 */
+/* 地址：服務區域下拉（含縣市）＋詳細地址 */
 .apply-label { display: block; font-size: 14px; font-weight: 700; color: var(--ink); }
-.apply-addr { display: flex; gap: 8px; margin-top: 5px; }
-.apply-addr-city {
-  flex: none; display: flex; align-items: center; padding: 0 13px;
-  font-size: 15px; color: var(--sub); font-weight: 400;
-  border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg);
-}
-.apply-addr select {
-  flex: 1; min-width: 0; font: inherit; font-weight: 400; font-size: 15px; color: var(--ink);
+.apply-field select {
+  display: block; width: 100%; margin-top: 5px;
+  font: inherit; font-weight: 400; font-size: 15px; color: var(--ink);
   padding: 9px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm);
   background: var(--bg); cursor: pointer;
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
-.apply-addr select:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
-.apply-hint { margin-top: 6px; font-size: 12px; font-weight: 400; color: var(--sub); line-height: 1.5; }
+.apply-field select:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(242,150,0,.15); background: #fff; }
 .apply-submit { width: 100%; margin-top: 8px; }
 /* 送出成功後整個對話框換成完成畫面：標題與副標一併隱藏，
    否則會變成上半靠左（標題）、下半置中（完成訊息）兩種對齊混在同一個框裡 */

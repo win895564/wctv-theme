@@ -278,11 +278,11 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        // 把「台中市 + 行政區 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
-        var district = applyForm.querySelector('[name="district"]');
+        // 把「服務區域 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
+        var area = applyForm.querySelector('[name="area"]');
         var detail = document.getElementById('applyAddrDetail');
         var full = document.getElementById('applyAddrFull');
-        if (district && detail && full) full.value = '台中市' + district.value + detail.value;
+        if (area && detail && full) full.value = area.value + detail.value;
         applyDialog.classList.add('is-done');
       });
     }
