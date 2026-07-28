@@ -491,7 +491,6 @@ section { position: relative; }
 .footer-logo { background: #fff; padding: 8px 14px; border-radius: var(--radius-sm); }
 .footer-logo img { height: 34px; }
 .footer-company { margin-top: 18px; color: #fff; font-weight: 700; font-size: 16px; line-height: 1.6; }
-.footer-company span { font-weight: 400; font-size: 13px; color: rgba(255,255,255,.6); }
 .footer-contact { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
 /* flex-start：服務時間會換兩行，圖示要對齊第一行、不要被垂直置中拉到中間 */
 .footer-contact li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.6; }
