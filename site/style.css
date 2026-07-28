@@ -593,7 +593,8 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 
 /* 自刻下拉：完整套用網站樣式的選項清單。清單採「就地展開」不用絕對定位，避免被 modal 的 overflow 裁切 */
 .cs { position: relative; margin-top: 5px; }
-.cs-native { display: none; }
+/* 提高優先權蓋過 .apply-field select 的 display:block（否則原生 select 不會被藏、會與自刻按鈕重複） */
+.apply-field select.cs-native { display: none; }
 .cs-btn {
   display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%;
   font: inherit; font-weight: 400; font-size: 15px; color: var(--ink); text-align: left;

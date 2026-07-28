@@ -279,11 +279,13 @@
       // 自刻下拉：把原生 <select> 升級成可完整套用網站樣式的清單（原生 select 隱藏但保留、值照樣送出）
       var csWraps = [];
       function enhanceSelect(sel) {
+        if (sel.closest('.cs')) return;              // 已增強過就跳過，避免重複
         var wrap = document.createElement('div');
         wrap.className = 'cs';
         sel.parentNode.insertBefore(wrap, sel);
         wrap.appendChild(sel);
         sel.classList.add('cs-native');
+        sel.style.display = 'none';                  // inline 隱藏原生 select（一定蓋過 CSS，避免與自刻按鈕重複顯示）
 
         var ph = sel.querySelector('option[disabled]');
         var placeholder = ph ? ph.textContent : '請選擇';
