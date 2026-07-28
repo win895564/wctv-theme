@@ -259,16 +259,42 @@
     if (applyModal) {
       var applyForm = document.getElementById('applyForm');
       var applyDialog = applyModal.querySelector('.apply-dialog');
-      function openApply(e) { if (e) e.preventDefault(); applyModal.classList.add('open'); applyModal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+      var lastFocused = null;
+      function visibleFocusable() {
+        return Array.prototype.filter.call(
+          applyDialog.querySelectorAll('button, [href], input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])'),
+          function (el) { return el.offsetParent !== null && !el.disabled; }   // 只留看得到、可聚焦的（濾掉隱藏的原生 select）
+        );
+      }
+      function openApply(e) {
+        if (e) e.preventDefault();
+        lastFocused = document.activeElement;               // 記住開啟前的焦點，關閉時還原
+        applyModal.classList.add('open');
+        applyModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { var f = visibleFocusable(); if (f.length) f[0].focus(); }, 30);  // 焦點移進彈窗
+      }
+      // Tab 迴圈鎖在彈窗內（無障礙：避免焦點跑到背景頁）
+      applyDialog.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = visibleFocusable();
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
       function closeApply() {
         applyModal.classList.remove('open');
         applyModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+        if (lastFocused && lastFocused.focus) lastFocused.focus();   // 還原焦點到開啟前的元素
         // 關閉後還原成表單狀態，否則送出過一次之後再開啟會停在「已收到您的申辦」。
         // 等關閉動畫跑完再還原，避免使用者看到畫面在收起來的過程中閃回表單。
         setTimeout(function () {
           applyDialog.classList.remove('is-done');
           if (applyForm) applyForm.reset();
+          // reset 後同步自刻下拉，避免殘留上次選取
+          csItems.forEach(function (it) { if (it.sync) it.sync(); });
         }, 320);
       }
       document.querySelectorAll('.btn').forEach(function (b) {
@@ -360,9 +386,17 @@
           e.stopPropagation();
           wrap.classList.contains('open') ? closeCs() : openCs();
         });
+        // 表單 reset 後，讓自刻 UI 跟原生 select 重新同步（否則會殘留上次選取，與底層值不一致）
+        function sync() {
+          list.querySelectorAll('.cs-opt').forEach(function (x) {
+            x.classList.toggle('sel', x.textContent === (sel.options[sel.selectedIndex] || {}).textContent && !!sel.value);
+          });
+          wrap.classList.remove('cs-error');
+          refresh();
+        }
         wrap.appendChild(btn);
         refresh();
-        csItems.push({ wrap: wrap, list: list, close: closeCs, isOpen: function () { return wrap.classList.contains('open'); }, reposition: positionList });
+        csItems.push({ wrap: wrap, list: list, close: closeCs, sync: sync, isOpen: function () { return wrap.classList.contains('open'); }, reposition: positionList });
       }
       applyForm && applyForm.querySelectorAll('.apply-field select').forEach(enhanceSelect);
       // 點外面 / Esc 關閉（按鈕與選項已 stopPropagation，不會誤觸）
