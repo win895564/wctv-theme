@@ -693,13 +693,11 @@ section { position: relative; }
   .slide-img.mb { display: block; }
   /* 手機版隱藏左右箭頭：螢幕窄，箭頭會壓在輪播文字上；改以左右滑動＋圓點操作 */
   .hero-arrow { display: none; }
-  /* 手機版寬度不夠讓文字與按鈕並排，改成按鈕排在文字下方（帶的底部留出它的高度）。
-     手機 banner 是直式滿版促銷圖、上下都有內容，帶一厚就吃掉三分之一畫面，
-     因此只留標題，眉標與描述收起來 */
-  .slide-textbox { padding: 20px 0 102px; }
-  .slide-cta { bottom: 48px; justify-content: flex-start; }
-  .slide-eyebrow, .slide-desc { display: none; }
+  /* 手機版文字帶與電腦版一致（眉標＋標題＋描述），字級縮小；按鈕排在文字下方 */
+  .slide-textbox { padding: 18px 0 96px; }
+  .slide-cta { bottom: 46px; justify-content: flex-start; }
   .slide-title { font-size: 21px; }
+  .slide-desc { font-size: 13px; -webkit-line-clamp: 2; }
 
   .quicklinks { margin-top: -36px; }
   .quick-grid { grid-template-columns: repeat(2, 1fr); }
