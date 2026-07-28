@@ -209,8 +209,7 @@ section { position: relative; }
 .slide-textbox {
   position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
   padding: 34px 0 80px; pointer-events: none;
-  /* 漸層調淡：主要靠文字塊自己的深色面板墊底，這裡只輕輕壓一下底部幫面板融入圖片 */
-  background: linear-gradient(to top, rgba(12,9,5,.55) 0%, rgba(12,9,5,.22) 46%, rgba(12,9,5,0) 100%);
+  background: linear-gradient(to top, rgba(12,9,5,.92) 0%, rgba(12,9,5,.82) 42%, rgba(12,9,5,.4) 74%, rgba(12,9,5,0) 100%);
 }
 .slide-textbox .slide-content { display: inline-block; }
 .slide-cta { position: absolute; right: 0; left: 0; bottom: 80px; display: flex; justify-content: flex-end; z-index: 4; }
@@ -218,28 +217,21 @@ section { position: relative; }
 .slide-link { position: absolute; inset: 0; z-index: 1; }
 .slide-demo-bg { background: linear-gradient(118deg, #14233f 0%, #21416e 52%, #b6591d 134%); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-/* 文字塊墊一個「單一」半透明深色面板（微圓角＋輕毛玻璃）——不是每行藥丸，避免 AI 感。
-   讓文字在任何底圖顏色上都看得清楚 */
-.slide-content {
-  position: relative; color: #fff; max-width: 620px;
-  background: rgba(14, 10, 6, .5); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px);
-  padding: 18px 24px 20px; border-radius: 14px;
-}
+.slide-content { position: relative; color: #fff; max-width: 660px; }
 /* 雜誌內頁式眉標：短橘線 + 寬字距。刻意不做成膠囊，避免被誤認為按鈕 */
+/* 眉標＝小標籤點綴：實心深橘＋白字，刻意做小做扁（不搶主標、不像大區塊） */
 .slide-eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-weight: 700; font-size: 14px; letter-spacing: .14em;
-  color: var(--orange-bright); margin-bottom: 8px;
+  display: inline-flex; align-items: center;
+  font-weight: 700; font-size: 12.5px; letter-spacing: .1em;
+  color: #fff; margin-bottom: 14px;
+  background: var(--orange-deep); padding: 3px 11px; border-radius: 6px;
 }
-.slide-eyebrow::before { content: ""; flex: none; width: 28px; height: 2px; background: var(--orange); }
 .slide-title {
   font-family: var(--serif); font-weight: 700;
   font-size: clamp(24px, 3vw, 40px); line-height: 1.3; letter-spacing: -.01em;
-  text-shadow: 0 1px 6px rgba(0,0,0,.35);
 }
 .slide-desc {
-  margin-top: 10px; font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.92);
-  text-shadow: 0 1px 5px rgba(0,0,0,.3);
+  margin-top: 10px; font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,.9);
   max-width: 620px;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
