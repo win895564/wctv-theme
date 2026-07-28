@@ -487,22 +487,54 @@ section { position: relative; }
 .cta-actions { position: relative; display: flex; gap: 14px; flex-wrap: wrap; }
 
 .site-footer { background: var(--ink); color: rgba(255,255,255,.72); }
-.footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding: 64px 24px 48px; }
-.footer-logo { background: #fff; padding: 8px 14px; border-radius: var(--radius-sm); }
-.footer-logo img { height: 34px; }
-.footer-contact { margin-top: 18px; display: flex; flex-direction: column; gap: 12px; }
-/* flex-start：服務時間會換兩行，圖示要對齊第一行、不要被垂直置中拉到中間 */
-.footer-contact li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.6; }
-.footer-contact svg { width: 18px; height: 18px; color: var(--orange); flex: none; margin-top: 2px; }
+
+/* 導覽欄：7 欄（對齊原站）。單一連結欄與有子項欄同寬 */
+.footer-nav { display: grid; grid-template-columns: repeat(7, 1fr); gap: 30px 22px; padding: 60px 24px 40px; }
+.footer-col { min-width: 0; }
+/* 欄標題：有子項欄是 <button>、單一連結欄是 <a>，外觀一致 */
+.footer-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%;
+  color: #fff; font-size: 15.5px; font-weight: 700; text-align: left; margin-bottom: 16px;
+  background: none; border: 0; padding: 0; font-family: inherit; cursor: pointer;
+  transition: color .2s var(--ease);
+}
+a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange-bright); }
+.fchev { width: 18px; height: 18px; flex: none; display: none; transition: transform .3s var(--ease); }
+
+.footer-col ul { display: flex; flex-direction: column; gap: 11px; }
+.footer-col li a { font-size: 15px; color: rgba(255,255,255,.72); transition: color .2s var(--ease), padding-left .2s var(--ease); }
+.footer-col li a:hover { color: var(--orange-bright); padding-left: 4px; }
+
+/* 底部資訊列：LOGO ＋ 聯絡資訊（橫向） */
+.footer-info { border-top: 1px solid rgba(255,255,255,.12); }
+.footer-info-inner { display: flex; align-items: flex-start; gap: 20px 40px; padding: 30px 24px; flex-wrap: wrap; }
+.footer-logo { background: #fff; padding: 8px 14px; border-radius: var(--radius-sm); flex: none; }
+.footer-logo img { height: 32px; display: block; }
+.footer-contact { display: flex; flex-wrap: wrap; gap: 10px 28px; flex: 1; min-width: 260px; }
+/* flex-start：服務時間會換兩行，圖示要對齊第一行 */
+.footer-contact li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; line-height: 1.6; }
+.footer-contact svg { width: 17px; height: 17px; color: var(--orange); flex: none; margin-top: 2px; }
 /* 地址連 Google Maps、電話可點撥打；滑過變橘色提示可點 */
 .footer-contact a { color: inherit; transition: color .2s var(--ease); }
 .footer-contact a:hover { color: var(--orange-bright); }
-.footer-col h4 { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 18px; }
-.footer-col ul { display: flex; flex-direction: column; gap: 11px; }
-.footer-col a { font-size: 15px; color: rgba(255,255,255,.72); transition: color .2s var(--ease), padding-left .2s var(--ease); }
-.footer-col a:hover { color: var(--orange-bright); padding-left: 4px; }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 20px 0; }
 .footer-bottom p { font-size: 13px; color: rgba(255,255,255,.55); text-align: center; }
+
+/* 手機／平板：導覽欄改單欄手風琴（點標題展開／收合），底部資訊列改直向堆疊 */
+@media (max-width: 1080px) {
+  .footer-nav { grid-template-columns: 1fr; gap: 0; padding: 24px 24px 12px; }
+  .footer-col { border-bottom: 1px solid rgba(255,255,255,.1); }
+  .footer-head { margin-bottom: 0; padding: 16px 2px; font-size: 16px; }
+  .fchev { display: block; }
+  .footer-col.single .footer-head { justify-content: flex-start; }
+  /* 有子項欄預設收合，點標題加 .open 展開 */
+  .footer-col.has-list ul { max-height: 0; overflow: hidden; transition: max-height .32s var(--ease-soft); }
+  .footer-col.has-list.open ul { max-height: 460px; padding-bottom: 14px; }
+  .footer-col.has-list.open .fchev { transform: rotate(180deg); }
+  .footer-info-inner { flex-direction: column; gap: 18px; padding: 26px 24px; }
+  .footer-contact { flex-direction: column; gap: 12px; min-width: 0; }
+}
 
 /* 右下角社群懸浮框 */
 /* 線上申辦 modal */
@@ -716,10 +748,6 @@ section { position: relative; }
   .cta-inner { flex-direction: column; align-items: flex-start; text-align: left; padding: 40px 32px; }
   .cta-actions { width: 100%; }
   .cta-actions .btn { flex: 1; }
-
-  /* 平板：品牌欄整排，其餘三欄並排（避免「關於我們」落單） */
-  .footer-grid { grid-template-columns: repeat(3, 1fr); gap: 32px 24px; padding: 48px 24px 36px; }
-  .footer-brand { grid-column: 1 / -1; }
 }
 
 @media (max-width: 460px) {
@@ -727,5 +755,4 @@ section { position: relative; }
   .quick-item, .quick-item:nth-child(2n) { border-right: none; }
   .product-mini-grid { grid-template-columns: 1fr 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
 }

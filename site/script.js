@@ -218,6 +218,25 @@
       });
     });
 
+    // 頁尾手風琴（僅手機／平板生效：點「有子項」的欄標題展開／收合；桌機由 CSS 常態展開，這裡不動作）
+    var footerMq = window.matchMedia('(max-width: 1080px)');
+    document.querySelectorAll('.footer-col.has-list > .footer-head').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (!footerMq.matches) return;
+        var col = btn.parentElement;
+        var open = col.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    });
+    // 從手機切回桌機時，清掉收合狀態，避免桌機殘留 aria-expanded=false
+    footerMq.addEventListener('change', function (e) {
+      if (!e.matches) document.querySelectorAll('.footer-col.has-list').forEach(function (col) {
+        col.classList.remove('open');
+        var b = col.querySelector('.footer-head');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+    });
+
     // 右下角社群懸浮框：點主按鈕展開/收合，點外面自動關
     var sfab = document.getElementById('socialFab');
     if (sfab) {
