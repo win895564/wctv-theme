@@ -278,11 +278,12 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeApply(); });
       if (applyForm) applyForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        // 把「服務區域 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
-        var area = applyForm.querySelector('[name="area"]');
+        // 把「縣市 + 行政區 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
+        var city = applyForm.querySelector('[name="city"]');
+        var district = applyForm.querySelector('[name="district"]');
         var detail = document.getElementById('applyAddrDetail');
         var full = document.getElementById('applyAddrFull');
-        if (area && detail && full) full.value = area.value + detail.value;
+        if (city && district && detail && full) full.value = city.value + district.value + detail.value;
         applyDialog.classList.add('is-done');
       });
     }

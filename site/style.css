@@ -761,8 +761,7 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 }
 
 @media (max-width: 460px) {
-  .quick-grid { grid-template-columns: 1fr; }
-  .quick-item, .quick-item:nth-child(2n) { border-right: none; }
+  /* 五格手機維持 2 欄（第 5 格橫跨滿寬），不再掉成單欄長條 */
   .product-mini-grid { grid-template-columns: 1fr 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
 }
