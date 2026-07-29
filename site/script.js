@@ -285,6 +285,7 @@
       }
       function openApply(e) {
         if (e) e.preventDefault();
+        clearAutoClose();                                   // 清掉可能殘留的倒數計時
         lastFocused = document.activeElement;               // 記住開啟前的焦點，關閉時還原
         applyModal.classList.add('open');
         applyModal.setAttribute('aria-hidden', 'false');
@@ -300,7 +301,26 @@
         if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       });
+      // 送出成功後倒數自動關閉（使用者也可提前手動關）
+      var autoCloseTimer = null, countdownTimer = null;
+      function clearAutoClose() {
+        if (autoCloseTimer) { clearTimeout(autoCloseTimer); autoCloseTimer = null; }
+        if (countdownTimer) { clearInterval(countdownTimer); countdownTimer = null; }
+      }
+      function startAutoClose() {
+        clearAutoClose();
+        var seconds = 5;
+        var cd = document.getElementById('applyCountdown');
+        if (cd) cd.textContent = seconds;
+        countdownTimer = setInterval(function () {
+          seconds--;
+          if (seconds >= 1) { if (cd) cd.textContent = seconds; }
+          else clearInterval(countdownTimer);
+        }, 1000);
+        autoCloseTimer = setTimeout(closeApply, 5000);
+      }
       function closeApply() {
+        clearAutoClose();
         applyModal.classList.remove('open');
         applyModal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
@@ -439,6 +459,7 @@
         // 把「縣市 + 行政區 + 詳細地址」組成完整地址，寫進 hidden 的 address 欄位（後台收單一字串）
         if (city && district && detail && full) full.value = city.value + district.value + detail.value;
         applyDialog.classList.add('is-done');
+        startAutoClose();
       });
     }
 
