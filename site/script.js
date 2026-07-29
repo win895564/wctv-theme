@@ -81,7 +81,7 @@
     var heroEl = document.getElementById('hero');
     var current = 0;
     var timer = null;
-    var INTERVAL = 5500;
+    var INTERVAL = 7000;
 
     slides.forEach(function (_, i) {
       var b = document.createElement('button');
