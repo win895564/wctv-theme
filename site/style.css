@@ -423,6 +423,8 @@ section { position: relative; }
 .ethos-eyebrow { font-family: var(--num); font-weight: 700; letter-spacing: .22em; font-size: 13px; color: rgba(255,255,255,.85); }
 .ethos-title { font-family: var(--serif); font-weight: 700; font-size: 30px; margin-top: 8px; }
 .ethos-body { margin-top: 18px; font-size: 16.5px; line-height: 2; color: rgba(255,255,255,.95); }
+.ethos-service .text-link { margin-top: 26px; color: rgba(255,255,255,.95); }
+.ethos-service .text-link:hover { gap: 12px; color: #fff; }
 
 .stats-band { padding: 72px 0; background: #fff; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
