@@ -196,7 +196,7 @@ section { position: relative; }
 }
 .nav-overlay.open { opacity: 1; visibility: visible; }
 
-.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; max-width: var(--maxw); margin: 0 auto; border-radius: 18px; }
+.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; max-width: 1440px; margin: 0 auto; border-radius: 18px; }
 .hero-track { position: absolute; inset: 0; }
 .slide {
   position: absolute; inset: 0;
