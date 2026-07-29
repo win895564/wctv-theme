@@ -658,6 +658,8 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .social-fab.open .social-btn:nth-last-child(3) { transition-delay: .14s; }
 .social-fab.open .social-btn:nth-last-child(4) { transition-delay: .19s; }
 .social-btn svg { width: 22px; height: 22px; fill: #fff; }
+/* 客服（耳機）圖示改描邊、不填滿 */
+.social-btn.s-cs svg { fill: none; stroke: #fff; }
 .social-btn:hover { transform: translateY(-3px); box-shadow: 0 9px 22px rgba(25,25,25,.28); filter: saturate(1.12); }
 .s-line { background: #06C755; }
 .s-fb   { background: #1877F2; }
