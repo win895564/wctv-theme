@@ -340,11 +340,11 @@ section { position: relative; }
 }
 .mini-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
 .mini-icon {
-  width: 50px; height: 50px; border-radius: 16px; background: var(--bg); color: var(--ink);
+  width: 54px; height: 54px; border-radius: 16px; background: var(--orange-tint); color: var(--orange-deep);
   display: flex; align-items: center; justify-content: center;
   transition: background .5s var(--ease-soft), color .5s var(--ease-soft);
 }
-.mini-card:hover .mini-icon { background: var(--orange-tint); color: var(--orange-deep); }
+.mini-card:hover .mini-icon { background: var(--orange); color: #fff; }
 .mini-icon svg { width: 24px; height: 24px; }
 .mini-t { font-weight: 700; font-size: 16px; color: var(--ink); }
 .mini-d { font-size: 13px; color: var(--sub); margin-top: -5px; }
@@ -375,7 +375,7 @@ section { position: relative; }
 }
 .plan-name { font-family: var(--serif); font-weight: 700; font-size: 22px; color: var(--ink); }
 .plan-speed { margin-top: 18px; font-size: 13px; color: var(--sub); letter-spacing: .04em; }
-.plan-rate { font-family: var(--num); font-weight: 800; font-size: 34px; color: var(--ink); line-height: 1.1; }
+.plan-rate { margin-top: 18px; font-family: var(--num); font-weight: 800; font-size: 34px; color: var(--ink); line-height: 1.1; }
 .plan-rate span { font-size: 18px; color: var(--sub); font-weight: 700; }
 .plan-price {
   margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line);
