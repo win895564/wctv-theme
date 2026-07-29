@@ -798,6 +798,9 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
     background: var(--bg);
   }
   .nav-item.open .nav-dropdown { max-height: 760px; }
+  /* 修手機空白 bug：桌機置中的 translateX(-50%) 掛在 :hover(specificity 0,3,0)，比手機 .nav-dropdown{transform:none}(0,1,0) 高；
+     手機 touch 觸發 :hover 會把展開的下拉往左推出畫面 → 這裡用同等 specificity（且在 media query 內、source 較後）蓋回 none */
+  .nav-item.has-sub:hover .nav-dropdown { transform: none; }
   .nav-item.has-sub::after { display: none; }
   .nav-item.open .chev { transform: rotate(180deg); }
   .dropdown-grid, .dropdown-grid.two { grid-template-columns: 1fr; min-width: 0; gap: 0; padding: 4px 0; }
