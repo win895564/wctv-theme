@@ -137,7 +137,6 @@ section { position: relative; }
 }
 .nav-link:hover { color: var(--orange); background: var(--orange-tint); }
 .nav-link .chev { width: 16px; height: 16px; transition: transform .25s var(--ease); }
-.nav-item.has-sub:hover .chev { transform: rotate(180deg); }
 
 /* 下拉一律「置中對齊各自的選單字」，方向一致；已量過 981–1265px 桌機範圍都不會爆左右緣 */
 .nav-dropdown {
@@ -149,7 +148,12 @@ section { position: relative; }
   transition: opacity .22s var(--ease), transform .22s var(--ease), visibility .22s;
   z-index: 50;
 }
-.nav-item.has-sub:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+/* 桌機專屬：hover 才展開下拉＋轉箭頭。限定 min-width:861 → 手機(≤860)完全不吃 hover，
+   避免 touch 觸發 :hover 造成下拉被 translateX(-50%) 推走、或收合後箭頭卡在展開狀態 */
+@media (min-width: 861px) {
+  .nav-item.has-sub:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .nav-item.has-sub:hover .chev { transform: rotate(180deg); }
+}
 
 .nav-item.has-sub::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 12px; }
 
@@ -798,9 +802,6 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
     background: var(--bg);
   }
   .nav-item.open .nav-dropdown { max-height: 760px; }
-  /* 修手機空白 bug：桌機置中的 translateX(-50%) 掛在 :hover(specificity 0,3,0)，比手機 .nav-dropdown{transform:none}(0,1,0) 高；
-     手機 touch 觸發 :hover 會把展開的下拉往左推出畫面 → 這裡用同等 specificity（且在 media query 內、source 較後）蓋回 none */
-  .nav-item.has-sub:hover .nav-dropdown { transform: none; }
   .nav-item.has-sub::after { display: none; }
   .nav-item.open .chev { transform: rotate(180deg); }
   .dropdown-grid, .dropdown-grid.two { grid-template-columns: 1fr; min-width: 0; gap: 0; padding: 4px 0; }
