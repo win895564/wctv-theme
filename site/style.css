@@ -112,7 +112,7 @@ section { position: relative; }
   background: rgba(255,255,255,.86);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid var(--line);
   transition: box-shadow .25s var(--ease), border-color .25s var(--ease), background .25s var(--ease);
 }
 .site-header.scrolled {
@@ -196,7 +196,9 @@ section { position: relative; }
 }
 .nav-overlay.open { opacity: 1; visibility: visible; }
 
-.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; max-width: 1440px; margin: 0 auto; border-radius: 18px; }
+/* hero 頂部區塊全寬底色帶：淺灰(同資費方案區)，讓限寬 hero 兩側不空、並襯出卡片；hero 本身加陰影浮成卡片 */
+.hero-band { background: var(--bg); padding: 28px 0; }
+.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; max-width: 1440px; margin: 0 auto; border-radius: 18px; box-shadow: 0 18px 50px rgba(25,25,25,.15); }
 .hero-track { position: absolute; inset: 0; }
 .slide {
   position: absolute; inset: 0;
@@ -435,7 +437,7 @@ section { position: relative; }
 }
 .stat-label { display: block; margin-top: 12px; font-size: 16px; color: var(--sub); font-weight: 500; }
 
-.news { padding: 96px 0; background: var(--bg); }
+.news { padding: 96px 0; }
 .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .news-card {
   background: #fff; border-radius: var(--radius-lg); overflow: hidden;
