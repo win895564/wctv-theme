@@ -818,8 +818,11 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
   .hero { aspect-ratio: 0.6 / 1; border-radius: 0; }
   .slide-img.pc { display: none; }
   .slide-img.mb { display: block; }
-  /* 手機版隱藏左右箭頭：螢幕窄，箭頭會壓在輪播文字上；改以左右滑動＋圓點操作 */
-  .hero-arrow { display: none; }
+  /* 手機版也顯示左右箭頭：縮小、貼邊，位在圖片中央、文字帶上方（不擋文字）；仍可左右滑＋圓點 */
+  .hero-arrow { width: 34px; height: 34px; }
+  .hero-prev { left: 8px; }
+  .hero-next { right: 8px; }
+  .hero-arrow svg { width: 17px; height: 17px; }
   /* 手機版文字帶與電腦版一致（眉標＋標題＋描述），字級縮小；按鈕排在文字下方 */
   .slide-textbox { padding: 18px 0 96px; }
   .slide-cta { bottom: 46px; justify-content: flex-start; }
