@@ -494,8 +494,8 @@ section { position: relative; }
 .footer-info { flex: 0 0 250px; }
 .footer-logo { background: #fff; padding: 8px 14px; border-radius: var(--radius-sm); display: inline-block; }
 .footer-logo img { height: 32px; display: block; }
+/* 聯絡資訊排在 logo 下面（左欄），直向堆疊 */
 .footer-contact { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-/* flex-start：服務時間會換兩行，圖示要對齊第一行 */
 .footer-contact li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; line-height: 1.6; }
 .footer-contact svg { width: 17px; height: 17px; color: var(--orange); flex: none; margin-top: 2px; }
 /* 地址連 Google Maps、電話可點撥打；滑過變橘色提示可點 */
@@ -519,7 +519,8 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .footer-col li a:hover { color: var(--orange-bright); padding-left: 4px; }
 
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 20px 0; }
-.footer-bottom p { font-size: 13px; color: rgba(255,255,255,.55); text-align: center; }
+/* 底部只留版權、置中 */
+.footer-copy { font-size: 13px; color: rgba(255,255,255,.55); margin: 0; text-align: center; }
 
 /* 手機／平板：改上下堆 —— 資訊在最上面，導覽改單欄手風琴（點標題展開／收合） */
 @media (max-width: 1080px) {
