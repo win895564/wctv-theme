@@ -691,14 +691,16 @@
         <input type="text" id="applyAddrDetail" required placeholder="詳細地址" autocomplete="street-address">
         <input type="hidden" name="address" id="applyAddrFull">
       </div>
-      <label class="apply-field">Email        <input type="email" name="email" autocomplete="email">
+      <label class="apply-field">Email
+        <input type="email" name="email" autocomplete="email">
       </label>
-      <label class="apply-field">需求／備註        <textarea name="note" rows="2" placeholder="想申辦的方案或其他需求"></textarea>
+      <label class="apply-field">需求／備註<span class="req">*</span>
+        <textarea name="note" rows="2" required placeholder="想申辦的方案或其他需求"></textarea>
       </label>
       <button type="submit" class="btn btn-primary btn-lg apply-submit">送出申辦</button>
     </form>
     <div class="apply-done" id="applyDone">
-      <span class="apply-done-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+      <span class="apply-done-icon"><svg class="done-check" viewBox="0 0 52 52" aria-hidden="true"><circle class="dc-ring" cx="26" cy="26" r="24" pathLength="1"/><path class="dc-tick" d="M15 27l7.5 7.5L38 18" pathLength="1"/></svg></span>
       <h3>已收到您的申辦</h3>
       <p>我們會盡快與您聯繫、安排到府安裝，感謝您。</p>
     </div>

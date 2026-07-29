@@ -639,8 +639,17 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .apply-dialog.is-done .apply-form { display: none; }
 .apply-done { display: none; text-align: center; padding: 22px 0 10px; }
 .apply-dialog.is-done .apply-done { display: block; }
-.apply-done-icon { width: 60px; height: 60px; margin: 0 auto 18px; border-radius: 50%; background: var(--orange-tint); color: var(--orange-deep); display: grid; place-items: center; }
-.apply-done-icon svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.apply-done-icon { width: 76px; height: 76px; margin: 0 auto 18px; }
+.done-check { width: 76px; height: 76px; display: block; }
+/* pathLength=1 正規化：dashoffset 0 = 顯示、1 = 隱藏；預設 0，所以 reduced-motion 停用動畫時仍靜態顯示打勾 */
+.dc-ring, .dc-tick { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.dc-ring { stroke: var(--orange); stroke-width: 3; }
+.dc-tick { stroke: var(--orange-deep); stroke-width: 4; }
+.apply-dialog.is-done .apply-done-icon { animation: dc-pop .4s ease .05s both; }
+.apply-dialog.is-done .dc-ring { animation: dc-draw .5s cubic-bezier(.65,0,.45,1) forwards; }
+.apply-dialog.is-done .dc-tick { animation: dc-draw .3s .42s cubic-bezier(.65,0,.45,1) forwards; }
+@keyframes dc-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes dc-pop { 0% { transform: scale(.6); opacity: 0; } 55% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
 .apply-done h3 { font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--ink); }
 .apply-done p { margin-top: 10px; color: var(--sub); font-size: 15px; line-height: 1.75; }
 
