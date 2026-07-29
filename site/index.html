@@ -523,34 +523,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-grid">
-    <!-- 資訊區：LOGO ＋ 聯絡資訊（電腦版在左欄、手機版在最上面） -->
-    <div class="footer-info">
-      <span class="brand-logo footer-logo"><img src="../assets/logo-horizontal.png" alt="台灣佳光電訊 哈Net"></span>
-      <ul class="footer-contact">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span><a href="https://maps.app.goo.gl/4LNZHwt3yxfDMJjR8" target="_blank" rel="noopener">43549 臺中市梧棲區中華路一段1080號</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          <span>市內電話 <a href="tel:044495678">(04)449-5678</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 2A2.5 2.5 0 0 1 21 4.5v15a2.5 2.5 0 0 1-2.5 2.5A15.5 15.5 0 0 1 3 6.5 2.5 2.5 0 0 1 5.5 4"/><path d="M8 2v6M4 6h8"/></svg>
-          <span>免付費 <a href="tel:0800011012">0800-011-012</a></span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          <span>傳真 04-2662-9310</span>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          <span>週一至五 08:30–18:00<br>週六 08:30–12:00、13:30–18:00</span>
-        </li>
-      </ul>
-    </div>
-
+  <div class="container footer-top">
     <!-- 導覽欄（對齊原站）：單一連結欄的標題本身就是連結；有子項的欄在手機版可點標題收合／展開 -->
     <nav class="footer-nav" aria-label="頁尾導覽">
     <div class="footer-col single">
@@ -617,7 +590,33 @@
   </div>
 
   <div class="footer-bottom">
-    <div class="container">
+    <div class="container footer-bottom-inner">
+      <!-- 最底一條：LOGO ＋ 聯絡資訊 ＋ 版權 -->
+      <div class="footer-info">
+        <span class="brand-logo footer-logo"><img src="../assets/logo-horizontal.png" alt="台灣佳光電訊 哈Net"></span>
+        <ul class="footer-contact">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span><a href="https://maps.app.goo.gl/4LNZHwt3yxfDMJjR8" target="_blank" rel="noopener">43549 臺中市梧棲區中華路一段1080號</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>市內電話 <a href="tel:044495678">(04)449-5678</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 2A2.5 2.5 0 0 1 21 4.5v15a2.5 2.5 0 0 1-2.5 2.5A15.5 15.5 0 0 1 3 6.5 2.5 2.5 0 0 1 5.5 4"/><path d="M8 2v6M4 6h8"/></svg>
+            <span>免付費 <a href="tel:0800011012">0800-011-012</a></span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>傳真 04-2662-9310</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>週一至五 08:30–18:00｜週六 08:30–12:00、13:30–18:00</span>
+          </li>
+        </ul>
+      </div>
       <p class="footer-copy">© 2026 歡迎來到台數科 All Rights Reserved.</p>
     </div>
   </div>

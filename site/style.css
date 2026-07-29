@@ -497,15 +497,15 @@ section { position: relative; }
 
 .site-footer { background: var(--ink); color: rgba(255,255,255,.72); }
 
-/* 電腦版：logo＋聯絡資訊在左欄、7 欄導覽在右（手機版改上下堆，見下方 media query） */
-.footer-grid { display: flex; align-items: flex-start; gap: 56px; padding: 48px 24px 40px; }
-.footer-info { flex: 0 0 250px; }
+/* 兩段式 footer：上段＝整區 7 欄導覽；下段＝ LOGO ＋ 聯絡資訊 ＋ 版權 一條（手機版見下方 media query） */
+.footer-top { padding: 48px 24px 36px; }
+.footer-info { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .footer-logo { background: #fff; padding: 8px 14px; border-radius: var(--radius-sm); display: inline-block; }
 .footer-logo img { height: 32px; display: block; }
-/* 聯絡資訊排在 logo 下面（左欄），直向堆疊 */
-.footer-contact { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-.footer-contact li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; line-height: 1.6; }
-.footer-contact svg { width: 17px; height: 17px; color: var(--orange); flex: none; margin-top: 2px; }
+/* 聯絡資訊在底部一條、橫向排列 */
+.footer-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 18px; }
+.footer-contact li { display: flex; align-items: center; gap: 8px; font-size: 13.5px; line-height: 1.5; }
+.footer-contact svg { width: 16px; height: 16px; color: var(--orange); flex: none; }
 /* 地址連 Google Maps、電話可點撥打；滑過變橘色提示可點 */
 .footer-contact a { color: inherit; transition: color .2s var(--ease); }
 .footer-contact a:hover { color: var(--orange-bright); }
@@ -526,16 +526,19 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .footer-col li a { font-size: 15px; color: rgba(255,255,255,.72); transition: color .2s var(--ease), padding-left .2s var(--ease); }
 .footer-col li a:hover { color: var(--orange-bright); padding-left: 4px; }
 
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 20px 0; }
-/* 底部只留版權、置中 */
-.footer-copy { font-size: 13px; color: rgba(255,255,255,.55); margin: 0; text-align: center; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding: 26px 0; }
+/* 底部一條：LOGO＋聯絡資訊（左）｜版權（右） */
+.footer-bottom-inner { display: flex; align-items: center; justify-content: space-between; gap: 14px 40px; flex-wrap: wrap; }
+.footer-copy { font-size: 13px; color: rgba(255,255,255,.55); margin: 0; white-space: nowrap; }
 
 /* 手機／平板：改上下堆 —— 資訊在最上面，導覽改單欄手風琴（點標題展開／收合） */
 @media (max-width: 1080px) {
-  /* align-items 改 stretch：直排後子項才會撐滿整個螢幕寬度（電腦版的 flex-start 會讓它縮在左邊） */
-  .footer-grid { flex-direction: column; align-items: stretch; gap: 0; padding: 0; }
-  .footer-info { flex: none; padding: 26px 24px; border-bottom: 1px solid rgba(255,255,255,.1); }
+  .footer-top { padding: 0; }
   .footer-nav { grid-template-columns: 1fr; gap: 0; padding: 8px 24px 12px; }
+  /* 底部一條在手機改直排 */
+  .footer-bottom-inner { flex-direction: column; align-items: flex-start; gap: 18px; padding: 4px 24px; }
+  .footer-info { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .footer-contact { flex-direction: column; align-items: flex-start; gap: 10px; }
   .footer-col { border-bottom: 1px solid rgba(255,255,255,.1); }
   .footer-col:last-child { border-bottom: 0; }
   .footer-head { margin-bottom: 0; padding: 16px 2px; font-size: 16px; }
