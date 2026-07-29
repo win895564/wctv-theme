@@ -196,7 +196,7 @@ section { position: relative; }
 }
 .nav-overlay.open { opacity: 1; visibility: visible; }
 
-.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; }
+.hero { position: relative; overflow: hidden; background: var(--bg); aspect-ratio: 2.12 / 1; max-width: var(--maxw); margin: 0 auto; border-radius: 18px; }
 .hero-track { position: absolute; inset: 0; }
 .slide {
   position: absolute; inset: 0;
@@ -811,7 +811,7 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
   .nav-cta-mobile { display: flex; flex-direction: column; gap: 12px; padding: 22px 24px 8px; }
   .nav-cta-mobile .btn { width: 100%; }
 
-  .hero { aspect-ratio: 0.6 / 1; }
+  .hero { aspect-ratio: 0.6 / 1; border-radius: 0; }
   .slide-img.pc { display: none; }
   .slide-img.mb { display: block; }
   /* 手機版隱藏左右箭頭：螢幕窄，箭頭會壓在輪播文字上；改以左右滑動＋圓點操作 */
