@@ -204,7 +204,9 @@ section { position: relative; }
   transition: opacity 1s var(--ease), visibility 1s;
 }
 .slide.is-active { opacity: 1; visibility: visible; }
-.slide-img { position: absolute; inset: 0; background-image: var(--img); background-size: cover; background-position: center; }
+/* Ken Burns：顯示中的圖從 1.06 緩緩縮到 1（7 秒），營造緩慢推移的動態感（同 v 版，但只動圖不動文字）*/
+.slide-img { position: absolute; inset: 0; background-image: var(--img); background-size: cover; background-position: center; transform: scale(1.06); transition: transform 7s linear; }
+.slide.is-active .slide-img { transform: scale(1); }
 .slide-img.mb { display: none; }
 /* 文字層收在圖片底部的一條漸層帶，不再覆蓋整個左半 —— 促銷類 banner 圖的主標多半在中上部，
    壓上去會兩層字打架。帶狀由下往上淡出，圖片主體維持乾淨。 */
