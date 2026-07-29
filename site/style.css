@@ -644,7 +644,8 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .apply-done p { margin-top: 10px; color: var(--sub); font-size: 15px; line-height: 1.75; }
 
 .social-fab { position: fixed; right: 22px; bottom: 22px; z-index: 90; display: flex; flex-direction: column; align-items: center; }
-.social-list { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 14px; }
+.social-list { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 14px; pointer-events: none; }
+.social-fab.open .social-list { pointer-events: auto; }
 .social-btn {
   position: relative; width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center; color: #fff;
@@ -688,10 +689,25 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
 .social-fab.open .si-open { opacity: 0; transform: rotate(90deg) scale(.6); }
 .social-fab.open .si-close { opacity: 1; transform: none; }
 
+/* 回到頂部：疊在社群主球正上方，低調一階（白底細邊灰箭頭，hover 才轉橘）*/
+.to-top {
+  position: fixed; right: 27px; bottom: 90px; z-index: 91;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: #fff; color: var(--sub); border: 1px solid var(--line);
+  display: grid; place-items: center; cursor: pointer;
+  box-shadow: 0 4px 14px rgba(25,25,25,.14);
+  opacity: 0; visibility: hidden; transform: translateY(10px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease), visibility .3s, background .2s var(--ease), color .2s var(--ease), border-color .2s var(--ease);
+}
+.to-top.show { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--orange); color: #fff; border-color: var(--orange); box-shadow: 0 8px 20px rgba(242,150,0,.4); }
+.to-top svg { width: 21px; height: 21px; }
+
 @media (max-width: 720px) {
   .social-fab { right: 16px; bottom: 16px; }
   .social-toggle { width: 52px; height: 52px; }
   .social-btn { width: 44px; height: 44px; }
+  .to-top { right: 20px; bottom: 78px; width: 44px; height: 44px; }
 }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease), transform .3s var(--ease-soft), box-shadow .35s var(--ease-soft), background-color .3s var(--ease-soft), border-color .3s var(--ease-soft); }

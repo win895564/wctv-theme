@@ -245,13 +245,30 @@
         e.stopPropagation();
         var open = sfab.classList.toggle('open');
         sbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        updateToTop();   // 展開時把「回到頂部」讓開，避免疊到
       });
       document.addEventListener('click', function (e) {
         if (!sfab.contains(e.target)) {
           sfab.classList.remove('open');
           sbtn.setAttribute('aria-expanded', 'false');
+          updateToTop();
         }
       });
+    }
+
+    // 回到頂部：捲一段距離才浮現；社群浮球展開時先隱藏
+    var toTop = document.getElementById('toTop');
+    function updateToTop() {
+      if (!toTop) return;
+      var show = window.scrollY > 600 && !(sfab && sfab.classList.contains('open'));
+      toTop.classList.toggle('show', show);
+    }
+    if (toTop) {
+      window.addEventListener('scroll', updateToTop, { passive: true });
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      updateToTop();
     }
 
     // 線上申辦 modal：所有「立即申辦」按鈕點擊開啟
