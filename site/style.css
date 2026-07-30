@@ -120,12 +120,20 @@ section { position: relative; }
   border-bottom-color: var(--line);
   box-shadow: 0 6px 24px rgba(25,25,25,.06);
 }
-.nav-inner { height: var(--header-h); display: flex; align-items: center; gap: 24px; }
+/* navbar 放寬到跟 Hero 一樣（1440），比內文(1200)寬、才容得下搜尋框 */
+.site-header > .container { max-width: 1440px; }
+.nav-inner { height: var(--header-h); display: flex; align-items: center; gap: 20px; }
+
+/* 防止空間吃緊時 flex 壓縮 logo/按鈕/搜尋框（會把 logo 壓變形） */
+.brand { flex: none; }
+.nav-cta { flex: none; }
+.nav-cta .btn, .nav-search { flex: none; }
+.nav-link { white-space: nowrap; }
 
 .brand-logo {
   display: inline-flex; align-items: center;
 }
-.brand-logo img { height: 44px; width: auto; display: block; }
+.brand-logo img { height: 44px; width: auto; display: block; flex: none; }
 
 .nav-menu { display: flex; align-items: center; gap: 4px; margin-left: auto; }
 .nav-item { position: relative; }
@@ -150,7 +158,7 @@ section { position: relative; }
 }
 /* 桌機專屬：hover 才展開下拉＋轉箭頭。限定 min-width:861 → 手機(≤860)完全不吃 hover，
    避免 touch 觸發 :hover 造成下拉被 translateX(-50%) 推走、或收合後箭頭卡在展開狀態 */
-@media (min-width: 861px) {
+@media (min-width: 1280px) {
   .nav-item.has-sub:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
   .nav-item.has-sub:hover .chev { transform: rotate(180deg); }
 }
@@ -171,10 +179,27 @@ section { position: relative; }
 
 .nav-cta { display: flex; align-items: center; gap: 10px; }
 .nav-cta-mobile { display: none; }
+
+/* 站內搜尋：常駐膠囊搜尋框（放在立即申辦右邊） */
+.nav-search {
+  display: flex; align-items: center; gap: 7px;
+  height: 40px; width: 170px; padding: 0 15px;
+  border: 1.6px solid var(--line); border-radius: 999px;
+  transition: border-color .2s var(--ease);
+}
+.nav-search:focus-within { border-color: var(--orange); }
+.nav-search svg { width: 17px; height: 17px; flex: none; color: var(--sub); }
+.nav-search input {
+  flex: 1; min-width: 0; border: none; outline: none; background: transparent;
+  font-size: 14px; color: var(--ink);
+}
+.nav-search input::placeholder { color: var(--sub); }
+.nav-search-mobile { display: none; }
 /* 中等寬度（切成手機選單之前）空間吃緊，收斂選單間距，
    避免「優惠方案」被折成「優惠／方案」兩行 */
-@media (max-width: 1180px) {
-  .nav-link { padding: 10px 9px; font-size: 15px; }
+@media (min-width: 1280px) and (max-width: 1420px) {
+  .nav-link { padding: 10px 8px; font-size: 15px; }
+  .nav-search { width: 150px; }
 }
 
 .nav-close { display: none; }
@@ -761,7 +786,9 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
   .section-head.align-left { text-align: center; }
 }
 
-@media (max-width: 860px) {
+/* navbar 收合較早（≤1279）：完整含搜尋的桌面 navbar 需要 ~1280 才不擠壓 logo。
+   整頁其他手機排版仍在 860（見下方），兩者已解耦。 */
+@media (max-width: 1279px) {
   :root { --header-h: 64px; }
 
   .site-header {
@@ -823,6 +850,19 @@ a.footer-head:hover, .footer-col.single .footer-head:hover { color: var(--orange
   .nav-cta-mobile { display: flex; flex-direction: column; gap: 12px; padding: 22px 24px 8px; }
   .nav-cta-mobile .btn { width: 100%; }
 
+  .nav-search-mobile {
+    display: flex; align-items: center; gap: 10px;
+    margin: 14px 24px 4px; padding: 0 18px;
+    height: 50px; border: 1.6px solid var(--line); border-radius: 999px; background: #fff;
+  }
+  .nav-search-mobile:focus-within { border-color: var(--orange); }
+  .nav-search-mobile-icon { width: 20px; height: 20px; color: var(--sub); flex: none; }
+  .nav-search-mobile input { flex: 1; min-width: 0; border: none; outline: none; background: transparent; font-size: 16px; color: var(--ink); }
+  .nav-search-mobile input::placeholder { color: var(--sub); }
+}
+
+/* 整頁手機版排版維持 860（navbar 收合已在上方 1279 處理，兩者解耦） */
+@media (max-width: 860px) {
   .hero { aspect-ratio: 0.6 / 1; border-radius: 0; }
   .slide-img.pc { display: none; }
   .slide-img.mb { display: block; }

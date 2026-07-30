@@ -39,7 +39,7 @@
       });
     }
 
-    var mqMobile = window.matchMedia('(max-width:860px)');
+    var mqMobile = window.matchMedia('(max-width:1279px)');
     menu.querySelectorAll('.nav-item.has-sub > .nav-sub-toggle').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
         if (!mqMobile.matches) return;          // 桌機由 CSS hover 處理
@@ -73,6 +73,14 @@
     });
 
     mqMobile.addEventListener('change', function (e) { if (!e.matches) closeMenu(); });
+
+    // 搜尋框空字串不送出（避免跳到空的搜尋結果頁）
+    document.querySelectorAll('form[role="search"]').forEach(function (f) {
+      f.addEventListener('submit', function (e) {
+        var inp = f.querySelector('input[type="search"]');
+        if (inp && !inp.value.trim()) { e.preventDefault(); inp.focus(); }
+      });
+    });
 
     var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
     var dotsWrap = document.getElementById('heroDots');
